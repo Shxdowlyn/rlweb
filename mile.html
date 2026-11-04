@@ -9,15 +9,36 @@
 <style>
 *{box-sizing:border-box}
 
+html{
+  min-height:100%;
+  background:#e9f0dc;
+}
+
 body{
   margin:0;
-  background:
-    radial-gradient(ellipse at 15% 20%,#d1e8c1 0%,transparent 40%),
-    radial-gradient(ellipse at 85% 65%,#c4dfb7 0%,transparent 45%),
-    linear-gradient(135deg,#dcebd2,#f0f5e5 45%,#c9e0c0);
+  min-height:100vh;
   color:#526b56;
   font-family:Georgia,serif;
+  background:
+    radial-gradient(ellipse at 12% 15%,#c9dfb9 0%,transparent 42%),
+    radial-gradient(ellipse at 88% 65%,#c5dfb9 0%,transparent 45%),
+    linear-gradient(135deg,#dcebd2,#f3f6e8 48%,#d2e5c8);
+  background-attachment:fixed;
   position:relative;
+  isolation:isolate;
+}
+
+/* FONDO VERDE FIJO */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 20% 30%,#b9d6a855,transparent 50%),
+    radial-gradient(ellipse at 80% 75%,#a9cc9d55,transparent 48%),
+    linear-gradient(135deg,#dcebd2,#f3f6e8 48%,#d2e5c8);
 }
 
 /* HOJAS DECORATIVAS */
@@ -32,7 +53,7 @@ body{
   flex-direction:column;
   justify-content:space-around;
   overflow:hidden;
-  opacity:.45;
+  opacity:.38;
 }
 
 .foliage.left{left:0;align-items:flex-start}
@@ -56,7 +77,7 @@ header,nav,.layout,#curiosidades,footer{
 header{
   text-align:center;
   padding:55px 15px 35px;
-  background:linear-gradient(120deg,#d5e9cddd,#f0f5e5e8,#d4e7cddd);
+  background:linear-gradient(120deg,#e1ebd4ee,#f8f8e9ee,#dce9d2ee);
   border-bottom:3px dotted #a9c39d;
   overflow:hidden;
 }
@@ -79,13 +100,13 @@ header h1{
   text-shadow:2px 2px white;
 }
 
-header p{color:#789b75;font-style:italic}
+header p{color:#91a88d;font-style:italic}
 
 nav{
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
-  background:#c5dcbceF;
+  background:#cbdcc5ee;
   padding:12px;
   gap:8px;
   border-bottom:2px dotted #a9c39d;
@@ -146,44 +167,6 @@ nav a:hover{background:white;transform:translateY(-2px)}
   margin:8px 0 18px;
 }
 
-.post{background:#f2f7ed;padding:20px}
-
-.post-date{
-  color:#8da98a;
-  font-size:12px;
-  text-transform:uppercase;
-}
-
-.post h2{
-  color:#648767;
-  font-weight:normal;
-  font-size:22px;
-}
-
-.post p{
-  font-size:14px;
-  line-height:1.9;
-  color:#536b57;
-  white-space:pre-wrap;
-}
-
-.post img{
-  max-width:100%;
-  max-height:420px;
-  display:block;
-  margin:15px auto;
-  border:6px solid white;
-  outline:1px solid #c5d9bd;
-}
-
-.tag{
-  display:inline-block;
-  color:#8aa484;
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-
 .hero{
   text-align:center;
   padding:25px;
@@ -212,6 +195,14 @@ nav a:hover{background:white;transform:translateY(-2px)}
 
 .hero p{font-size:14px;line-height:1.8}
 
+.tag{
+  display:inline-block;
+  color:#8aa484;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
 /* DIARIO */
 .diary{
   background:#fffdf5ed;
@@ -233,6 +224,7 @@ nav a:hover{background:white;transform:translateY(-2px)}
   font-size:14px;
   line-height:1.9;
   color:#637465;
+  white-space:pre-line;
 }
 
 .diary-sign{
@@ -242,31 +234,29 @@ nav a:hover{background:white;transform:translateY(-2px)}
   margin-top:15px;
 }
 
-/* LIKES */
-.diary-actions{
+.like-area{
+  border-top:1px dashed #cbdcc5;
+  margin-top:18px;
+  padding-top:13px;
   display:flex;
   align-items:center;
   gap:12px;
-  border-top:1px dashed #d4e2ce;
-  margin-top:15px;
-  padding-top:12px;
 }
 
 .like-btn{
-  background:#e6efdf;
-  color:#66866a;
-  border:1px solid #c8ddc0;
-  padding:8px 13px;
+  border:1px solid #c5d8bd;
+  background:#edf5e8;
+  color:#68886a;
+  padding:8px 14px;
   border-radius:20px;
   cursor:pointer;
   font-family:Georgia,serif;
   transition:.2s;
 }
 
-.like-btn:hover{background:#d5e8cd}
-.like-btn.liked{background:#f6dfe5;color:#c45d78;border-color:#e9b9c7}
-
-.like-count{font-size:12px;color:#829b7d}
+.like-btn:hover{background:#dcebd5}
+.like-btn.liked{background:#f9e4e5;color:#c45d69;border-color:#e9bfc4}
+.like-count{font-size:12px;color:#8aa484}
 
 /* GALERÍA */
 .gallery{
@@ -387,24 +377,40 @@ button:hover{background:#7fa47a}
   padding:20px;
 }
 
-#curiosidades{background:#f8faedee;border-radius:15px}
-
 /* SEGUIDORES */
-.follow-box{text-align:center;padding:8px 0}
+.follow-box{
+  text-align:center;
+  padding:12px 5px;
+}
+
 .follow-count{
-  color:#66866a;
-  font-size:27px;
-  display:block;
-  margin:8px 0 3px;
+  font-size:30px;
+  color:#71936f;
+  margin:8px 0;
 }
-.follow-label{font-size:12px;color:#829b7d}
+
 .follow-btn{
-  width:100%;
-  margin-top:12px;
-  background:#9fbd98;
-  padding:10px;
+  background:#91b58a;
+  border:1px solid #7fa47a;
+  border-radius:20px;
+  padding:9px 18px;
 }
-.follow-btn.following{background:#718d70}
+
+.follow-btn.following{
+  background:#e8efe3;
+  color:#668566;
+}
+
+.follow-note{
+  font-size:11px!important;
+  color:#91a88d;
+  margin-top:10px;
+}
+
+#curiosidades{
+  background:#f8faedee;
+  border-radius:15px;
+}
 
 footer{
   text-align:center;
@@ -415,6 +421,7 @@ footer{
   border-top:2px dotted #b8cdb2;
 }
 
+/* RESPONSIVE */
 @media(max-width:850px){
   .layout{grid-template-columns:1fr 1fr}
   .center{grid-column:1/-1;grid-row:1}
@@ -515,39 +522,35 @@ footer{
 
   <h2 class="center-title" id="diario">📖 Mi diario personal</h2>
 
-  <article class="diary" data-id="mile-1">
+  <article class="diary">
     <span class="post-date">UNA NOTITA PARA RECORDAR</span>
     <h2>Querido diario... ♡</h2>
-    <p>
-      Hoy quiero guardar este pequeño espacio para recordar
-      lo bonito que puede ser detenerse un momento y observar
-      la naturaleza.
+    <p>Hoy quiero guardar este pequeño espacio para recordar
+lo bonito que puede ser detenerse un momento y observar
+la naturaleza.
 
-      Me gusta pensar que cada planta tiene su propia historia.
-      Algunas crecen lentamente, otras florecen y otras
-      simplemente nos acompañan con sus hojas.
-    </p>
+Me gusta pensar que cada planta tiene su propia historia.
+Algunas crecen lentamente, otras florecen y otras
+simplemente nos acompañan con sus hojas.</p>
     <div class="diary-sign">Con cariño, Mile ♡</div>
-    <div class="diary-actions">
-      <button class="like-btn" onclick="toggleLike('mile-1',this)">♡ Me gusta</button>
-      <span class="like-count" id="count-mile-1">0 me gusta</span>
+    <div class="like-area">
+      <button class="like-btn" data-like="diario1" onclick="toggleLike('diario1',this)">♡ Me gusta</button>
+      <span class="like-count" id="count-diario1">0 me gusta</span>
     </div>
   </article>
 
-  <article class="diary" data-id="mile-2">
+  <article class="diary">
     <span class="post-date">PEQUEÑOS PENSAMIENTOS</span>
     <h2>Un día entre flores 🌸</h2>
-    <p>
-      A veces no hace falta hacer grandes cosas para encontrar
-      algo bonito. Una flor nueva, una hoja diferente o una
-      pequeña planta creciendo pueden alegrar el día.
+    <p>A veces no hace falta hacer grandes cosas para encontrar
+algo bonito. Una flor nueva, una hoja diferente o una
+pequeña planta creciendo pueden alegrar el día.
 
-      Quiero aprender muchas más cosas sobre este mundo verde.
-    </p>
+Quiero aprender muchas más cosas sobre este mundo verde.</p>
     <div class="diary-sign">Una página más de mi diario ✿</div>
-    <div class="diary-actions">
-      <button class="like-btn" onclick="toggleLike('mile-2',this)">♡ Me gusta</button>
-      <span class="like-count" id="count-mile-2">0 me gusta</span>
+    <div class="like-area">
+      <button class="like-btn" data-like="diario2" onclick="toggleLike('diario2',this)">♡ Me gusta</button>
+      <span class="like-count" id="count-diario2">0 me gusta</span>
     </div>
   </article>
 
@@ -618,13 +621,14 @@ footer{
 </main>
 
 <aside>
-  <section class="panel follow-box">
+  <section class="panel">
     <h3>♡ SEGUIDORES</h3>
-    <span class="follow-count" id="followerCount">0</span>
-    <span class="follow-label">personas siguen este jardín</span>
-    <button class="follow-btn" id="followButton" onclick="toggleFollow()">
-      ♡ Seguir a Mile
-    </button>
+    <div class="follow-box">
+      <div class="follow-count" id="followerCount">0</div>
+      <p>personas siguen este jardín</p>
+      <button class="follow-btn" id="followBtn" onclick="toggleFollow()">♡ Seguir a Mile</button>
+      <p class="follow-note">¡Gracias por visitar mi pequeño rincón!</p>
+    </div>
   </section>
 
   <section class="panel">
@@ -713,6 +717,7 @@ footer{
 </footer>
 
 <script>
+/* LIBRO DE PLANTAS */
 const pages = [
   {
     title:"Las suculentas",
@@ -761,57 +766,64 @@ function changePage(direction){
 }
 
 /* LIKES */
-const LIKE_KEY="rl_mile_likes";
+const LIKE_KEY="mile_diary_likes";
+let likes={};
 
-function getLikes(){
-  try{
-    return JSON.parse(localStorage.getItem(LIKE_KEY)) || {};
-  }catch{
-    return {};
-  }
+try{
+  likes=JSON.parse(localStorage.getItem(LIKE_KEY))||{};
+}catch(error){
+  likes={};
 }
 
-function toggleLike(id,button){
-  const likes=getLikes();
-  likes[id]=!likes[id];
-  localStorage.setItem(LIKE_KEY,JSON.stringify(likes));
-  updateLikes();
-}
-
-function updateLikes(){
-  const likes=getLikes();
-
-  document.querySelectorAll(".diary[data-id]").forEach(post=>{
-    const id=post.dataset.id;
+function renderLikes(){
+  document.querySelectorAll("[data-like]").forEach(button=>{
+    const id=button.dataset.like;
     const liked=!!likes[id];
-    const button=post.querySelector(".like-btn");
-    const count=post.querySelector(".like-count");
+    const count=document.getElementById("count-"+id);
 
     button.classList.toggle("liked",liked);
     button.textContent=liked?"♥ Te gusta":"♡ Me gusta";
-    count.textContent=liked?"1 me gusta":"0 me gusta";
+
+    if(count){
+      count.textContent=(liked?1:0)+" me gusta";
+    }
   });
 }
 
-/* SEGUIDORES */
-const FOLLOW_KEY="rl_mile_following";
+function toggleLike(id,button){
+  likes[id]=!likes[id];
 
-function toggleFollow(){
-  const following=localStorage.getItem(FOLLOW_KEY)==="true";
-  localStorage.setItem(FOLLOW_KEY,String(!following));
-  updateFollow();
+  try{
+    localStorage.setItem(LIKE_KEY,JSON.stringify(likes));
+  }catch(error){}
+
+  renderLikes();
 }
 
-function updateFollow(){
-  const following=localStorage.getItem(FOLLOW_KEY)==="true";
-  document.getElementById("followerCount").textContent=following?"1":"0";
+/* SEGUIDORES */
+const FOLLOW_KEY="mile_following";
+let following=localStorage.getItem(FOLLOW_KEY)==="true";
 
-  const button=document.getElementById("followButton");
-  button.textContent=following?"✓ Siguiendo a Mile":"♡ Seguir a Mile";
+function updateFollow(){
+  const button=document.getElementById("followBtn");
+  const count=document.getElementById("followerCount");
+
+  count.textContent=following?"1":"0";
+  button.textContent=following?"✓ Siguiendo":"♡ Seguir a Mile";
   button.classList.toggle("following",following);
 }
 
-updateLikes();
+function toggleFollow(){
+  following=!following;
+
+  try{
+    localStorage.setItem(FOLLOW_KEY,String(following));
+  }catch(error){}
+
+  updateFollow();
+}
+
+renderLikes();
 updateFollow();
 </script>
 
