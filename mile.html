@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El jardín de Mile ♡</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:#edf3e8;
+  color:#52634e;
+  font-family:Georgia,serif;
+}
+
+header{
+  text-align:center;
+  padding:55px 15px 40px;
+  background:linear-gradient(#dcebd3,#f3f6ec);
+  border-bottom:3px dashed #a8bd9c;
+}
+
+header h1{
+  margin:0;
+  font-size:clamp(38px,7vw,65px);
+  font-weight:normal;
+  color:#66845e;
+}
+
+header p{
+  color:#8da681;
+  font-style:italic;
+}
+
+nav{
+  background:#b8cdaa;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+  padding:13px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#536d4c;
+  background:#f5f8ef;
+  padding:10px 16px;
+  border-radius:20px;
+  font-size:13px;
+}
+
+nav a:hover{background:white}
+
+.layout{
+  max-width:1250px;
+  margin:25px auto;
+  padding:0 15px;
+  display:grid;
+  grid-template-columns:230px minmax(0,1fr) 230px;
+  gap:18px;
+  align-items:start;
+}
+
+.panel,.post{
+  background:#f8faf3;
+  border:1px solid #c5d5b9;
+  border-radius:8px;
+  padding:16px;
+  margin-bottom:18px;
+  box-shadow:0 3px 12px #637d5520;
+}
+
+.panel h3{
+  color:#78966e;
+  font-size:15px;
+  border-bottom:1px dashed #b5c9a8;
+  padding-bottom:9px;
+}
+
+.panel p{
+  font-size:13px;
+  line-height:1.8;
+}
+
+.side-img{
+  width:100%;
+  border:5px solid white;
+  border-radius:5px;
+}
+
+.center-title{
+  text-align:center;
+  color:#78966e;
+  font-size:23px;
+  font-weight:normal;
+  margin:8px 0 20px;
+}
+
+.post{
+  padding:21px;
+  background:#f8faf4;
+}
+
+.post-date{
+  font-size:11px;
+  color:#96aa89;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.post h2{
+  color:#6f8b65;
+  font-weight:normal;
+  font-size:23px;
+}
+
+.post p{
+  font-size:14px;
+  line-height:1.9;
+  white-space:pre-wrap;
+}
+
+.post img{
+  max-width:100%;
+  max-height:420px;
+  display:block;
+  margin:15px auto;
+  border:6px solid white;
+  border-radius:5px;
+}
+
+.post-actions{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  border-top:1px dashed #c3d3b8;
+  padding-top:13px;
+  margin-top:15px;
+}
+
+button{
+  background:#8fae80;
+  border:0;
+  color:white;
+  padding:10px 15px;
+  border-radius:20px;
+  cursor:pointer;
+  font-family:Georgia,serif;
+}
+
+button:hover{background:#719264}
+
+input,textarea{
+  width:100%;
+  padding:11px;
+  margin:7px 0;
+  border:1px solid #c3d3b8;
+  border-radius:5px;
+  background:white;
+  color:#52634e;
+  font-family:Georgia,serif;
+}
+
+textarea{min-height:110px}
+
+#editor{display:none}
+
+.follow{width:100%}
+
+footer{
+  text-align:center;
+  padding:25px;
+  color:#819777;
+  font-size:12px;
+}
+
+@media(max-width:850px){
+  .layout{grid-template-columns:1fr 1fr}
+  .center{grid-column:1/-1;grid-row:1}
+}
+
+@media(max-width:550px){
+  .layout{grid-template-columns:1fr}
+  .center{grid-column:auto}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>❀ El jardín de Mile ❀</h1>
+  <p>Un pequeño rincón lleno de vida, hojas y flores ♡</p>
+</header>
+
+<nav>
+  <a href="blogs.html">Inicio ♡</a>
+  <a href="#presentacion">Sobre mí</a>
+  <a href="#publicaciones">Mi diario</a>
+  <a href="#editor">Nueva entrada ✎</a>
+  <a href="blogs.html">RL Blogs</a>
+</nav>
+
+<div class="layout">
+
+  <!-- COLUMNA IZQUIERDA -->
+  <aside>
+    <section class="panel">
+      <img class="side-img"
+      src="https://placehold.co/400x300/dcebd3/66845e?text=♡+El+jardin+de+Mile"
+      alt="Jardín de Mile">
+
+      <h3>❀ MI RINCÓN VERDE</h3>
+      <p>Entre plantas, flores y pequeños descubrimientos.</p>
+      <p>🌱 Mi colección de plantas</p>
+      <p>🌷 Flores favoritas</p>
+      <p>🍃 Paseos por la naturaleza</p>
+    </section>
+
+    <section class="panel">
+      <h3>🌿 PLANTA FAVORITA</h3>
+      <p>Un espacio para contar cuál es mi planta favorita y por qué la quiero tanto.</p>
+    </section>
+
+    <section class="panel">
+      <h3>☀️ RECORDATORIO</h3>
+      <p>Las plantas crecen a su propio ritmo. Nosotros también.</p>
+    </section>
+  </aside>
+
+  <!-- COLUMNA CENTRAL -->
+  <main class="center" id="publicaciones">
+    <h2 class="center-title">✿ Bienvenidos a mi jardín ✿</h2>
+
+    <section class="panel" id="editor">
+      <h3>🌱 ESCRIBIR UNA ENTRADA</h3>
+      <input id="postTitle" placeholder="Título de la publicación...">
+      <textarea id="postText" placeholder="¿Qué querés compartir?"></textarea>
+      <label>Agregar una fotografía:</label>
+      <input type="file" id="postImage" accept="image/*">
+      <button onclick="addPost()">Publicar ❀</button>
+      <button onclick="closeEditor()">Cancelar</button>
+    </section>
+
+    <div style="text-align:center;margin-bottom:18px">
+      <button onclick="openEditor()">＋ Nueva publicación</button>
+    </div>
+
+    <div id="posts"></div>
+  </main>
+
+  <!-- COLUMNA DERECHA -->
+  <aside>
+    <section class="panel" id="presentacion">
+      <h3>♡ ¡HOLA, SOY MILE!</h3>
+      <p>¡Bienvenidos a mi espacio! Me encanta la naturaleza, las plantas y todo lo que tenga que ver con el mundo verde.</p>
+      <p>Quiero compartir un poquito de lo que me gusta. 🌿</p>
+    </section>
+
+    <section class="panel">
+      <h3>🌱 SEGUIDORES</h3>
+      <p id="followerCount">Seguidores: 0</p>
+      <button class="follow" id="followButton" onclick="toggleFollow()">Seguir ♡</button>
+    </section>
+
+    <section class="panel">
+      <h3>🌼 COSAS QUE AMO</h3>
+      <p>🌿 Las plantas</p>
+      <p>🌷 Las flores</p>
+      <p>🦋 Las mariposas</p>
+      <p>🌳 Los árboles</p>
+      <p>☀️ Los días soleados</p>
+    </section>
+
+    <section class="panel">
+      <h3>🍀 PENSAMIENTO DEL DÍA</h3>
+      <p>Donde florece una planta, también puede florecer una sonrisa.</p>
+    </section>
+  </aside>
+
+</div>
+
+<footer>
+  Hecho con cariño y muchas plantitas ♡ · RL Blogs
+</footer>
+
+<script>
+const STORAGE_KEY="rl_mile_posts";
+const FOLLOW_KEY="rl_mile_following";
+
+let posts=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");
+
+function savePosts(){
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(posts));
+}
+
+function openEditor(){
+  document.getElementById("editor").style.display="block";
+  document.getElementById("postTitle").focus();
+}
+
+function closeEditor(){
+  document.getElementById("editor").style.display="none";
+}
+
+function addPost(){
+  const title=document.getElementById("postTitle").value.trim();
+  const text=document.getElementById("postText").value.trim();
+  const file=document.getElementById("postImage").files[0];
+
+  if(!title||!text){
+    alert("¡Escribí un título y tu publicación! 🌱");
+    return;
+  }
+
+  function publish(image){
+    posts.unshift({
+      id:Date.now(),
+      title,
+      text,
+      image,
+      date:new Date().toLocaleDateString("es-AR"),
+      likes:0
+    });
+
+    savePosts();
+    renderPosts();
+
+    document.getElementById("postTitle").value="";
+    document.getElementById("postText").value="";
+    document.getElementById("postImage").value="";
+    closeEditor();
+  }
+
+  if(file){
+    const reader=new FileReader();
+    reader.onload=()=>publish(reader.result);
+    reader.readAsDataURL(file);
+  }else{
+    publish("");
+  }
+}
+
+function likePost(id){
+  const post=posts.find(p=>p.id===id);
+  if(!post)return;
+  post.likes++;
+  savePosts();
+  renderPosts();
+}
+
+function deletePost(id){
+  if(!confirm("¿Eliminar esta publicación?"))return;
+  posts=posts.filter(p=>p.id!==id);
+  savePosts();
+  renderPosts();
+}
+
+function escapeHTML(value){
+  return value.replace(/[&<>"']/g,char=>({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  })[char]);
+}
+
+function renderPosts(){
+  const container=document.getElementById("posts");
+
+  if(posts.length===0){
+    container.innerHTML=`
+      <article class="post">
+        <div class="post-date">Mi primera entrada</div>
+        <h2>Un pequeño comienzo 🌱</h2>
+        <p>¡Hola! Este es mi pequeño jardín virtual.
+
+Acá voy a compartir fotos de plantas, flores, paseos y todas esas cositas de la naturaleza que me encantan.
+
+¡Gracias por visitar mi espacio! ♡</p>
+        <div class="post-actions">
+          <button onclick="likeFirst()">♡ Me gusta</button>
+          <span id="firstLikes">0 me gusta</span>
+        </div>
+      </article>`;
+    return;
+  }
+
+  container.innerHTML=posts.map(post=>`
+    <article class="post">
+      <div class="post-date">${post.date}</div>
+      <h2>${escapeHTML(post.title)}</h2>
+      ${post.image?`<img src="${post.image}" alt="Fotografía de la publicación">`:""}
+      <p>${escapeHTML(post.text)}</p>
+      <div class="post-actions">
+        <button onclick="likePost(${post.id})">♡ Me gusta</button>
+        <span>${post.likes} me gusta</span>
+        <button onclick="deletePost(${post.id})">Eliminar</button>
+      </div>
+    </article>
+  `).join("");
+}
+
+let firstLikes=0;
+
+function likeFirst(){
+  firstLikes++;
+  document.getElementById("firstLikes").textContent=firstLikes+" me gusta";
+}
+
+function toggleFollow(){
+  const following=localStorage.getItem(FOLLOW_KEY)==="true";
+  localStorage.setItem(FOLLOW_KEY,String(!following));
+  updateFollow();
+}
+
+function updateFollow(){
+  const following=localStorage.getItem(FOLLOW_KEY)==="true";
+  document.getElementById("followButton").textContent=
+    following?"Siguiendo ✓":"Seguir ♡";
+  document.getElementById("followerCount").textContent=
+    "Seguidores: "+(following?1:0);
+}
+
+renderPosts();
+updateFollow();
+</script>
+
+</body>
+</html>
