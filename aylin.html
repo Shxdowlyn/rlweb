@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aylin's Blog ♡</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:repeating-linear-gradient(90deg,#eaf5ff 0px,#eaf5ff 15px,#fff 15px,#fff 30px);
+  color:#52677f;
+  font-family:Georgia,serif;
+}
+
+header{
+  text-align:center;
+  padding:55px 15px 35px;
+  background:linear-gradient(#e1f0ff,#f7fbff);
+  border-bottom:4px dotted #b8d7f5;
+}
+
+header h1{
+  color:#668dbb;
+  font-size:clamp(38px,7vw,65px);
+  font-weight:normal;
+  margin:0;
+  text-shadow:2px 2px white;
+}
+
+header p{color:#91abc9;font-style:italic}
+
+nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  background:#c6def5;
+  padding:12px;
+  gap:8px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#547ba7;
+  background:#f5faff;
+  padding:10px 16px;
+  border-radius:5px;
+  font-size:13px;
+}
+
+nav a:hover{background:#fff}
+
+.layout{
+  max-width:1250px;
+  margin:22px auto;
+  padding:0 15px;
+  display:grid;
+  grid-template-columns:230px minmax(0,1fr) 230px;
+  gap:18px;
+  align-items:start;
+}
+
+.panel,.post{
+  background:#f5faff;
+  border:2px solid #c7def3;
+  padding:15px;
+  box-shadow:0 3px 10px #b8cee033;
+  margin-bottom:18px;
+}
+
+.panel h3{
+  color:#7d9fc3;
+  font-size:15px;
+  border-bottom:1px dashed #b8d3ed;
+  padding-bottom:8px;
+}
+
+.panel p,.panel a{
+  font-size:13px;
+  line-height:1.7;
+}
+
+.side-img{
+  width:100%;
+  border:5px solid white;
+  outline:1px solid #c8dced;
+  margin:8px 0;
+}
+
+.center-title{
+  text-align:center;
+  color:#789bc0;
+  font-size:22px;
+  margin:8px 0 18px;
+}
+
+.post{
+  background:#edf6ff;
+  padding:20px;
+}
+
+.post-date{
+  color:#8da9c9;
+  font-size:12px;
+  text-transform:uppercase;
+}
+
+.post h2{
+  color:#648bb7;
+  font-weight:normal;
+  font-size:22px;
+}
+
+.post p{
+  font-size:14px;
+  line-height:1.9;
+  color:#53677d;
+  white-space:pre-wrap;
+}
+
+.post img{
+  max-width:100%;
+  max-height:420px;
+  display:block;
+  margin:15px auto;
+  border:6px solid white;
+  outline:1px solid #c5d9ed;
+}
+
+.post-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  border-top:1px dashed #b6cee6;
+  padding-top:12px;
+  margin-top:15px;
+}
+
+button{
+  border:0;
+  background:#9fc5e9;
+  color:white;
+  padding:9px 14px;
+  border-radius:5px;
+  cursor:pointer;
+  font-family:Georgia,serif;
+}
+
+button:hover{background:#7faedb}
+
+.follow{
+  width:100%;
+  margin-top:8px;
+}
+
+input,textarea{
+  width:100%;
+  padding:10px;
+  border:1px solid #c3d9ed;
+  background:white;
+  color:#53677d;
+  font-family:Georgia,serif;
+  margin:6px 0;
+}
+
+textarea{min-height:110px;resize:vertical}
+
+#editor{display:none}
+
+footer{
+  text-align:center;
+  padding:25px;
+  color:#8ba9ca;
+  font-size:12px;
+}
+
+@media(max-width:850px){
+  .layout{grid-template-columns:1fr 1fr}
+  .center{grid-column:1/-1;grid-row:1}
+}
+
+@media(max-width:550px){
+  .layout{grid-template-columns:1fr}
+  .center{grid-column:auto}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>♡ Aylin's Blog ♡</h1>
+  <p>little moments, memories & dreams ✧</p>
+</header>
+
+<nav>
+  <a href="blogs.html">Home ♡</a>
+  <a href="#welcome">Welcome</a>
+  <a href="#publicaciones">My Diary</a>
+  <a href="#editor">New Post ✎</a>
+  <a href="blogs.html">RL Blogs</a>
+</nav>
+
+<div class="layout">
+
+  <!-- IZQUIERDA -->
+  <aside>
+    <section class="panel">
+      <img class="side-img"
+      src="https://placehold.co/400x300/d9eaff/7297c0?text=♡+Aylin+♡"
+      alt="Foto de Aylin">
+
+      <h3>♡ MY LITTLE SPACE</h3>
+      <p>Welcome to my little corner of the internet!</p>
+      <p>♡ My Pinterest</p>
+      <p>♡ My favorite things</p>
+      <p>♡ My memories</p>
+    </section>
+
+    <section class="panel">
+      <h3>✧ ABOUT THIS BLOG</h3>
+      <p>Un lugar para guardar pensamientos, fotos, recomendaciones y pequeños momentos.</p>
+    </section>
+
+    <section class="panel">
+      <h3>♫ CURRENTLY LISTENING</h3>
+      <p>♪ My favorite songs</p>
+      <p>♪ Soft playlist</p>
+      <p>♪ Songs on repeat</p>
+    </section>
+  </aside>
+
+  <!-- CENTRO -->
+  <main class="center" id="publicaciones">
+    <h2 class="center-title">✿ Welcome to my page ✿</h2>
+
+    <section class="panel" id="editor">
+      <h3>♡ CREATE A NEW POST</h3>
+      <input id="postTitle" placeholder="Post title...">
+      <textarea id="postText" placeholder="Write something..."></textarea>
+      <label>Choose a photo:</label>
+      <input type="file" id="postImage" accept="image/*">
+      <button onclick="addPost()">Publish ♡</button>
+      <button onclick="closeEditor()">Cancel</button>
+    </section>
+
+    <section style="text-align:center;margin-bottom:18px">
+      <button onclick="openEditor()">＋ New publication</button>
+    </section>
+
+    <div id="posts"></div>
+  </main>
+
+  <!-- DERECHA -->
+  <aside>
+    <section class="panel" id="welcome">
+      <h3>♡ Welcome to my page</h3>
+      <p>Hi! I'm Aylin. This is my personal blog, a little place where I can share the things I love.</p>
+      <p>Thanks for visiting! ♡</p>
+    </section>
+
+    <section class="panel">
+      <h3>♡ FOLLOWERS</h3>
+      <p id="followerCount">Followers: 0</p>
+      <button class="follow" id="followButton" onclick="toggleFollow()">Follow ♡</button>
+    </section>
+
+    <section class="panel">
+      <h3>✧ MY FAVORITES</h3>
+      <p>Color: Baby blue</p>
+      <p>Season: Spring</p>
+      <p>Flower: Daisy</p>
+      <p>Word: Happiness</p>
+      <p>♡ Always dreaming</p>
+    </section>
+
+    <section class="panel">
+      <h3>♡ LITTLE NOTE</h3>
+      <p>Make memories, take pictures and enjoy the little things.</p>
+    </section>
+  </aside>
+
+</div>
+
+<footer>
+  Made with ♡ by Aylin · RL Blogs
+</footer>
+
+<script>
+const STORAGE_KEY = "rl_aylin_posts";
+const FOLLOW_KEY = "rl_aylin_following";
+
+let posts = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+
+function savePosts(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+}
+
+function openEditor(){
+  document.getElementById("editor").style.display="block";
+  document.getElementById("postTitle").focus();
+}
+
+function closeEditor(){
+  document.getElementById("editor").style.display="none";
+}
+
+function addPost(){
+  const title=document.getElementById("postTitle").value.trim();
+  const text=document.getElementById("postText").value.trim();
+  const file=document.getElementById("postImage").files[0];
+
+  if(!title || !text){
+    alert("Write a title and something for your post ♡");
+    return;
+  }
+
+  const create = (image) => {
+    posts.unshift({
+      id:Date.now(),
+      title,
+      text,
+      image,
+      date:new Date().toLocaleDateString("es-AR"),
+      likes:0
+    });
+
+    savePosts();
+    renderPosts();
+    document.getElementById("postTitle").value="";
+    document.getElementById("postText").value="";
+    document.getElementById("postImage").value="";
+    closeEditor();
+  };
+
+  if(file){
+    const reader=new FileReader();
+    reader.onload=()=>create(reader.result);
+    reader.readAsDataURL(file);
+  }else{
+    create("");
+  }
+}
+
+function likePost(id){
+  const post=posts.find(p=>p.id===id);
+  if(!post)return;
+  post.likes++;
+  savePosts();
+  renderPosts();
+}
+
+function deletePost(id){
+  if(!confirm("Delete this publication?"))return;
+  posts=posts.filter(p=>p.id!==id);
+  savePosts();
+  renderPosts();
+}
+
+function renderPosts(){
+  const container=document.getElementById("posts");
+
+  if(posts.length===0){
+    container.innerHTML=`
+      <article class="post">
+        <div class="post-date">AUGUST 04, 2026</div>
+        <h2>My first little post ♡</h2>
+        <p>Welcome to my blog! This is where I'll share my memories, thoughts, pictures and favorite things.
+
+I'm so happy to have my own little space here. Thanks for visiting! ♡</p>
+        <div class="post-actions">
+          <button onclick="likeFirst()">♡ Like</button>
+          <span id="firstLikes">0 likes</span>
+        </div>
+      </article>`;
+    return;
+  }
+
+  container.innerHTML=posts.map(post=>`
+    <article class="post">
+      <div class="post-date">${post.date}</div>
+      <h2>${escapeHTML(post.title)}</h2>
+      ${post.image?`<img src="${post.image}" alt="Post image">`:""}
+      <p>${escapeHTML(post.text)}</p>
+      <div class="post-actions">
+        <button onclick="likePost(${post.id})">♡ Like</button>
+        <span>${post.likes} likes</span>
+        <button onclick="deletePost(${post.id})">Delete</button>
+      </div>
+    </article>
+  `).join("");
+}
+
+function escapeHTML(value){
+  return value.replace(/[&<>"']/g, char => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  })[char]);
+}
+
+let firstLikes=0;
+function likeFirst(){
+  firstLikes++;
+  document.getElementById("firstLikes").textContent=firstLikes+" likes";
+}
+
+function toggleFollow(){
+  const following=localStorage.getItem(FOLLOW_KEY)==="true";
+  localStorage.setItem(FOLLOW_KEY,String(!following));
+  updateFollow();
+}
+
+function updateFollow(){
+  const following=localStorage.getItem(FOLLOW_KEY)==="true";
+  document.getElementById("followButton").textContent=
+    following?"Following ✓":"Follow ♡";
+  document.getElementById("followerCount").textContent=
+    "Followers: "+(following?1:0);
+}
+
+renderPosts();
+updateFollow();
+</script>
+
+</body>
+</html>
