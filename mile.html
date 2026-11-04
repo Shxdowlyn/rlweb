@@ -11,17 +11,67 @@
 
 body{
   margin:0;
-  background:repeating-linear-gradient(90deg,#edf3e9 0px,#edf3e9 15px,#faf9f2 15px,#faf9f2 30px);
+  background:
+    radial-gradient(ellipse at 15% 20%,#e0edcf 0%,transparent 40%),
+    radial-gradient(ellipse at 85% 65%,#d5e8c9 0%,transparent 45%),
+    linear-gradient(135deg,#e9f0dc,#f8f8e9 45%,#dcebd2);
   color:#526b56;
   font-family:Georgia,serif;
+  position:relative;
+}
+
+/* HOJAS DECORATIVAS DEL FONDO */
+
+.foliage{
+  position:fixed;
+  top:0;
+  bottom:0;
+  width:95px;
+  z-index:0;
+  pointer-events:none;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  opacity:.65;
+  overflow:hidden;
+}
+
+.foliage.left{left:0;align-items:flex-start}
+.foliage.right{right:0;align-items:flex-end}
+
+.foliage span{
+  display:block;
+  font-size:43px;
+  filter:sepia(.2);
+  text-shadow:0 2px 8px #78966b33;
+}
+
+.foliage span:nth-child(even){font-size:32px}
+.foliage.left span:nth-child(odd){transform:rotate(-35deg)}
+.foliage.right span:nth-child(odd){transform:rotate(35deg) scaleX(-1)}
+
+header,nav,.layout,#curiosidades,footer{
+  position:relative;
+  z-index:1;
 }
 
 header{
   text-align:center;
   padding:55px 15px 35px;
-  background:linear-gradient(#e2ecdc,#f8f8ef);
-  border-bottom:4px dotted #b8cdb2;
+  background:linear-gradient(120deg,#e1ebd4dd,#f8f8e9e8,#dce9d2dd);
+  border-bottom:3px dotted #a9c39d;
+  overflow:hidden;
 }
+
+header:before,header:after{
+  content:"🍃";
+  position:absolute;
+  font-size:65px;
+  opacity:.55;
+  top:15px;
+}
+header:before{left:5%}
+header:after{right:5%;transform:scaleX(-1)}
 
 header h1{
   color:#66866a;
@@ -40,9 +90,10 @@ nav{
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
-  background:#cbdcc5;
+  background:#cbdcc5eF;
   padding:12px;
   gap:8px;
+  border-bottom:2px dotted #a9c39d;
 }
 
 nav a{
@@ -50,11 +101,16 @@ nav a{
   color:#54745a;
   background:#f5f8f1;
   padding:10px 16px;
-  border-radius:5px;
+  border-radius:7px;
   font-size:13px;
+  border:1px solid #d1dfc8;
+  transition:.2s;
 }
 
-nav a:hover{background:white}
+nav a:hover{
+  background:white;
+  transform:translateY(-2px);
+}
 
 .layout{
   max-width:1250px;
@@ -67,8 +123,9 @@ nav a:hover{background:white}
 }
 
 .panel,.post{
-  background:#f8faf4;
+  background:#f8faf4ed;
   border:2px solid #d1e0ca;
+  border-radius:10px;
   padding:15px;
   box-shadow:0 3px 10px #a9bea033;
   margin-bottom:18px;
@@ -144,9 +201,21 @@ nav a:hover{background:white}
 .hero{
   text-align:center;
   padding:25px;
-  background:#e8f0e3;
+  background:linear-gradient(135deg,#e5efdb,#f7f8eb);
   border:2px dashed #c5d8bd;
+  border-radius:10px;
   margin-bottom:20px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:after{
+  content:"🌿";
+  position:absolute;
+  right:12px;
+  bottom:5px;
+  font-size:35px;
+  opacity:.35;
 }
 
 .hero h2{
@@ -163,8 +232,9 @@ nav a:hover{background:white}
 /* DIARIO */
 
 .diary{
-  background:#fffdf5;
+  background:#fffdf5ed;
   border:1px solid #e4e3d3;
+  border-radius:10px;
   padding:22px;
   margin-bottom:18px;
   box-shadow:0 3px 10px #a9bea022;
@@ -226,6 +296,7 @@ nav a:hover{background:white}
 .book{
   background:#fffdf5;
   border:2px solid #d8e3cf;
+  border-radius:8px;
   display:grid;
   grid-template-columns:1fr 1fr;
   overflow:hidden;
@@ -286,7 +357,7 @@ button:hover{background:#7fa47a}
 /* BURBUJAS */
 
 .bubble{
-  background:white;
+  background:#ffffffed;
   border:1px solid #dce8d7;
   border-radius:22px 22px 22px 6px;
   padding:15px;
@@ -322,18 +393,25 @@ button:hover{background:#7fa47a}
   padding:20px;
 }
 
+#curiosidades{
+  background:#f8faedee;
+  border-radius:15px;
+}
+
 footer{
   text-align:center;
   padding:25px;
   color:#8ba487;
   font-size:12px;
-  background:#e2ecdc;
+  background:#e2ecdcdd;
   border-top:2px dotted #b8cdb2;
 }
 
 @media(max-width:850px){
   .layout{grid-template-columns:1fr 1fr}
   .center{grid-column:1/-1;grid-row:1}
+  .foliage{width:45px}
+  .foliage span{font-size:27px}
 }
 
 @media(max-width:550px){
@@ -341,11 +419,28 @@ footer{
   .center{grid-column:auto}
   .book{grid-template-columns:1fr}
   .book-image img{height:220px;min-height:220px}
+  header{padding:45px 12px 30px}
+  .foliage{width:25px;opacity:.35}
+  .foliage span{font-size:20px}
+  #curiosidades{margin:20px 10px!important}
 }
 </style>
 </head>
 
 <body>
+
+<!-- HOJITAS DEL FONDO -->
+<div class="foliage left" aria-hidden="true">
+  <span>🌿</span><span>🍃</span><span>🌱</span>
+  <span>🍃</span><span>🌿</span><span>🍀</span>
+  <span>🌱</span><span>🍃</span><span>🌿</span>
+</div>
+
+<div class="foliage right" aria-hidden="true">
+  <span>🍃</span><span>🌿</span><span>🍀</span>
+  <span>🌱</span><span>🍃</span><span>🌿</span>
+  <span>🍃</span><span>🌱</span><span>🌿</span>
+</div>
 
 <header>
   <h1>♡ El jardín de Mile ♡</h1>
@@ -363,15 +458,11 @@ footer{
 
 <div class="layout">
 
-<!-- COLUMNA IZQUIERDA -->
-
 <aside>
-
   <section class="panel">
     <img class="side-img"
     src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=500"
     alt="Flores">
-
     <h3>♡ MI PEQUEÑO RINCÓN</h3>
     <p>Un espacio lleno de hojas, flores y momentos bonitos.</p>
     <p>🌿 Amante de la naturaleza</p>
@@ -398,10 +489,7 @@ footer{
     <p>♪ Sonidos de lluvia</p>
     <p>♪ Pajaritos cantando</p>
   </section>
-
 </aside>
-
-<!-- CENTRO -->
 
 <main class="center">
 
@@ -417,8 +505,6 @@ footer{
       fotografías, pensamientos y cosas que me gustan.
     </p>
   </section>
-
-  <!-- DIARIO -->
 
   <h2 class="center-title" id="diario">📖 Mi diario personal</h2>
 
@@ -444,58 +530,47 @@ footer{
       A veces no hace falta hacer grandes cosas para encontrar
       algo bonito. Una flor nueva, una hoja diferente o una
       pequeña planta creciendo pueden alegrar el día.
-      
+
       Quiero aprender muchas más cosas sobre este mundo verde.
     </p>
     <div class="diary-sign">Una página más de mi diario ✿</div>
   </article>
 
-  <!-- GALERÍA -->
-
   <h2 class="center-title" id="galeria">🌿 Mi galería natural</h2>
 
   <section class="panel">
     <p>Un paseo por algunos rincones de la naturaleza ♡</p>
-
     <div class="gallery">
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=500" alt="Plantas">
         <p>Un poquito de verde</p>
       </div>
-
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=500" alt="Hojas">
         <p>Hojas y tranquilidad</p>
       </div>
-
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=500" alt="Jardín">
         <p>Un jardín especial</p>
       </div>
-
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1483794344563-d27a8d18014e?w=500" alt="Macetas">
         <p>Pequeñas compañeras</p>
       </div>
-
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=500" alt="Naturaleza">
         <p>La belleza natural</p>
       </div>
-
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500" alt="Bosque">
         <p>Un bosque mágico</p>
       </div>
-
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=500" alt="Hojas verdes">
         <p>Detalles verdes</p>
       </div>
     </div>
   </section>
-
-  <!-- LIBRO -->
 
   <h2 class="center-title" id="libro">📚 Mi libro de plantas</h2>
 
@@ -508,7 +583,6 @@ footer{
         src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600"
         alt="Planta">
       </div>
-
       <div class="book-content">
         <span class="post-date" id="pageNumber">PÁGINA 01</span>
         <h3 id="plantTitle">Las suculentas</h3>
@@ -528,16 +602,10 @@ footer{
 
 </main>
 
-<!-- COLUMNA DERECHA -->
-
 <aside>
-
   <section class="panel">
     <h3>♡ UNA NOTITA</h3>
-    <p>
-      No olvides detenerte un ratito, respirar
-      y apreciar las pequeñas cosas.
-    </p>
+    <p>No olvides detenerte un ratito, respirar y apreciar las pequeñas cosas.</p>
   </section>
 
   <section class="panel">
@@ -572,12 +640,9 @@ footer{
       <p>Siempre hay algo bonito por descubrir.</p>
     </div>
   </section>
-
 </aside>
 
 </div>
-
-<!-- CURIOSIDADES AL FINAL -->
 
 <section class="panel" id="curiosidades" style="max-width:1050px;margin:30px auto;padding:25px;">
   <h2 class="center-title">💭 ¿Sabías que...?</h2>
@@ -586,43 +651,36 @@ footer{
   </p>
 
   <div class="facts">
-
     <div class="bubble">
       <span class="bubble-icon">🌻</span>
       <h4>¡Siguen al sol!</h4>
       <p>Los girasoles jóvenes pueden orientarse siguiendo el movimiento del sol. Este fenómeno se llama heliotropismo.</p>
     </div>
-
     <div class="bubble">
       <span class="bubble-icon">🌱</span>
       <h4>Semillas dormidas</h4>
       <p>Algunas semillas pueden permanecer en reposo hasta encontrar condiciones adecuadas para germinar.</p>
     </div>
-
     <div class="bubble">
       <span class="bubble-icon">🌳</span>
       <h4>Gigantes naturales</h4>
       <p>Las secuoyas gigantes están entre los árboles más grandes del mundo por su volumen.</p>
     </div>
-
     <div class="bubble">
       <span class="bubble-icon">🌸</span>
       <h4>Colores especiales</h4>
       <p>Muchas flores atraen abejas y mariposas con sus colores, aromas y formas.</p>
     </div>
-
     <div class="bubble">
       <span class="bubble-icon">🍃</span>
       <h4>Fabrican su alimento</h4>
       <p>Las plantas utilizan la luz para realizar la fotosíntesis y producir su alimento.</p>
     </div>
-
     <div class="bubble">
       <span class="bubble-icon">🌿</span>
       <h4>Los helechos</h4>
       <p>Los helechos no producen flores ni semillas. Se reproducen mediante esporas.</p>
     </div>
-
   </div>
 </section>
 
