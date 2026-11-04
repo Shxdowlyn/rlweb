@@ -10,263 +10,254 @@
 *{box-sizing:border-box}
 
 body{
-  margin:0;
-  background:#edf2e8;
-  color:#435b43;
-  font-family:Georgia,serif;
+ margin:0;
+ background:#edf2e8;
+ color:#435b43;
+ font-family:Georgia,serif;
 }
 
 header{
-  text-align:center;
-  padding:48px 15px;
-  background:#dce9d5;
-  border-bottom:3px dashed #a7bd9d;
+ text-align:center;
+ padding:48px 15px;
+ background:#dce9d5;
+ border-bottom:3px dashed #a7bd9d;
 }
 
 header h1{
-  font-size:clamp(35px,6vw,58px);
-  font-weight:normal;
-  color:#587b54;
-  margin:0;
+ font-size:clamp(35px,6vw,58px);
+ font-weight:normal;
+ color:#587b54;
+ margin:0;
 }
 
-header p{
-  font-style:italic;
-  color:#809a78;
-}
+header p{font-style:italic;color:#809a78}
 
 nav{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-  padding:13px;
-  background:#b9cfad;
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:10px;
+ padding:13px;
+ background:#b9cfad;
 }
 
 nav a{
-  text-decoration:none;
-  color:#476548;
-  background:#eff5e9;
-  padding:9px 15px;
-  border-radius:20px;
-  font-size:13px;
+ text-decoration:none;
+ color:#476548;
+ background:#eff5e9;
+ padding:9px 15px;
+ border-radius:20px;
+ font-size:13px;
 }
 
-nav a:hover{background:white}
-
 .container{
-  max-width:1150px;
-  margin:30px auto;
-  padding:0 18px;
+ max-width:1100px;
+ margin:30px auto;
+ padding:0 18px;
 }
 
 .intro{
-  text-align:center;
-  background:#f8faf4;
-  border:1px solid #cbd9c1;
-  padding:25px;
-  margin-bottom:30px;
+ text-align:center;
+ background:#f8faf4;
+ border:1px solid #cbd9c1;
+ padding:25px;
+ margin-bottom:35px;
 }
 
-.intro h2{
-  color:#64845e;
-  font-size:27px;
-  font-weight:normal;
+.intro h2,.section-title{
+ color:#64845e;
+ font-weight:normal;
 }
 
-.intro p{
-  line-height:1.8;
-  font-size:14px;
-}
+.intro p{line-height:1.9;font-size:14px}
 
 .section-title{
-  text-align:center;
-  color:#63845c;
-  font-size:26px;
-  font-weight:normal;
-  margin:40px 0 8px;
+ text-align:center;
+ font-size:26px;
+ margin:40px 0 8px;
 }
 
 .subtitle{
-  text-align:center;
-  font-size:13px;
-  color:#91a58a;
-  margin-bottom:22px;
+ text-align:center;
+ font-size:13px;
+ color:#91a58a;
+ margin-bottom:22px;
 }
 
 /* CARRUSEL */
 
 .carousel{
-  display:flex;
-  gap:17px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  padding:12px 5px 22px;
-  scrollbar-color:#9db895 #e2eadc;
-  scrollbar-width:thin;
-  cursor:grab;
+ display:flex;
+ gap:17px;
+ overflow-x:auto;
+ scroll-snap-type:x mandatory;
+ padding:12px 5px 22px;
+ scrollbar-color:#9db895 #e2eadc;
+ scrollbar-width:thin;
 }
 
 .photo-card{
-  flex:0 0 250px;
-  background:#f9fbf6;
-  padding:10px;
-  border:1px solid #c8d7bf;
-  scroll-snap-align:start;
+ flex:0 0 250px;
+ background:#f9fbf6;
+ padding:10px;
+ border:1px solid #c8d7bf;
+ scroll-snap-align:start;
 }
 
 .photo-card img{
-  width:100%;
-  height:190px;
-  object-fit:cover;
-  display:block;
+ width:100%;
+ height:190px;
+ object-fit:cover;
+ display:block;
 }
 
 .photo-card h3{
-  color:#64845e;
-  font-weight:normal;
-  margin:12px 3px 5px;
+ color:#64845e;
+ font-weight:normal;
+ margin:12px 3px 5px;
 }
 
 .photo-card p{
-  color:#82957a;
-  font-size:12px;
-  margin:5px 3px;
-}
-
-/* DATOS CURIOSOS */
-
-.facts{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-}
-
-.fact{
-  background:#f8faf4;
-  border:1px solid #cbd9c1;
-  padding:17px;
-}
-
-.fact-head{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  border-bottom:1px dashed #c7d6be;
-  padding-bottom:9px;
-  color:#718d68;
-  font-size:13px;
-}
-
-.fact p{
-  font-size:13px;
-  line-height:1.8;
-  margin-bottom:0;
-}
-
-.fact small{
-  color:#9aaa91;
+ color:#82957a;
+ font-size:12px;
+ margin:5px 3px;
 }
 
 /* LIBRO */
 
 .book-area{
-  background:#dce8d4;
-  padding:30px 15px;
-  margin-top:20px;
-  border:1px solid #b9cdb0;
+ background:#dce8d4;
+ padding:30px 15px;
+ margin-top:20px;
+ border:1px solid #b9cdb0;
 }
 
 .book{
-  max-width:760px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  min-height:350px;
-  box-shadow:0 8px 20px #647b5830;
+ max-width:760px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ min-height:350px;
+ box-shadow:0 8px 20px #647b5830;
 }
 
 .book-photo{
-  background:#829a75;
-  padding:12px;
+ background:#829a75;
+ padding:12px;
 }
 
 .book-photo img{
-  width:100%;
-  height:100%;
-  min-height:320px;
-  object-fit:cover;
-  border:5px solid #f5f4e9;
+ width:100%;
+ height:100%;
+ min-height:320px;
+ object-fit:cover;
+ border:5px solid #f5f4e9;
 }
 
 .book-text{
-  background:#faf8ed;
-  padding:30px 25px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+ background:#faf8ed;
+ padding:30px 25px;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
 }
 
 .book-text small{
-  color:#9ba68a;
-  text-transform:uppercase;
-  letter-spacing:2px;
+ color:#9ba68a;
+ letter-spacing:2px;
 }
 
 .book-text h3{
-  color:#64845c;
-  font-weight:normal;
-  font-size:24px;
+ color:#64845c;
+ font-weight:normal;
+ font-size:24px;
 }
 
 .book-text p{
-  color:#65725d;
-  font-size:13px;
-  line-height:1.9;
+ color:#65725d;
+ font-size:13px;
+ line-height:1.9;
 }
 
 .book-buttons{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin-top:15px;
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+ margin-top:15px;
 }
 
 button{
-  border:none;
-  background:#829d76;
-  color:white;
-  padding:10px 15px;
-  cursor:pointer;
-  font-family:Georgia,serif;
-  border-radius:4px;
+ border:none;
+ background:#829d76;
+ color:white;
+ padding:10px 15px;
+ cursor:pointer;
+ font-family:Georgia,serif;
+ border-radius:4px;
 }
 
 button:hover{background:#647f59}
 
 .page-number{
-  text-align:center;
-  color:#94a48a;
-  font-size:12px;
-  margin-top:12px;
+ text-align:center;
+ color:#94a48a;
+ font-size:12px;
+ margin-top:12px;
 }
 
-/* PIE */
+/* BURBUJA FINAL */
+
+.fact-bubble{
+ max-width:650px;
+ margin:55px auto 35px;
+ padding:25px 30px;
+ background:#f9fbf4;
+ border:2px solid #b9cdaa;
+ border-radius:35px 35px 35px 8px;
+ text-align:center;
+ position:relative;
+ box-shadow:0 5px 15px #71896920;
+}
+
+.fact-bubble:after{
+ content:"";
+ position:absolute;
+ bottom:-15px;
+ left:35px;
+ width:25px;
+ height:25px;
+ background:#f9fbf4;
+ border-left:2px solid #b9cdaa;
+ border-bottom:2px solid #b9cdaa;
+ transform:skewY(-35deg);
+}
+
+.fact-bubble h2{
+ color:#68865e;
+ font-size:23px;
+ font-weight:normal;
+}
+
+.fact-bubble p{
+ color:#687d60;
+ font-size:14px;
+ line-height:1.9;
+}
+
+.fact-icon{font-size:30px}
 
 footer{
-  margin-top:40px;
-  padding:25px;
-  text-align:center;
-  background:#dce9d5;
-  color:#789270;
-  font-size:13px;
+ margin-top:40px;
+ padding:25px;
+ text-align:center;
+ background:#dce9d5;
+ color:#789270;
+ font-size:13px;
 }
 
 @media(max-width:650px){
-  .facts{grid-template-columns:1fr}
-  .book{grid-template-columns:1fr}
-  .book-photo img{height:230px;min-height:0}
+ .book{grid-template-columns:1fr}
+ .book-photo img{height:230px;min-height:0}
 }
 </style>
 </head>
@@ -274,225 +265,184 @@ footer{
 <body>
 
 <header>
-  <h1>❀ El jardín de Mile ❀</h1>
-  <p>Un pequeño rincón para descubrir la naturaleza ♡</p>
+ <h1>❀ El jardín de Mile ❀</h1>
+ <p>Un pequeño rincón para descubrir la naturaleza ♡</p>
 </header>
 
 <nav>
-  <a href="blogs.html">Inicio</a>
-  <a href="#bienvenida">Mi jardín</a>
-  <a href="#galeria">Fotografías</a>
-  <a href="#curiosidades">Datos curiosos</a>
-  <a href="#libro">Mi libro</a>
+ <a href="blogs.html">Inicio</a>
+ <a href="#bienvenida">Mi jardín</a>
+ <a href="#galeria">Fotografías</a>
+ <a href="#libro">Mi libro</a>
+ <a href="#curiosidad">¿Sabías que?</a>
 </nav>
 
 <main class="container">
 
-  <section class="intro" id="bienvenida">
-    <h2>Bienvenidos a mi jardín 🌱</h2>
-    <p>
-      ¡Hola! Soy Mile. Me encanta la naturaleza, las plantas,
-      las flores y todos esos pequeños detalles que hacen
-      hermoso al mundo.
-      <br>
-      Este espacio es para compartir descubrimientos,
-      fotografías y curiosidades del mundo natural. ♡
-    </p>
-    <span>✿ Plantas · Flores · Bosques · Naturaleza ✿</span>
-  </section>
+ <section class="intro" id="bienvenida">
+  <h2>Bienvenidos a mi jardín 🌱</h2>
+  <p>
+   ¡Hola! Este es mi pequeño rincón dedicado a la naturaleza.
+   Me encantan las plantas, las flores, los árboles y todos
+   esos pequeños detalles que hacen hermoso al mundo.
+   <br>
+   Espero que disfruten este paseo tanto como yo. ♡
+  </p>
+  ✿ Plantas · Flores · Bosques · Naturaleza ✿
+ </section>
 
-  <!-- CARRUSEL DE FOTOS -->
+ <section id="galeria">
+  <h2 class="section-title">❀ Un paseo por la naturaleza ❀</h2>
+  <p class="subtitle">Deslizá hacia los costados para descubrir más fotografías →</p>
 
-  <section id="galeria">
-    <h2 class="section-title">❀ Un paseo por la naturaleza ❀</h2>
-    <p class="subtitle">Deslizá hacia los costados para descubrir más fotografías →</p>
+  <div class="carousel">
 
-    <div class="carousel">
+   <article class="photo-card">
+    <img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=600" alt="Plantas verdes">
+    <h3>Pequeño bosque</h3>
+    <p>Un poquito de verde para alegrar el día.</p>
+   </article>
 
-      <article class="photo-card">
-        <img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=600" alt="Plantas verdes">
-        <h3>Pequeño bosque</h3>
-        <p>Un poquito de verde para alegrar el día.</p>
-      </article>
+   <article class="photo-card">
+    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600" alt="Flores">
+    <h3>Flores silvestres</h3>
+    <p>Colores que parecen pintados a mano.</p>
+   </article>
 
-      <article class="photo-card">
-        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600" alt="Flores">
-        <h3>Flores silvestres</h3>
-        <p>Colores que parecen pintados a mano.</p>
-      </article>
+   <article class="photo-card">
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600" alt="Planta">
+    <h3>Un poco de verde</h3>
+    <p>La belleza también está en lo sencillo.</p>
+   </article>
 
-      <article class="photo-card">
-        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600" alt="Planta en maceta">
-        <h3>Un poco de verde</h3>
-        <p>La belleza también está en lo sencillo.</p>
-      </article>
+   <article class="photo-card">
+    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600" alt="Bosque">
+    <h3>Entre árboles</h3>
+    <p>Un lugar para respirar tranquilidad.</p>
+   </article>
 
-      <article class="photo-card">
-        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600" alt="Bosque">
-        <h3>Entre árboles</h3>
-        <p>Un lugar para respirar tranquilidad.</p>
-      </article>
+   <article class="photo-card">
+    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600" alt="Jardín">
+    <h3>Jardín secreto</h3>
+    <p>Un rincón lleno de vida.</p>
+   </article>
 
-      <article class="photo-card">
-        <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600" alt="Jardín">
-        <h3>Jardín secreto</h3>
-        <p>Un rincón lleno de vida.</p>
-      </article>
+   <article class="photo-card">
+    <img src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=600" alt="Flores rosadas">
+    <h3>Día de primavera</h3>
+    <p>La naturaleza nunca deja de sorprender.</p>
+   </article>
 
-      <article class="photo-card">
-        <img src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=600" alt="Flores rosadas">
-        <h3>Un día de primavera</h3>
-        <p>La naturaleza nunca deja de sorprender.</p>
-      </article>
+   <article class="photo-card">
+    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600" alt="Paisaje natural">
+    <h3>Campos infinitos</h3>
+    <p>Un paisaje para quedarse mirando.</p>
+   </article>
 
-      <article class="photo-card">
-        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600" alt="Paisaje natural">
-        <h3>Campos infinitos</h3>
-        <p>Un paisaje para quedarse mirando.</p>
-      </article>
+  </div>
+ </section>
 
+ <section id="libro">
+  <h2 class="section-title">📖 Mi libro de naturaleza</h2>
+  <p class="subtitle">Cada fotografía tiene una historia. Pasá las páginas para descubrirla.</p>
+
+  <div class="book-area">
+   <div class="book">
+
+    <div class="book-photo">
+     <img id="bookImage"
+      src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=700"
+      alt="Fotografía del libro">
     </div>
-  </section>
 
-  <!-- DATOS CURIOSOS -->
+    <div class="book-text">
+     <small id="bookNumber">PÁGINA 01</small>
+     <h3 id="bookTitle">El mundo de las plantas</h3>
+     <p id="bookDescription">
+      Las plantas son seres vivos esenciales para nuestro planeta.
+      Nos brindan alimento, refugio y ayudan a mantener el equilibrio
+      de los ecosistemas.
+     </p>
 
-  <section id="curiosidades">
-    <h2 class="section-title">🌿 ¿Sabías que...?</h2>
-    <p class="subtitle">Pequeños comentarios sobre grandes maravillas naturales.</p>
-
-    <div class="facts">
-
-      <article class="fact">
-        <div class="fact-head">🌻 Curiosidad n.º 01</div>
-        <p>Los girasoles jóvenes pueden seguir la dirección del sol durante su crecimiento. Este movimiento se llama heliotropismo.</p>
-        <small>Publicado en el jardín de Mile ♡</small>
-      </article>
-
-      <article class="fact">
-        <div class="fact-head">🍄 Curiosidad n.º 02</div>
-        <p>Los hongos no son plantas: pertenecen a un reino propio llamado Fungi.</p>
-        <small>Publicado en el jardín de Mile ♡</small>
-      </article>
-
-      <article class="fact">
-        <div class="fact-head">🌳 Curiosidad n.º 03</div>
-        <p>Los árboles producen oxígeno mediante la fotosíntesis, utilizando la luz del sol, agua y dióxido de carbono.</p>
-        <small>Publicado en el jardín de Mile ♡</small>
-      </article>
-
-      <article class="fact">
-        <div class="fact-head">🌱 Curiosidad n.º 04</div>
-        <p>Algunas semillas pueden permanecer dormidas durante mucho tiempo hasta encontrar las condiciones adecuadas para germinar.</p>
-        <small>Publicado en el jardín de Mile ♡</small>
-      </article>
-
-      <article class="fact">
-        <div class="fact-head">🌷 Curiosidad n.º 05</div>
-        <p>Las flores tienen distintas formas, colores y aromas que pueden atraer a diferentes polinizadores.</p>
-        <small>Publicado en el jardín de Mile ♡</small>
-      </article>
-
-      <article class="fact">
-        <div class="fact-head">🌿 Curiosidad n.º 06</div>
-        <p>El musgo no tiene raíces verdaderas como las plantas comunes. Se sujeta a las superficies mediante estructuras llamadas rizoides.</p>
-        <small>Publicado en el jardín de Mile ♡</small>
-      </article>
-
+     <div class="book-buttons">
+      <button onclick="changePage(-1)">← Anterior</button>
+      <button onclick="changePage(1)">Siguiente →</button>
+     </div>
     </div>
-  </section>
 
-  <!-- LIBRO INTERACTIVO -->
+   </div>
 
-  <section id="libro">
-    <h2 class="section-title">📖 Mi libro de naturaleza</h2>
-    <p class="subtitle">Cada fotografía tiene una historia. Pasá las páginas para descubrirla.</p>
+   <div class="page-number" id="pageNumber">Página 1 de 5</div>
+  </div>
+ </section>
 
-    <div class="book-area">
+ <!-- BURBUJITA FINAL -->
 
-      <div class="book">
-
-        <div class="book-photo">
-          <img id="bookImage"
-          src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=700"
-          alt="Fotografía del libro">
-        </div>
-
-        <div class="book-text">
-          <small id="bookNumber">PÁGINA 01</small>
-          <h3 id="bookTitle">El mundo de las plantas</h3>
-          <p id="bookDescription">
-            Las plantas son seres vivos esenciales para nuestro planeta.
-            Nos brindan alimento, refugio y ayudan a mantener el equilibrio
-            de los ecosistemas.
-          </p>
-
-          <div class="book-buttons">
-            <button onclick="changePage(-1)">← Anterior</button>
-            <button onclick="changePage(1)">Siguiente →</button>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="page-number" id="pageNumber">Página 1 de 5</div>
-
-    </div>
-  </section>
+ <section class="fact-bubble" id="curiosidad">
+  <div class="fact-icon">🌻</div>
+  <h2>¿Sabías que...?</h2>
+  <p>
+   Los girasoles jóvenes siguen la dirección del sol durante
+   su crecimiento. Este movimiento se llama <b>heliotropismo</b>.
+   ¡La naturaleza es increíble! 🌿
+  </p>
+  <small>Un dato curioso del jardín de Mile ♡</small>
+ </section>
 
 </main>
 
 <footer>
-  Hecho con amor por Mile ♡
-  <br>
-  RL Blogs · Cuidemos nuestro planeta 🌎
+ Hecho con amor por Mile ♡
+ <br>
+ RL Blogs · Cuidemos nuestro planeta 🌎
 </footer>
 
 <script>
 const pages = [
-  {
-    title:"El mundo de las plantas",
-    image:"https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=700",
-    description:"Las plantas son seres vivos esenciales para nuestro planeta. Nos brindan alimento, refugio y ayudan a mantener el equilibrio de los ecosistemas."
-  },
-  {
-    title:"La magia de las flores",
-    image:"https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=700",
-    description:"Las flores no solo son bonitas. Muchas cumplen un papel fundamental en la reproducción de las plantas y atraen polinizadores como abejas y mariposas."
-  },
-  {
-    title:"Los bosques",
-    image:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=700",
-    description:"Los bosques son hogares de muchísimas especies. Sus árboles, plantas, hongos y animales forman ecosistemas llenos de vida."
-  },
-  {
-    title:"Un pequeño jardín",
-    image:"https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=700",
-    description:"Un jardín puede convertirse en un refugio para insectos, aves y otros animales. Incluso un espacio pequeño puede aportar algo a la naturaleza."
-  },
-  {
-    title:"La belleza de la primavera",
-    image:"https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=700",
-    description:"Durante la primavera, muchas plantas florecen y aparecen nuevos brotes. Es una estación llena de cambios y actividad en la naturaleza."
-  }
+ {
+  title:"El mundo de las plantas",
+  image:"https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=700",
+  description:"Las plantas son seres vivos esenciales para nuestro planeta. Nos brindan alimento, refugio y ayudan a mantener el equilibrio de los ecosistemas."
+ },
+ {
+  title:"La magia de las flores",
+  image:"https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=700",
+  description:"Las flores no solo son bonitas. Muchas cumplen un papel fundamental en la reproducción de las plantas y atraen polinizadores como abejas y mariposas."
+ },
+ {
+  title:"Los bosques",
+  image:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=700",
+  description:"Los bosques son hogares de muchísimas especies. Sus árboles, plantas, hongos y animales forman ecosistemas llenos de vida."
+ },
+ {
+  title:"Un pequeño jardín",
+  image:"https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=700",
+  description:"Un jardín puede convertirse en un refugio para insectos, aves y otros animales. Incluso un espacio pequeño puede aportar algo a la naturaleza."
+ },
+ {
+  title:"La belleza de la primavera",
+  image:"https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=700",
+  description:"Durante la primavera, muchas plantas florecen y aparecen nuevos brotes. Es una estación llena de cambios y actividad en la naturaleza."
+ }
 ];
 
 let currentPage=0;
 
 function changePage(direction){
-  currentPage+=direction;
+ currentPage+=direction;
 
-  if(currentPage<0) currentPage=pages.length-1;
-  if(currentPage>=pages.length) currentPage=0;
+ if(currentPage<0)currentPage=pages.length-1;
+ if(currentPage>=pages.length)currentPage=0;
 
-  const page=pages[currentPage];
+ const page=pages[currentPage];
 
-  document.getElementById("bookImage").src=page.image;
-  document.getElementById("bookTitle").textContent=page.title;
-  document.getElementById("bookDescription").textContent=page.description;
-  document.getElementById("bookNumber").textContent=
-    "PÁGINA "+String(currentPage+1).padStart(2,"0");
-  document.getElementById("pageNumber").textContent=
-    "Página "+(currentPage+1)+" de "+pages.length;
+ document.getElementById("bookImage").src=page.image;
+ document.getElementById("bookTitle").textContent=page.title;
+ document.getElementById("bookDescription").textContent=page.description;
+ document.getElementById("bookNumber").textContent=
+  "PÁGINA "+String(currentPage+1).padStart(2,"0");
+ document.getElementById("pageNumber").textContent=
+  "Página "+(currentPage+1)+" de "+pages.length;
 }
 </script>
 
