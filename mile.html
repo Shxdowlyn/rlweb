@@ -9,36 +9,34 @@
 <style>
 *{box-sizing:border-box}
 
-html{
-  min-height:100%;
-  background:#e9f0dc;
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background-color: #dcebd2 !important;
 }
 
-body{
-  margin:0;
-  min-height:100vh;
-  color:#526b56;
-  font-family:Georgia,serif;
+html {
   background:
-    radial-gradient(ellipse at 12% 15%,#c9dfb9 0%,transparent 42%),
-    radial-gradient(ellipse at 88% 65%,#c5dfb9 0%,transparent 45%),
-    linear-gradient(135deg,#dcebd2,#f3f6e8 48%,#d2e5c8);
-  background-attachment:fixed;
-  position:relative;
-  isolation:isolate;
+    linear-gradient(
+      135deg,
+      #c4ddb5 0%,
+      #eaf2df 35%,
+      #b9d5ad 70%,
+      #dcebd2 100%
+    ) !important;
+  background-attachment: fixed !important;
 }
 
-/* FONDO VERDE FIJO */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
+body {
+  min-height: 100vh;
   background:
-    radial-gradient(ellipse at 20% 30%,#b9d6a855,transparent 50%),
-    radial-gradient(ellipse at 80% 75%,#a9cc9d55,transparent 48%),
-    linear-gradient(135deg,#dcebd2,#f3f6e8 48%,#d2e5c8);
+    radial-gradient(ellipse at 10% 15%, #a9ca98 0%, transparent 45%),
+    radial-gradient(ellipse at 90% 80%, #b5d4a7 0%, transparent 45%),
+    linear-gradient(135deg, #dcebd2, #eef4e5, #c9dfbd) !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  position: relative;
 }
 
 /* HOJAS DECORATIVAS */
