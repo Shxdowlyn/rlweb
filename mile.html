@@ -11,182 +11,262 @@
 
 body{
   margin:0;
-  background:#edf3e8;
-  color:#52634e;
+  background:#edf2e8;
+  color:#435b43;
   font-family:Georgia,serif;
 }
 
 header{
   text-align:center;
-  padding:55px 15px 40px;
-  background:linear-gradient(#dcebd3,#f3f6ec);
-  border-bottom:3px dashed #a8bd9c;
+  padding:48px 15px;
+  background:#dce9d5;
+  border-bottom:3px dashed #a7bd9d;
 }
 
 header h1{
-  margin:0;
-  font-size:clamp(38px,7vw,65px);
+  font-size:clamp(35px,6vw,58px);
   font-weight:normal;
-  color:#66845e;
+  color:#587b54;
+  margin:0;
 }
 
 header p{
-  color:#8da681;
   font-style:italic;
+  color:#809a78;
 }
 
 nav{
-  background:#b8cdaa;
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
-  gap:9px;
+  gap:10px;
   padding:13px;
+  background:#b9cfad;
 }
 
 nav a{
   text-decoration:none;
-  color:#536d4c;
-  background:#f5f8ef;
-  padding:10px 16px;
+  color:#476548;
+  background:#eff5e9;
+  padding:9px 15px;
   border-radius:20px;
   font-size:13px;
 }
 
 nav a:hover{background:white}
 
-.layout{
-  max-width:1250px;
-  margin:25px auto;
-  padding:0 15px;
-  display:grid;
-  grid-template-columns:230px minmax(0,1fr) 230px;
-  gap:18px;
-  align-items:start;
+.container{
+  max-width:1150px;
+  margin:30px auto;
+  padding:0 18px;
 }
 
-.panel,.post{
-  background:#f8faf3;
-  border:1px solid #c5d5b9;
-  border-radius:8px;
-  padding:16px;
-  margin-bottom:18px;
-  box-shadow:0 3px 12px #637d5520;
-}
-
-.panel h3{
-  color:#78966e;
-  font-size:15px;
-  border-bottom:1px dashed #b5c9a8;
-  padding-bottom:9px;
-}
-
-.panel p{
-  font-size:13px;
-  line-height:1.8;
-}
-
-.side-img{
-  width:100%;
-  border:5px solid white;
-  border-radius:5px;
-}
-
-.center-title{
+.intro{
   text-align:center;
-  color:#78966e;
-  font-size:23px;
-  font-weight:normal;
-  margin:8px 0 20px;
-}
-
-.post{
-  padding:21px;
   background:#f8faf4;
+  border:1px solid #cbd9c1;
+  padding:25px;
+  margin-bottom:30px;
 }
 
-.post-date{
-  font-size:11px;
-  color:#96aa89;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
-.post h2{
-  color:#6f8b65;
+.intro h2{
+  color:#64845e;
+  font-size:27px;
   font-weight:normal;
-  font-size:23px;
 }
 
-.post p{
+.intro p{
+  line-height:1.8;
   font-size:14px;
-  line-height:1.9;
-  white-space:pre-wrap;
 }
 
-.post img{
-  max-width:100%;
-  max-height:420px;
+.section-title{
+  text-align:center;
+  color:#63845c;
+  font-size:26px;
+  font-weight:normal;
+  margin:40px 0 8px;
+}
+
+.subtitle{
+  text-align:center;
+  font-size:13px;
+  color:#91a58a;
+  margin-bottom:22px;
+}
+
+/* CARRUSEL */
+
+.carousel{
+  display:flex;
+  gap:17px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  padding:12px 5px 22px;
+  scrollbar-color:#9db895 #e2eadc;
+  scrollbar-width:thin;
+  cursor:grab;
+}
+
+.photo-card{
+  flex:0 0 250px;
+  background:#f9fbf6;
+  padding:10px;
+  border:1px solid #c8d7bf;
+  scroll-snap-align:start;
+}
+
+.photo-card img{
+  width:100%;
+  height:190px;
+  object-fit:cover;
   display:block;
-  margin:15px auto;
-  border:6px solid white;
-  border-radius:5px;
 }
 
-.post-actions{
+.photo-card h3{
+  color:#64845e;
+  font-weight:normal;
+  margin:12px 3px 5px;
+}
+
+.photo-card p{
+  color:#82957a;
+  font-size:12px;
+  margin:5px 3px;
+}
+
+/* DATOS CURIOSOS */
+
+.facts{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.fact{
+  background:#f8faf4;
+  border:1px solid #cbd9c1;
+  padding:17px;
+}
+
+.fact-head{
   display:flex;
   align-items:center;
-  flex-wrap:wrap;
+  gap:9px;
+  border-bottom:1px dashed #c7d6be;
+  padding-bottom:9px;
+  color:#718d68;
+  font-size:13px;
+}
+
+.fact p{
+  font-size:13px;
+  line-height:1.8;
+  margin-bottom:0;
+}
+
+.fact small{
+  color:#9aaa91;
+}
+
+/* LIBRO */
+
+.book-area{
+  background:#dce8d4;
+  padding:30px 15px;
+  margin-top:20px;
+  border:1px solid #b9cdb0;
+}
+
+.book{
+  max-width:760px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:350px;
+  box-shadow:0 8px 20px #647b5830;
+}
+
+.book-photo{
+  background:#829a75;
+  padding:12px;
+}
+
+.book-photo img{
+  width:100%;
+  height:100%;
+  min-height:320px;
+  object-fit:cover;
+  border:5px solid #f5f4e9;
+}
+
+.book-text{
+  background:#faf8ed;
+  padding:30px 25px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.book-text small{
+  color:#9ba68a;
+  text-transform:uppercase;
+  letter-spacing:2px;
+}
+
+.book-text h3{
+  color:#64845c;
+  font-weight:normal;
+  font-size:24px;
+}
+
+.book-text p{
+  color:#65725d;
+  font-size:13px;
+  line-height:1.9;
+}
+
+.book-buttons{
+  display:flex;
+  justify-content:space-between;
   gap:10px;
-  border-top:1px dashed #c3d3b8;
-  padding-top:13px;
   margin-top:15px;
 }
 
 button{
-  background:#8fae80;
-  border:0;
+  border:none;
+  background:#829d76;
   color:white;
   padding:10px 15px;
-  border-radius:20px;
   cursor:pointer;
   font-family:Georgia,serif;
+  border-radius:4px;
 }
 
-button:hover{background:#719264}
+button:hover{background:#647f59}
 
-input,textarea{
-  width:100%;
-  padding:11px;
-  margin:7px 0;
-  border:1px solid #c3d3b8;
-  border-radius:5px;
-  background:white;
-  color:#52634e;
-  font-family:Georgia,serif;
+.page-number{
+  text-align:center;
+  color:#94a48a;
+  font-size:12px;
+  margin-top:12px;
 }
 
-textarea{min-height:110px}
-
-#editor{display:none}
-
-.follow{width:100%}
+/* PIE */
 
 footer{
-  text-align:center;
+  margin-top:40px;
   padding:25px;
-  color:#819777;
-  font-size:12px;
+  text-align:center;
+  background:#dce9d5;
+  color:#789270;
+  font-size:13px;
 }
 
-@media(max-width:850px){
-  .layout{grid-template-columns:1fr 1fr}
-  .center{grid-column:1/-1;grid-row:1}
-}
-
-@media(max-width:550px){
-  .layout{grid-template-columns:1fr}
-  .center{grid-column:auto}
+@media(max-width:650px){
+  .facts{grid-template-columns:1fr}
+  .book{grid-template-columns:1fr}
+  .book-photo img{height:230px;min-height:0}
 }
 </style>
 </head>
@@ -195,241 +275,225 @@ footer{
 
 <header>
   <h1>❀ El jardín de Mile ❀</h1>
-  <p>Un pequeño rincón lleno de vida, hojas y flores ♡</p>
+  <p>Un pequeño rincón para descubrir la naturaleza ♡</p>
 </header>
 
 <nav>
-  <a href="blogs.html">Inicio ♡</a>
-  <a href="#presentacion">Sobre mí</a>
-  <a href="#publicaciones">Mi diario</a>
-  <a href="#editor">Nueva entrada ✎</a>
-  <a href="blogs.html">RL Blogs</a>
+  <a href="blogs.html">Inicio</a>
+  <a href="#bienvenida">Mi jardín</a>
+  <a href="#galeria">Fotografías</a>
+  <a href="#curiosidades">Datos curiosos</a>
+  <a href="#libro">Mi libro</a>
 </nav>
 
-<div class="layout">
+<main class="container">
 
-  <!-- COLUMNA IZQUIERDA -->
-  <aside>
-    <section class="panel">
-      <img class="side-img"
-      src="https://placehold.co/400x300/dcebd3/66845e?text=♡+El+jardin+de+Mile"
-      alt="Jardín de Mile">
+  <section class="intro" id="bienvenida">
+    <h2>Bienvenidos a mi jardín 🌱</h2>
+    <p>
+      ¡Hola! Soy Mile. Me encanta la naturaleza, las plantas,
+      las flores y todos esos pequeños detalles que hacen
+      hermoso al mundo.
+      <br>
+      Este espacio es para compartir descubrimientos,
+      fotografías y curiosidades del mundo natural. ♡
+    </p>
+    <span>✿ Plantas · Flores · Bosques · Naturaleza ✿</span>
+  </section>
 
-      <h3>❀ MI RINCÓN VERDE</h3>
-      <p>Entre plantas, flores y pequeños descubrimientos.</p>
-      <p>🌱 Mi colección de plantas</p>
-      <p>🌷 Flores favoritas</p>
-      <p>🍃 Paseos por la naturaleza</p>
-    </section>
+  <!-- CARRUSEL DE FOTOS -->
 
-    <section class="panel">
-      <h3>🌿 PLANTA FAVORITA</h3>
-      <p>Un espacio para contar cuál es mi planta favorita y por qué la quiero tanto.</p>
-    </section>
+  <section id="galeria">
+    <h2 class="section-title">❀ Un paseo por la naturaleza ❀</h2>
+    <p class="subtitle">Deslizá hacia los costados para descubrir más fotografías →</p>
 
-    <section class="panel">
-      <h3>☀️ RECORDATORIO</h3>
-      <p>Las plantas crecen a su propio ritmo. Nosotros también.</p>
-    </section>
-  </aside>
+    <div class="carousel">
 
-  <!-- COLUMNA CENTRAL -->
-  <main class="center" id="publicaciones">
-    <h2 class="center-title">✿ Bienvenidos a mi jardín ✿</h2>
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=600" alt="Plantas verdes">
+        <h3>Pequeño bosque</h3>
+        <p>Un poquito de verde para alegrar el día.</p>
+      </article>
 
-    <section class="panel" id="editor">
-      <h3>🌱 ESCRIBIR UNA ENTRADA</h3>
-      <input id="postTitle" placeholder="Título de la publicación...">
-      <textarea id="postText" placeholder="¿Qué querés compartir?"></textarea>
-      <label>Agregar una fotografía:</label>
-      <input type="file" id="postImage" accept="image/*">
-      <button onclick="addPost()">Publicar ❀</button>
-      <button onclick="closeEditor()">Cancelar</button>
-    </section>
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600" alt="Flores">
+        <h3>Flores silvestres</h3>
+        <p>Colores que parecen pintados a mano.</p>
+      </article>
 
-    <div style="text-align:center;margin-bottom:18px">
-      <button onclick="openEditor()">＋ Nueva publicación</button>
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600" alt="Planta en maceta">
+        <h3>Un poco de verde</h3>
+        <p>La belleza también está en lo sencillo.</p>
+      </article>
+
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600" alt="Bosque">
+        <h3>Entre árboles</h3>
+        <p>Un lugar para respirar tranquilidad.</p>
+      </article>
+
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600" alt="Jardín">
+        <h3>Jardín secreto</h3>
+        <p>Un rincón lleno de vida.</p>
+      </article>
+
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=600" alt="Flores rosadas">
+        <h3>Un día de primavera</h3>
+        <p>La naturaleza nunca deja de sorprender.</p>
+      </article>
+
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600" alt="Paisaje natural">
+        <h3>Campos infinitos</h3>
+        <p>Un paisaje para quedarse mirando.</p>
+      </article>
+
     </div>
+  </section>
 
-    <div id="posts"></div>
-  </main>
+  <!-- DATOS CURIOSOS -->
 
-  <!-- COLUMNA DERECHA -->
-  <aside>
-    <section class="panel" id="presentacion">
-      <h3>♡ ¡HOLA, SOY MILE!</h3>
-      <p>¡Bienvenidos a mi espacio! Me encanta la naturaleza, las plantas y todo lo que tenga que ver con el mundo verde.</p>
-      <p>Quiero compartir un poquito de lo que me gusta. 🌿</p>
-    </section>
+  <section id="curiosidades">
+    <h2 class="section-title">🌿 ¿Sabías que...?</h2>
+    <p class="subtitle">Pequeños comentarios sobre grandes maravillas naturales.</p>
 
-    <section class="panel">
-      <h3>🌱 SEGUIDORES</h3>
-      <p id="followerCount">Seguidores: 0</p>
-      <button class="follow" id="followButton" onclick="toggleFollow()">Seguir ♡</button>
-    </section>
+    <div class="facts">
 
-    <section class="panel">
-      <h3>🌼 COSAS QUE AMO</h3>
-      <p>🌿 Las plantas</p>
-      <p>🌷 Las flores</p>
-      <p>🦋 Las mariposas</p>
-      <p>🌳 Los árboles</p>
-      <p>☀️ Los días soleados</p>
-    </section>
+      <article class="fact">
+        <div class="fact-head">🌻 Curiosidad n.º 01</div>
+        <p>Los girasoles jóvenes pueden seguir la dirección del sol durante su crecimiento. Este movimiento se llama heliotropismo.</p>
+        <small>Publicado en el jardín de Mile ♡</small>
+      </article>
 
-    <section class="panel">
-      <h3>🍀 PENSAMIENTO DEL DÍA</h3>
-      <p>Donde florece una planta, también puede florecer una sonrisa.</p>
-    </section>
-  </aside>
+      <article class="fact">
+        <div class="fact-head">🍄 Curiosidad n.º 02</div>
+        <p>Los hongos no son plantas: pertenecen a un reino propio llamado Fungi.</p>
+        <small>Publicado en el jardín de Mile ♡</small>
+      </article>
 
-</div>
+      <article class="fact">
+        <div class="fact-head">🌳 Curiosidad n.º 03</div>
+        <p>Los árboles producen oxígeno mediante la fotosíntesis, utilizando la luz del sol, agua y dióxido de carbono.</p>
+        <small>Publicado en el jardín de Mile ♡</small>
+      </article>
+
+      <article class="fact">
+        <div class="fact-head">🌱 Curiosidad n.º 04</div>
+        <p>Algunas semillas pueden permanecer dormidas durante mucho tiempo hasta encontrar las condiciones adecuadas para germinar.</p>
+        <small>Publicado en el jardín de Mile ♡</small>
+      </article>
+
+      <article class="fact">
+        <div class="fact-head">🌷 Curiosidad n.º 05</div>
+        <p>Las flores tienen distintas formas, colores y aromas que pueden atraer a diferentes polinizadores.</p>
+        <small>Publicado en el jardín de Mile ♡</small>
+      </article>
+
+      <article class="fact">
+        <div class="fact-head">🌿 Curiosidad n.º 06</div>
+        <p>El musgo no tiene raíces verdaderas como las plantas comunes. Se sujeta a las superficies mediante estructuras llamadas rizoides.</p>
+        <small>Publicado en el jardín de Mile ♡</small>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- LIBRO INTERACTIVO -->
+
+  <section id="libro">
+    <h2 class="section-title">📖 Mi libro de naturaleza</h2>
+    <p class="subtitle">Cada fotografía tiene una historia. Pasá las páginas para descubrirla.</p>
+
+    <div class="book-area">
+
+      <div class="book">
+
+        <div class="book-photo">
+          <img id="bookImage"
+          src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=700"
+          alt="Fotografía del libro">
+        </div>
+
+        <div class="book-text">
+          <small id="bookNumber">PÁGINA 01</small>
+          <h3 id="bookTitle">El mundo de las plantas</h3>
+          <p id="bookDescription">
+            Las plantas son seres vivos esenciales para nuestro planeta.
+            Nos brindan alimento, refugio y ayudan a mantener el equilibrio
+            de los ecosistemas.
+          </p>
+
+          <div class="book-buttons">
+            <button onclick="changePage(-1)">← Anterior</button>
+            <button onclick="changePage(1)">Siguiente →</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="page-number" id="pageNumber">Página 1 de 5</div>
+
+    </div>
+  </section>
+
+</main>
 
 <footer>
-  Hecho con cariño y muchas plantitas ♡ · RL Blogs
+  Hecho con amor por Mile ♡
+  <br>
+  RL Blogs · Cuidemos nuestro planeta 🌎
 </footer>
 
 <script>
-const STORAGE_KEY="rl_mile_posts";
-const FOLLOW_KEY="rl_mile_following";
-
-let posts=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");
-
-function savePosts(){
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(posts));
-}
-
-function openEditor(){
-  document.getElementById("editor").style.display="block";
-  document.getElementById("postTitle").focus();
-}
-
-function closeEditor(){
-  document.getElementById("editor").style.display="none";
-}
-
-function addPost(){
-  const title=document.getElementById("postTitle").value.trim();
-  const text=document.getElementById("postText").value.trim();
-  const file=document.getElementById("postImage").files[0];
-
-  if(!title||!text){
-    alert("¡Escribí un título y tu publicación! 🌱");
-    return;
+const pages = [
+  {
+    title:"El mundo de las plantas",
+    image:"https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=700",
+    description:"Las plantas son seres vivos esenciales para nuestro planeta. Nos brindan alimento, refugio y ayudan a mantener el equilibrio de los ecosistemas."
+  },
+  {
+    title:"La magia de las flores",
+    image:"https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=700",
+    description:"Las flores no solo son bonitas. Muchas cumplen un papel fundamental en la reproducción de las plantas y atraen polinizadores como abejas y mariposas."
+  },
+  {
+    title:"Los bosques",
+    image:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=700",
+    description:"Los bosques son hogares de muchísimas especies. Sus árboles, plantas, hongos y animales forman ecosistemas llenos de vida."
+  },
+  {
+    title:"Un pequeño jardín",
+    image:"https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=700",
+    description:"Un jardín puede convertirse en un refugio para insectos, aves y otros animales. Incluso un espacio pequeño puede aportar algo a la naturaleza."
+  },
+  {
+    title:"La belleza de la primavera",
+    image:"https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=700",
+    description:"Durante la primavera, muchas plantas florecen y aparecen nuevos brotes. Es una estación llena de cambios y actividad en la naturaleza."
   }
+];
 
-  function publish(image){
-    posts.unshift({
-      id:Date.now(),
-      title,
-      text,
-      image,
-      date:new Date().toLocaleDateString("es-AR"),
-      likes:0
-    });
+let currentPage=0;
 
-    savePosts();
-    renderPosts();
+function changePage(direction){
+  currentPage+=direction;
 
-    document.getElementById("postTitle").value="";
-    document.getElementById("postText").value="";
-    document.getElementById("postImage").value="";
-    closeEditor();
-  }
+  if(currentPage<0) currentPage=pages.length-1;
+  if(currentPage>=pages.length) currentPage=0;
 
-  if(file){
-    const reader=new FileReader();
-    reader.onload=()=>publish(reader.result);
-    reader.readAsDataURL(file);
-  }else{
-    publish("");
-  }
+  const page=pages[currentPage];
+
+  document.getElementById("bookImage").src=page.image;
+  document.getElementById("bookTitle").textContent=page.title;
+  document.getElementById("bookDescription").textContent=page.description;
+  document.getElementById("bookNumber").textContent=
+    "PÁGINA "+String(currentPage+1).padStart(2,"0");
+  document.getElementById("pageNumber").textContent=
+    "Página "+(currentPage+1)+" de "+pages.length;
 }
-
-function likePost(id){
-  const post=posts.find(p=>p.id===id);
-  if(!post)return;
-  post.likes++;
-  savePosts();
-  renderPosts();
-}
-
-function deletePost(id){
-  if(!confirm("¿Eliminar esta publicación?"))return;
-  posts=posts.filter(p=>p.id!==id);
-  savePosts();
-  renderPosts();
-}
-
-function escapeHTML(value){
-  return value.replace(/[&<>"']/g,char=>({
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#39;"
-  })[char]);
-}
-
-function renderPosts(){
-  const container=document.getElementById("posts");
-
-  if(posts.length===0){
-    container.innerHTML=`
-      <article class="post">
-        <div class="post-date">Mi primera entrada</div>
-        <h2>Un pequeño comienzo 🌱</h2>
-        <p>¡Hola! Este es mi pequeño jardín virtual.
-
-Acá voy a compartir fotos de plantas, flores, paseos y todas esas cositas de la naturaleza que me encantan.
-
-¡Gracias por visitar mi espacio! ♡</p>
-        <div class="post-actions">
-          <button onclick="likeFirst()">♡ Me gusta</button>
-          <span id="firstLikes">0 me gusta</span>
-        </div>
-      </article>`;
-    return;
-  }
-
-  container.innerHTML=posts.map(post=>`
-    <article class="post">
-      <div class="post-date">${post.date}</div>
-      <h2>${escapeHTML(post.title)}</h2>
-      ${post.image?`<img src="${post.image}" alt="Fotografía de la publicación">`:""}
-      <p>${escapeHTML(post.text)}</p>
-      <div class="post-actions">
-        <button onclick="likePost(${post.id})">♡ Me gusta</button>
-        <span>${post.likes} me gusta</span>
-        <button onclick="deletePost(${post.id})">Eliminar</button>
-      </div>
-    </article>
-  `).join("");
-}
-
-let firstLikes=0;
-
-function likeFirst(){
-  firstLikes++;
-  document.getElementById("firstLikes").textContent=firstLikes+" me gusta";
-}
-
-function toggleFollow(){
-  const following=localStorage.getItem(FOLLOW_KEY)==="true";
-  localStorage.setItem(FOLLOW_KEY,String(!following));
-  updateFollow();
-}
-
-function updateFollow(){
-  const following=localStorage.getItem(FOLLOW_KEY)==="true";
-  document.getElementById("followButton").textContent=
-    following?"Siguiendo ✓":"Seguir ♡";
-  document.getElementById("followerCount").textContent=
-    "Seguidores: "+(following?1:0);
-}
-
-renderPosts();
-updateFollow();
 </script>
 
 </body>
