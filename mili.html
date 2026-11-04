@@ -9,51 +9,178 @@
 <style>
 *{box-sizing:border-box}
 
+html{scroll-behavior:smooth}
+
 body{
   margin:0;
-  background:#eee9f5;
-  color:#554765;
+  color:#e6d9f5;
   font-family:Georgia,serif;
+  background:
+    radial-gradient(ellipse at 15% 15%,#44205f 0%,transparent 40%),
+    radial-gradient(ellipse at 90% 75%,#32134d 0%,transparent 45%),
+    linear-gradient(135deg,#100b18,#21102f 50%,#0b0912);
+  overflow-x:hidden;
+  position:relative;
 }
+
+/* NIEVE DEL FONDO */
+
+body:before,
+body:after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+}
+
+body:before{
+  opacity:.65;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px,#fff 99%,transparent),
+    radial-gradient(2px 2px at 100px 150px,#d9c4ff 99%,transparent),
+    radial-gradient(3px 3px at 180px 80px,#fff 99%,transparent),
+    radial-gradient(2px 2px at 250px 220px,#c9a9f3 99%,transparent),
+    radial-gradient(2px 2px at 330px 40px,#fff 99%,transparent);
+  background-size:350px 280px;
+  animation:snow 18s linear infinite;
+}
+
+body:after{
+  opacity:.35;
+  background-image:
+    radial-gradient(3px 3px at 50px 100px,#fff 99%,transparent),
+    radial-gradient(2px 2px at 150px 200px,#d8c2f8 99%,transparent),
+    radial-gradient(2px 2px at 280px 60px,#fff 99%,transparent);
+  background-size:300px 250px;
+  animation:snow 25s linear infinite reverse;
+}
+
+@keyframes snow{
+  from{background-position:0 0}
+  to{background-position:0 500px}
+}
+
+/* DIBUJOS DECORATIVOS */
+
+.decor{
+  position:fixed;
+  top:0;
+  bottom:0;
+  width:100px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:center;
+  pointer-events:none;
+  z-index:1;
+  opacity:.55;
+  overflow:hidden;
+}
+
+.decor.left{left:0}
+.decor.right{right:0}
+
+.decor span{
+  display:block;
+  font-size:35px;
+  filter:drop-shadow(0 0 8px #a66be8);
+  animation:float 5s ease-in-out infinite;
+}
+
+.decor span:nth-child(even){
+  font-size:28px;
+  animation-delay:1s;
+}
+
+.decor span:nth-child(3n){
+  animation-delay:2s;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(-8deg)}
+  50%{transform:translateY(-12px) rotate(8deg)}
+}
+
+header,nav,.layout,footer{
+  position:relative;
+  z-index:2;
+}
+
+/* ENCABEZADO */
 
 header{
   text-align:center;
-  padding:55px 15px 40px;
-  background:linear-gradient(#ded1ef,#f5effb);
-  border-bottom:3px dashed #b9a3d2;
+  padding:60px 15px 40px;
+  background:linear-gradient(120deg,#251234ed,#120c1ced,#321745ed);
+  border-bottom:2px solid #8054a5;
+  box-shadow:0 5px 25px #0008;
+  overflow:hidden;
+}
+
+header:before{
+  content:"☾";
+  position:absolute;
+  left:8%;
+  top:20px;
+  font-size:65px;
+  color:#b99bdc;
+  opacity:.4;
+}
+
+header:after{
+  content:"✦";
+  position:absolute;
+  right:10%;
+  bottom:15px;
+  font-size:55px;
+  color:#d4b9f5;
+  opacity:.5;
 }
 
 header h1{
   margin:0;
   font-size:clamp(38px,7vw,65px);
   font-weight:normal;
-  color:#8465a6;
+  color:#d6b5fa;
+  text-shadow:0 0 15px #9b5bc9;
 }
 
 header p{
-  color:#a18ab9;
+  color:#b99bd4;
   font-style:italic;
 }
 
+/* NAVEGACIÓN */
+
 nav{
-  background:#c5b0dc;
+  background:#271536ed;
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
   gap:9px;
   padding:13px;
+  border-bottom:1px solid #68458a;
 }
 
 nav a{
   text-decoration:none;
-  color:#604d79;
-  background:#f8f3ff;
+  color:#d8c4ed;
+  background:#39234d;
+  border:1px solid #654783;
   padding:10px 16px;
-  border-radius:5px;
+  border-radius:6px;
   font-size:13px;
+  transition:.2s;
 }
 
-nav a:hover{background:white}
+nav a:hover{
+  background:#68458a;
+  color:white;
+  transform:translateY(-2px);
+}
+
+/* ESTRUCTURA */
 
 .layout{
   max-width:1250px;
@@ -66,54 +193,90 @@ nav a:hover{background:white}
 }
 
 .panel,.post{
-  background:#f8f5fc;
-  border:1px solid #cbb9df;
-  border-radius:7px;
+  background:#1c1428ed;
+  border:1px solid #69498b;
+  border-radius:9px;
   padding:16px;
   margin-bottom:18px;
-  box-shadow:0 3px 12px #60417d18;
+  box-shadow:0 4px 18px #0005;
+  backdrop-filter:blur(5px);
 }
 
 .panel h3{
-  color:#8d70ae;
+  color:#c3a0e7;
   font-size:15px;
-  border-bottom:1px dashed #c5b1d9;
+  border-bottom:1px dashed #765595;
   padding-bottom:9px;
 }
 
 .panel p{
   font-size:13px;
   line-height:1.8;
+  color:#d3c4e3;
 }
 
 .side-img{
   width:100%;
-  border:5px solid white;
-  border-radius:5px;
+  border:4px solid #39264e;
+  border-radius:6px;
+  display:block;
 }
 
 .center-title{
   text-align:center;
-  color:#896baa;
+  color:#d0adef;
   font-size:23px;
   font-weight:normal;
   margin:8px 0 20px;
+  text-shadow:0 0 10px #8e5ab8;
 }
+
+/* PRESENTACIÓN */
+
+.hero{
+  text-align:center;
+  padding:28px;
+  background:linear-gradient(135deg,#30203f,#1a1226);
+  border:1px dashed #906ab5;
+  border-radius:10px;
+  margin-bottom:25px;
+}
+
+.hero h2{
+  color:#d6b7f3;
+  font-size:26px;
+  font-weight:normal;
+}
+
+.hero p{
+  font-size:14px;
+  line-height:1.9;
+  color:#d2c2e1;
+}
+
+.tag{
+  color:#b99bd4;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+/* DIARIO */
 
 .post{
   padding:21px;
-  background:#f8f5fc;
+  background:linear-gradient(145deg,#21162e,#191120);
 }
 
 .post-date{
   font-size:11px;
-  color:#a28ab9;
+  color:#ae8acb;
   text-transform:uppercase;
   letter-spacing:1px;
 }
 
 .post h2{
-  color:#805fa5;
+  color:#d0adef;
   font-weight:normal;
   font-size:23px;
 }
@@ -122,15 +285,16 @@ nav a:hover{background:white}
   font-size:14px;
   line-height:1.9;
   white-space:pre-wrap;
+  color:#ded2eb;
 }
 
 .post img{
   max-width:100%;
-  max-height:420px;
+  max-height:350px;
   display:block;
   margin:15px auto;
-  border:6px solid white;
-  border-radius:5px;
+  border:5px solid #49315e;
+  border-radius:6px;
 }
 
 .post-actions{
@@ -138,281 +302,461 @@ nav a:hover{background:white}
   align-items:center;
   flex-wrap:wrap;
   gap:10px;
-  border-top:1px dashed #cbb9df;
+  border-top:1px dashed #69498b;
   padding-top:13px;
   margin-top:15px;
 }
 
 button{
-  background:#9878b9;
-  border:0;
+  background:#76509b;
+  border:1px solid #a27bc7;
   color:white;
-  padding:10px 15px;
-  border-radius:5px;
+  padding:9px 15px;
+  border-radius:6px;
   cursor:pointer;
   font-family:Georgia,serif;
+  transition:.2s;
 }
 
-button:hover{background:#795a9b}
+button:hover{background:#986dc0}
 
-input,textarea{
+.like-count{
+  color:#c9b1df;
+  font-size:12px;
+}
+
+.like-button.liked{
+  background:#a04491;
+  border-color:#d18bc5;
+}
+
+/* VIDEOJUEGOS */
+
+.games{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
+}
+
+.game{
+  background:#251932;
+  border:1px solid #654783;
+  border-radius:8px;
+  overflow:hidden;
+}
+
+.game img{
   width:100%;
-  padding:11px;
-  margin:7px 0;
-  border:1px solid #cbb9df;
-  border-radius:5px;
-  background:white;
-  color:#554765;
-  font-family:Georgia,serif;
+  height:145px;
+  object-fit:cover;
+  display:block;
 }
 
-textarea{min-height:110px}
+.game-info{padding:12px}
 
-#editor{display:none}
+.game h3{
+  color:#d0adef;
+  font-size:16px;
+  font-weight:normal;
+  margin:3px 0 8px;
+}
 
-.follow{width:100%}
+.game p{
+  font-size:12px;
+  line-height:1.6;
+  color:#cdbddc;
+}
+
+/* GALERÍA */
+
+.gallery{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding:10px 3px 16px;
+}
+
+.gallery img{
+  flex:0 0 155px;
+  width:155px;
+  height:180px;
+  object-fit:cover;
+  border:4px solid #49315e;
+  border-radius:6px;
+}
+
+/* BURBUJAS */
+
+.bubble{
+  background:#291b37;
+  border:1px solid #62457c;
+  border-radius:18px 18px 18px 5px;
+  padding:13px;
+  margin:12px 0;
+}
+
+.bubble p{
+  font-size:12px;
+  line-height:1.7;
+}
+
+.bubble-icon{font-size:24px}
+
+/* SEGUIDORES */
+
+.follow{
+  width:100%;
+  margin-top:8px;
+}
+
+#followerCount{
+  color:#d8c0f0;
+  font-size:14px;
+  text-align:center;
+}
+
+/* PIE */
 
 footer{
   text-align:center;
   padding:25px;
-  color:#957eac;
+  color:#ae91c9;
   font-size:12px;
+  background:#160f20dd;
+  border-top:1px solid #69498b;
 }
+
+/* RESPONSIVE */
 
 @media(max-width:850px){
   .layout{grid-template-columns:1fr 1fr}
   .center{grid-column:1/-1;grid-row:1}
+  .decor{width:45px;opacity:.35}
+  .decor span{font-size:25px}
 }
 
 @media(max-width:550px){
   .layout{grid-template-columns:1fr}
   .center{grid-column:auto}
+  .games{grid-template-columns:1fr 1fr}
+  .decor{width:25px;opacity:.22}
+  .decor span{font-size:18px}
+  header{padding:45px 12px 30px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- DECORACIONES DEL FONDO -->
+
+<div class="decor left" aria-hidden="true">
+  <span>🐈‍⬛</span>
+  <span>💄</span>
+  <span>🎮</span>
+  <span>✦</span>
+  <span>🐾</span>
+  <span>💜</span>
+  <span>🎧</span>
+  <span>🐈‍⬛</span>
+</div>
+
+<div class="decor right" aria-hidden="true">
+  <span>💜</span>
+  <span>🎮</span>
+  <span>🐈‍⬛</span>
+  <span>💅</span>
+  <span>✧</span>
+  <span>🎀</span>
+  <span>🐾</span>
+  <span>💄</span>
+</div>
+
 <header>
   <h1>☾ El rincón de Mili ☽</h1>
-  <p>Videojuegos, historias extrañas y mundos misteriosos ♡</p>
+  <p>Videojuegos, maquillaje, gatitos y pequeñas obsesiones ♡</p>
 </header>
 
 <nav>
   <a href="blogs.html">Inicio ♡</a>
   <a href="#presentacion">Sobre mí</a>
-  <a href="#publicaciones">Mi diario</a>
-  <a href="#editor">Nueva entrada ✎</a>
+  <a href="#diario">Mi diario</a>
+  <a href="#juegos">Videojuegos</a>
+  <a href="#galeria">Galería</a>
   <a href="blogs.html">RL Blogs</a>
 </nav>
 
 <div class="layout">
 
-  <!-- COLUMNA IZQUIERDA -->
-  <aside>
-    <section class="panel">
-      <img class="side-img"
-      src="https://placehold.co/400x300/e4d8f2/8465a6?text=♡+Mili+♡"
-      alt="El rincón de Mili">
+<!-- COLUMNA IZQUIERDA -->
 
-      <h3>🎮 MI UNIVERSO</h3>
-      <p>Un lugar para hablar de mis mundos favoritos.</p>
-      <p>🕹️ Videojuegos</p>
-      <p>👾 Personajes favoritos</p>
-      <p>📼 Historias de internet</p>
-    </section>
+<aside>
+  <section class="panel">
+    <img class="side-img"
+    src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=500"
+    alt="Gatito">
 
-    <section class="panel">
-      <h3>☾ LISTA DE JUEGOS</h3>
-      <p>Juegos que estoy jugando, quiero probar o nunca voy a olvidar.</p>
-    </section>
+    <h3>🐈‍⬛ MI PEQUEÑO UNIVERSO</h3>
+    <p>Un rincón para guardar mis gustos, ideas y cosas favoritas.</p>
+    <p>♡ Gatitos</p>
+    <p>♡ Videojuegos</p>
+    <p>♡ Maquillaje</p>
+    <p>♡ Música y noches tranquilas</p>
+  </section>
 
-    <section class="panel">
-      <h3>📁 ARCHIVO MISTERIOSO</h3>
-      <p>Historias, leyendas y creepypastas que me parecen interesantes.</p>
-    </section>
-  </aside>
+  <section class="panel">
+    <h3>💄 MI NECESER</h3>
+    <p>Un poquito de color, brillo y creatividad.</p>
+    <p>✧ Labiales</p>
+    <p>✧ Sombras</p>
+    <p>✧ Brillitos</p>
+    <p>✧ Maquillaje creativo</p>
+  </section>
 
-  <!-- COLUMNA CENTRAL -->
-  <main class="center" id="publicaciones">
-    <h2 class="center-title">✧ Bienvenidos a mi mundo ✧</h2>
+  <section class="panel">
+    <h3>🎮 EN MI LISTA</h3>
+    <p>Juegos que quiero probar y mundos que quiero explorar.</p>
+    <p>♡ Aventuras</p>
+    <p>♡ Juegos de misterio</p>
+    <p>♡ Juegos de terror</p>
+  </section>
+</aside>
 
-    <section class="panel" id="editor">
-      <h3>☾ ESCRIBIR UNA ENTRADA</h3>
-      <input id="postTitle" placeholder="Título de la publicación...">
-      <textarea id="postText" placeholder="Escribí tu historia, opinión o recomendación..."></textarea>
-      <label>Agregar una imagen:</label>
-      <input type="file" id="postImage" accept="image/*">
-      <button onclick="addPost()">Publicar ♡</button>
-      <button onclick="closeEditor()">Cancelar</button>
-    </section>
+<!-- CENTRO -->
 
-    <div style="text-align:center;margin-bottom:18px">
-      <button onclick="openEditor()">＋ Nueva publicación</button>
+<main class="center">
+
+  <h2 class="center-title">✧ Bienvenidos a mi mundo ✧</h2>
+
+  <section class="hero" id="presentacion">
+    <span class="tag">☾ Un poquito sobre mí ☽</span>
+    <h2>¡Hola! Soy Mili 💜</h2>
+    <p>
+      Este es mi pequeño rincón de internet.
+      Me gustan los videojuegos, los gatitos, el maquillaje
+      y descubrir cosas nuevas.
+
+      Acá puedo guardar pensamientos, recuerdos,
+      recomendaciones y todo lo que forma parte de mi mundo.
+    </p>
+    <p>♡ Gracias por pasar por aquí ♡</p>
+  </section>
+
+  <!-- DIARIO -->
+
+  <h2 class="center-title" id="diario">📖 Mi diario personal</h2>
+
+  <article class="post">
+    <span class="post-date">✦ UNA PÁGINA DE MI DIARIO</span>
+    <h2>Querido diario... ♡</h2>
+    <p>
+      A veces siento que mi cabeza es una mezcla de mil cosas:
+      canciones, videojuegos, ideas, personajes y pensamientos
+      que aparecen de la nada.
+
+      Por eso quería tener un lugar donde guardar un poquito
+      de todo eso. Este rincón es como una pequeña colección
+      de cosas que me gustan y momentos que quiero recordar.
+    </p>
+    <div class="post-actions">
+      <button class="like-button" onclick="toggleLike('diary1',this)">♡ Me gusta</button>
+      <span class="like-count" id="count-diary1">0 me gusta</span>
     </div>
+  </article>
 
-    <div id="posts"></div>
-  </main>
+  <article class="post">
+    <span class="post-date">✦ PENSAMIENTOS NOCTURNOS</span>
+    <h2>Las noches tienen otra vibra 🌙</h2>
+    <p>
+      Hay algo especial en las noches: las luces, la música,
+      el silencio y ese momento en el que puedo desconectarme
+      un ratito de todo.
 
-  <!-- COLUMNA DERECHA -->
-  <aside>
-    <section class="panel" id="presentacion">
-      <h3>♡ ¡HOLA, SOY MILI!</h3>
-      <p>¡Bienvenidos a mi rincón! Me gustan los videojuegos, las creepypastas y las historias que te dejan pensando.</p>
-      <p>Este es mi pequeño espacio para compartir todo eso. ☾</p>
-    </section>
+      A veces prefiero jugar, otras mirar videos o simplemente
+      escuchar canciones. Son pequeños momentos que hacen
+      que un día común se sienta diferente.
+    </p>
+    <div class="post-actions">
+      <button class="like-button" onclick="toggleLike('diary2',this)">♡ Me gusta</button>
+      <span class="like-count" id="count-diary2">0 me gusta</span>
+    </div>
+  </article>
 
-    <section class="panel">
-      <h3>💜 SEGUIDORES</h3>
-      <p id="followerCount">Seguidores: 0</p>
-      <button class="follow" id="followButton" onclick="toggleFollow()">Seguir ♡</button>
-    </section>
+  <article class="post">
+    <span class="post-date">✦ OTRA NOTITA</span>
+    <h2>Un poquito de todo 💄</h2>
+    <p>
+      Me gusta tener diferentes intereses. Un día puedo estar
+      pensando en un videojuego y al siguiente descubrir
+      un maquillaje que me encanta.
 
-    <section class="panel">
-      <h3>🎮 MIS FAVORITOS</h3>
-      <p>🕹️ Videojuegos</p>
-      <p>👾 Personajes misteriosos</p>
-      <p>📺 Historias de terror</p>
-      <p>💜 Color violeta</p>
-      <p>🌙 Noches de juegos</p>
-    </section>
+      No hace falta elegir una sola cosa cuando hay tantos
+      mundos diferentes para disfrutar.
+    </p>
+    <div class="post-actions">
+      <button class="like-button" onclick="toggleLike('diary3',this)">♡ Me gusta</button>
+      <span class="like-count" id="count-diary3">0 me gusta</span>
+    </div>
+  </article>
 
-    <section class="panel">
-      <h3>⚠️ NOTA DEL ARCHIVO</h3>
-      <p>No todas las historias de internet son reales. Algunas son leyendas creadas para entretener.</p>
-    </section>
-  </aside>
+  <!-- VIDEOJUEGOS -->
+
+  <h2 class="center-title" id="juegos">🎮 Mi mundo gamer</h2>
+
+  <section class="panel">
+    <p>Algunos mundos y aventuras que forman parte de mi lista ♡</p>
+
+    <div class="games">
+      <article class="game">
+        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500" alt="Videojuegos">
+        <div class="game-info">
+          <h3>Juegos de aventura</h3>
+          <p>Explorar lugares nuevos, descubrir secretos y vivir historias.</p>
+        </div>
+      </article>
+
+      <article class="game">
+        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500" alt="Consola">
+        <div class="game-info">
+          <h3>Mi lado gamer</h3>
+          <p>Controles, partidas y momentos divertidos.</p>
+        </div>
+      </article>
+
+      <article class="game">
+        <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=500" alt="Juego">
+        <div class="game-info">
+          <h3>Mundos virtuales</h3>
+          <p>Historias y personajes para descubrir.</p>
+        </div>
+      </article>
+
+      <article class="game">
+        <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500" alt="Setup gamer">
+        <div class="game-info">
+          <h3>Modo nocturno</h3>
+          <p>Una partida más antes de terminar el día.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+
+  <h2 class="center-title" id="galeria">💜 Mi pequeña galería</h2>
+
+  <section class="panel">
+    <p>Una colección de imágenes que combinan con mi mundo.</p>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=400" alt="Gatito">
+      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=400" alt="Estética">
+      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400" alt="Videojuegos">
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400" alt="Maquillaje">
+      <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400" alt="Creatividad">
+    </div>
+  </section>
+
+</main>
+
+<!-- COLUMNA DERECHA -->
+
+<aside>
+
+  <section class="panel">
+    <h3>♡ VISITANTES DEL RINCÓN</h3>
+    <p id="followerCount">Seguidores: 0</p>
+    <button class="follow" id="followButton" onclick="toggleFollow()">Seguir a Mili ♡</button>
+  </section>
+
+  <section class="panel">
+    <h3>🎀 MIS FAVORITOS</h3>
+    <p>🐈‍⬛ Gatitos</p>
+    <p>🎮 Videojuegos</p>
+    <p>💄 Maquillaje</p>
+    <p>🎧 Música</p>
+    <p>💜 El color violeta</p>
+  </section>
+
+  <section class="panel">
+    <h3>🌙 PENSAMIENTO DEL DÍA</h3>
+    <div class="bubble">
+      <span class="bubble-icon">✦</span>
+      <p>«No todos los días tienen que ser iguales. Siempre hay algo nuevo por descubrir».</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h3>🐾 MENSAJITO GATUNO</h3>
+    <img class="side-img"
+    src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500"
+    alt="Gato">
+    <p>Un pequeño recordatorio de que los gatitos hacen todo un poquito mejor ♡</p>
+  </section>
+
+  <section class="panel">
+    <h3>💜 PEQUEÑOS RECORDATORIOS</h3>
+    <div class="bubble">
+      <span class="bubble-icon">🎮</span>
+      <p>Descansar también es parte de la partida.</p>
+    </div>
+    <div class="bubble">
+      <span class="bubble-icon">🐈‍⬛</span>
+      <p>Siempre hay tiempo para un gatito.</p>
+    </div>
+    <div class="bubble">
+      <span class="bubble-icon">✧</span>
+      <p>Seguí disfrutando de las cosas que te gustan.</p>
+    </div>
+  </section>
+
+</aside>
 
 </div>
 
 <footer>
-  Hecho con ♡ y un poquito de misterio · RL Blogs
+  Hecho con ♡, gatitos y un poquito de magia violeta · RL Blogs
 </footer>
 
 <script>
-const STORAGE_KEY="rl_mili_posts";
+/* LIKES */
+
+const LIKE_KEY="rl_mili_likes";
 const FOLLOW_KEY="rl_mili_following";
 
-let posts=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");
+let likedPosts=JSON.parse(localStorage.getItem(LIKE_KEY)||"[]");
 
-function savePosts(){
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(posts));
+function saveLikes(){
+  localStorage.setItem(LIKE_KEY,JSON.stringify(likedPosts));
 }
 
-function openEditor(){
-  document.getElementById("editor").style.display="block";
-  document.getElementById("postTitle").focus();
-}
-
-function closeEditor(){
-  document.getElementById("editor").style.display="none";
-}
-
-function addPost(){
-  const title=document.getElementById("postTitle").value.trim();
-  const text=document.getElementById("postText").value.trim();
-  const file=document.getElementById("postImage").files[0];
-
-  if(!title||!text){
-    alert("¡Escribí un título y tu publicación! 💜");
-    return;
-  }
-
-  function publish(image){
-    posts.unshift({
-      id:Date.now(),
-      title,
-      text,
-      image,
-      date:new Date().toLocaleDateString("es-AR"),
-      likes:0
-    });
-
-    savePosts();
-    renderPosts();
-
-    document.getElementById("postTitle").value="";
-    document.getElementById("postText").value="";
-    document.getElementById("postImage").value="";
-    closeEditor();
-  }
-
-  if(file){
-    const reader=new FileReader();
-    reader.onload=()=>publish(reader.result);
-    reader.readAsDataURL(file);
+function toggleLike(id,button){
+  if(likedPosts.includes(id)){
+    likedPosts=likedPosts.filter(item=>item!==id);
   }else{
-    publish("");
-  }
-}
-
-function likePost(id){
-  const post=posts.find(p=>p.id===id);
-  if(!post)return;
-  post.likes++;
-  savePosts();
-  renderPosts();
-}
-
-function deletePost(id){
-  if(!confirm("¿Eliminar esta publicación?"))return;
-  posts=posts.filter(p=>p.id!==id);
-  savePosts();
-  renderPosts();
-}
-
-function escapeHTML(value){
-  return value.replace(/[&<>"']/g,char=>({
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#39;"
-  })[char]);
-}
-
-function renderPosts(){
-  const container=document.getElementById("posts");
-
-  if(posts.length===0){
-    container.innerHTML=`
-      <article class="post">
-        <div class="post-date">Mi primera entrada</div>
-        <h2>Bienvenidos a mi rincón ☾</h2>
-        <p>¡Hola! Este es mi pequeño espacio.
-
-Acá voy a compartir mis videojuegos favoritos, recomendaciones, personajes, creepypastas e historias misteriosas de internet.
-
-¡Espero que disfruten explorar este rincón tanto como yo! ♡</p>
-        <div class="post-actions">
-          <button onclick="likeFirst()">♡ Me gusta</button>
-          <span id="firstLikes">0 me gusta</span>
-        </div>
-      </article>`;
-    return;
+    likedPosts.push(id);
   }
 
-  container.innerHTML=posts.map(post=>`
-    <article class="post">
-      <div class="post-date">${post.date}</div>
-      <h2>${escapeHTML(post.title)}</h2>
-      ${post.image?`<img src="${post.image}" alt="Imagen de la publicación">`:""}
-      <p>${escapeHTML(post.text)}</p>
-      <div class="post-actions">
-        <button onclick="likePost(${post.id})">♡ Me gusta</button>
-        <span>${post.likes} me gusta</span>
-        <button onclick="deletePost(${post.id})">Eliminar</button>
-      </div>
-    </article>
-  `).join("");
+  saveLikes();
+  updateLikes();
 }
 
-let firstLikes=0;
+function updateLikes(){
+  ["diary1","diary2","diary3"].forEach(id=>{
+    const button=document.querySelector(
+      `[onclick="toggleLike('${id}',this)"]`
+    );
+    const count=document.getElementById("count-"+id);
 
-function likeFirst(){
-  firstLikes++;
-  document.getElementById("firstLikes").textContent=firstLikes+" me gusta";
+    if(!button||!count)return;
+
+    const liked=likedPosts.includes(id);
+    button.classList.toggle("liked",liked);
+    button.textContent=liked?"♥ Te gusta":"♡ Me gusta";
+    count.textContent=(liked?1:0)+" me gusta";
+  });
 }
+
+/* SEGUIDORES */
 
 function toggleFollow(){
   const following=localStorage.getItem(FOLLOW_KEY)==="true";
@@ -422,13 +766,15 @@ function toggleFollow(){
 
 function updateFollow(){
   const following=localStorage.getItem(FOLLOW_KEY)==="true";
+
   document.getElementById("followButton").textContent=
-    following?"Siguiendo ✓":"Seguir ♡";
+    following?"Siguiendo ✓":"Seguir a Mili ♡";
+
   document.getElementById("followerCount").textContent=
     "Seguidores: "+(following?1:0);
 }
 
-renderPosts();
+updateLikes();
 updateFollow();
 </script>
 
