@@ -4,13 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RL | APKs</title>
+<meta name="description" content="Biblioteca de aplicaciones de RL.">
+<title>RL | Biblioteca de APKs</title>
 
 <style>
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -18,93 +20,232 @@ body {
     color: #e5eaff;
     font-family: Georgia, serif;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(2px 2px at 10% 20%, white, transparent),
+        radial-gradient(2px 2px at 30% 70%, #8eb4ff, transparent),
+        radial-gradient(2px 2px at 80% 30%, white, transparent),
+        radial-gradient(1px 1px at 65% 85%, #8eb4ff, transparent);
+    background-size: 180px 180px;
+}
+
+/* ENCABEZADO */
+
 header {
-    padding: 25px;
+    padding: 22px;
     text-align: center;
     border-bottom: 1px solid #4267b4;
     box-shadow: 0 0 15px #1746a5;
+    background: rgba(0,0,0,.8);
 }
 
-header h1 {
-    font-size: 55px;
+.logo {
+    font-size: 60px;
     font-style: italic;
+    color: #e5eaff;
     text-shadow: 0 0 15px #5284ff;
-}
-
-header a {
-    color: #b9ceff;
     text-decoration: none;
 }
 
-main {
-    padding: 40px 6%;
+header p {
+    color: #b9ceff;
+    font-style: italic;
+    margin: 5px 0 15px;
 }
 
-h2 {
+.volver {
+    display: inline-block;
+    color: #e5eaff;
+    text-decoration: none;
+    border: 1px solid #6f9aff;
+    padding: 9px 22px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px #3974ff;
+    transition: .3s;
+}
+
+.volver:hover {
+    background: #10275e;
+    box-shadow: 0 0 20px #5287ff;
+}
+
+/* CONTENIDO */
+
+main {
+    padding: 45px 6%;
+    max-width: 1500px;
+    margin: auto;
+}
+
+.titulo {
     text-align: center;
-    font-size: 32px;
+    font-size: clamp(26px, 4vw, 36px);
     font-weight: normal;
-    margin-bottom: 30px;
+    font-style: italic;
+    margin-bottom: 12px;
     text-shadow: 0 0 12px #477dff;
 }
 
+.subtitulo {
+    text-align: center;
+    color: #cbd8ff;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+/* TARJETAS */
+
 .tarjetas {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
 }
 
 .tarjeta {
-    background: linear-gradient(135deg, #071637, #010208);
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 10% 100%, #10285c 0%, transparent 50%),
+        linear-gradient(135deg, #071637, #010208);
     border: 1px solid #6f9aff;
     border-radius: 18px;
-    padding: 28px;
+    padding: 30px 22px;
     text-align: center;
-    box-shadow: 0 0 12px #285bdb;
+    box-shadow: 0 0 12px #285bdb,
+                inset 0 0 15px rgba(48,91,199,.2);
+    transition: .3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 0 25px #3974ff;
+    border-color: #b9ceff;
+}
+
+.tarjeta::after {
+    content: "✦";
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 20px;
+    color: #b9ceff;
+    text-shadow: 0 0 12px #5284ff;
 }
 
 .icono {
-    font-size: 45px;
-    margin-bottom: 12px;
+    font-size: 52px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 10px #5284ff);
 }
 
 .tarjeta h3 {
     font-size: 25px;
+    font-weight: normal;
+    font-style: italic;
     margin-bottom: 12px;
+    text-shadow: 0 0 10px #5284ff;
 }
 
 .tarjeta p {
     color: #cbd8ff;
-    margin-bottom: 22px;
+    line-height: 1.6;
+    min-height: 50px;
+    margin-bottom: 23px;
 }
+
+/* BOTÓN */
 
 .boton {
     display: inline-block;
-    padding: 10px 25px;
+    padding: 10px 26px;
     color: white;
     text-decoration: none;
     border: 1px solid #8eb4ff;
     border-radius: 25px;
+    background: rgba(0,0,0,.5);
     box-shadow: 0 0 10px #3974ff;
+    transition: .3s;
 }
 
 .boton:hover {
     background: #173d91;
+    box-shadow: 0 0 20px #5287ff;
+    transform: scale(1.05);
 }
 
-.volver {
-    display: block;
-    width: fit-content;
-    margin: 40px auto;
+/* AVISO */
+
+.aviso {
+    max-width: 750px;
+    margin: 45px auto 0;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #4267b4;
+    border-radius: 15px;
+    background: rgba(5,15,40,.7);
+    box-shadow: 0 0 12px #1746a5;
+}
+
+.aviso h3 {
+    font-size: 20px;
+    font-weight: normal;
+    font-style: italic;
+    margin-bottom: 10px;
     color: #b9ceff;
-    text-decoration: none;
 }
 
-@media(max-width: 800px) {
+.aviso p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #cbd8ff;
+}
+
+/* PIE */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 30px;
+    border-top: 1px solid #294b9d;
+    color: #b9ceff;
+    font-style: italic;
+}
+
+/* CELULARES */
+
+@media(max-width: 850px) {
+    .tarjetas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media(max-width: 550px) {
+    header {
+        padding: 20px 10px;
+    }
+
+    .logo {
+        font-size: 48px;
+    }
+
+    main {
+        padding: 35px 18px;
+    }
+
     .tarjetas {
         grid-template-columns: 1fr;
+    }
+
+    .tarjeta {
+        padding: 28px 20px;
     }
 }
 </style>
@@ -113,40 +254,79 @@ h2 {
 <body>
 
 <header>
-    <h1>RL ✦</h1>
-    <a href="index.html">← Volver al inicio</a>
+    <a href="index.html" class="logo">RL ✦</a>
+
+    <p>Belleza, tecnología y más...</p>
+
+    <a href="index.html" class="volver">
+        ← Volver al inicio
+    </a>
 </header>
 
 <main>
-    <h2>✦ Biblioteca de APKs ✦</h2>
+
+    <h1 class="titulo">✦ Biblioteca de APKs ✦</h1>
+
+    <p class="subtitulo">
+        Explorá nuestra colección de aplicaciones y herramientas.
+    </p>
 
     <div class="tarjetas">
 
         <article class="tarjeta">
             <div class="icono">📱</div>
-            <h3>Aplicación 1</h3>
-            <p>Descripción de la aplicación.</p>
-            <a class="boton" href="https://www.mediafire.com/file/w2avd0ktroq4nv6/COM.WEBPlus_YesiiMods_V9.36.apk/file" target="_blank" rel="noopener noreferrer">Descargar →</a>
+            <h3>YesiiMods</h3>
+            <p>Aplicación modificada. Consultá su origen y verificá el archivo antes de instalarlo.</p>
+            <a class="boton"
+               href="https://www.mediafire.com/file/w2avd0ktroq4nv6/COM.WEBPlus_YesiiMods_V9.36.apk/file"
+               target="_blank"
+               rel="noopener noreferrer">
+               Ver descarga →
+            </a>
         </article>
 
         <article class="tarjeta">
-            <div class="icono">📱</div>
-            <h3>Aplicación 2</h3>
-            <p>Descripción de la aplicación.</p>
-            <a class="boton" href="https://www.mediafire.com/file/ck36a8b3tt01wdm/WA-LITEX_3.45.0_C10N3.apk/file" target="_blank" rel="noopener noreferrer">Descargar →</a>
+            <div class="icono">💬</div>
+            <h3>WA LiteX</h3>
+            <p>Versión alternativa de WhatsApp. Revisá su seguridad y procedencia.</p>
+            <a class="boton"
+               href="https://www.mediafire.com/file/ck36a8b3tt01wdm/WA-LITEX_3.45.0_C10N3.apk/file"
+               target="_blank"
+               rel="noopener noreferrer">
+               Ver descarga →
+            </a>
         </article>
 
         <article class="tarjeta">
-            <div class="icono">📱</div>
-            <h3>Aplicación 3</h3>
-            <p>Descripción de la aplicación.</p>
-            <a class="boton" href="https://www.mediafire.com/file/kesqn99bl0hgl2g/G.B-Whats4pp_Pr0_v27.06.apk/file" target="_blank" rel="noopener noreferrer">Descargar →</a>
+            <div class="icono">✨</div>
+            <h3>GB WhatsApp</h3>
+            <p>Aplicación no oficial. Tené en cuenta los posibles riesgos para tu privacidad y cuenta.</p>
+            <a class="boton"
+               href="https://www.mediafire.com/file/kesqn99bl0hgl2g/G.B-Whats4pp_Pr0_v27.06.apk/file"
+               target="_blank"
+               rel="noopener noreferrer">
+               Ver descarga →
+            </a>
         </article>
 
     </div>
 
-    <a href="index.html" class="volver">✦ Volver a RL</a>
+    <div class="aviso">
+        <h3>✦ Un pequeño recordatorio ✦</h3>
+        <p>
+            RL no desarrolla estas aplicaciones ni garantiza sus archivos.
+            Los APK de sitios externos pueden contener modificaciones
+            o riesgos de seguridad. Verificá siempre su procedencia
+            antes de confiar en ellos.
+        </p>
+    </div>
+
 </main>
+
+<footer>
+    <p>✦ RL · Belleza, tecnología y más ✦</p>
+    <p>Gracias por visitarnos ♡</p>
+</footer>
 
 </body>
 </html>
