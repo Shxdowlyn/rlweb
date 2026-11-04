@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RL: belleza, tecnología y más. Apps, blogs y belleza en un solo lugar.">
+<title>RL | Belleza, tecnología y más</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #010208;
+    color: #e5eaff;
+    font-family: Georgia, 'Times New Roman', serif;
+    overflow-x: hidden;
+}
+
+/* FONDO ESTRELLADO */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(2px 2px at 10% 20%, white, transparent),
+        radial-gradient(2px 2px at 30% 70%, #8eb4ff, transparent),
+        radial-gradient(2px 2px at 80% 30%, white, transparent),
+        radial-gradient(2px 2px at 65% 85%, #8eb4ff, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent);
+    background-size: 180px 180px;
+}
+
+/* BARRA DE NAVEGACIÓN */
+header {
+    height: 76px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.94);
+    border-top: 1px solid #385ba9;
+    border-bottom: 1px solid #385ba9;
+    box-shadow: 0 0 15px #1746a5;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 65px;
+    font-style: italic;
+    color: #dce7ff;
+    text-shadow: 0 0 12px #4b80ff;
+    letter-spacing: -12px;
+    padding-right: 15px;
+}
+
+.logo span {
+    font-size: 24px;
+    vertical-align: top;
+    letter-spacing: 0;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+nav a {
+    color: #dce5ff;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 9px 15px;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.activo {
+    border-color: #83aaff;
+    box-shadow: 0 0 13px #3974ff;
+    color: white;
+}
+
+.redes {
+    display: flex;
+    gap: 17px;
+}
+
+.redes a {
+    color: #dce7ff;
+    font-family: Arial, sans-serif;
+    font-size: 23px;
+    text-decoration: none;
+    text-shadow: 0 0 10px #5687ff;
+}
+
+/* PORTADA */
+.portada {
+    min-height: 340px;
+    padding: 55px 9%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 75% 50%, #102c70 0%, transparent 42%),
+        radial-gradient(ellipse at 15% 80%, #071b4c 0%, transparent 40%),
+        linear-gradient(120deg, #010208, #030a20, #010208);
+    border-bottom: 1px solid #3159a8;
+}
+
+.portada::before {
+    content: "✦     ❈       ✧       ✦       ❈";
+    position: absolute;
+    top: 20px;
+    left: 5%;
+    color: #b7ceff;
+    font-size: 27px;
+    letter-spacing: 30px;
+    text-shadow: 0 0 15px #4c80ff;
+}
+
+.portada::after {
+    content: "❀";
+    position: absolute;
+    right: 8%;
+    bottom: -80px;
+    font-size: 330px;
+    color: #173d91;
+    opacity: .25;
+    text-shadow: 0 0 30px #245cff;
+}
+
+.portada-contenido {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+}
+
+.logo-grande {
+    font-size: 115px;
+    font-style: italic;
+    line-height: 1;
+    color: #e3ebff;
+    text-shadow: 0 0 15px #4b80ff, 0 0 30px #174bff;
+    letter-spacing: -20px;
+    padding-right: 20px;
+}
+
+.logo-grande span {
+    font-size: 35px;
+    vertical-align: top;
+    letter-spacing: 0;
+}
+
+.portada h1 {
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: normal;
+    font-style: italic;
+    margin: 12px 0;
+    text-shadow: 0 0 12px #477dff;
+}
+
+.portada p {
+    font-size: 19px;
+    margin: 20px 0 25px;
+}
+
+.boton {
+    display: inline-block;
+    color: #f0f4ff;
+    text-decoration: none;
+    padding: 11px 35px;
+    border: 1px solid #8eb4ff;
+    border-radius: 30px;
+    font-size: 18px;
+    background: rgba(0, 0, 0, .65);
+    box-shadow: 0 0 10px #3974ff, inset 0 0 8px #244fbb;
+    transition: .3s;
+}
+
+.boton:hover {
+    background: #10275e;
+    box-shadow: 0 0 22px #5287ff;
+    transform: translateY(-3px);
+}
+
+/* DECORACIONES */
+.destello {
+    position: absolute;
+    color: #dce8ff;
+    text-shadow: 0 0 12px #6491ff, 0 0 25px #2e63ff;
+    font-size: 30px;
+}
+
+.destello.uno { top: 15%; left: 48%; }
+.destello.dos { right: 4%; bottom: 15%; font-size: 40px; }
+.destello.tres { left: 5%; bottom: 10%; }
+
+.mariposa {
+    position: absolute;
+    right: 12%;
+    top: 25px;
+    font-size: 115px;
+    color: #8eb4ff;
+    opacity: .8;
+    text-shadow: 0 0 20px #326bff;
+    transform: rotate(-15deg);
+}
+
+.cadena {
+    position: absolute;
+    right: -20px;
+    top: 10px;
+    font-size: 50px;
+    color: #7897d8;
+    transform: rotate(20deg);
+    opacity: .5;
+}
+
+/* SECCIONES */
+.seccion {
+    padding: 35px 4%;
+    border-bottom: 1px solid #294b9d;
+    position: relative;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 32px;
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 28px;
+    text-shadow: 0 0 12px #477dff;
+}
+
+.titulo::before,
+.titulo::after {
+    content: "✦";
+    margin: 0 20px;
+    color: #b9ceff;
+    text-shadow: 0 0 12px #578bff;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1450px;
+    margin: auto;
+}
+
+.tarjeta {
+    min-height: 205px;
+    padding: 25px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #6f9aff;
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at 10% 100%, #10285c 0%, transparent 40%),
+        linear-gradient(135deg, #050d25, #010208);
+    box-shadow: 0 0 10px #3977ff, inset 0 0 20px rgba(48,91,199,.2);
+    transition: .3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 23px #4c83ff;
+}
+
+.tarjeta::after {
+    content: "✦";
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #c8d8ff;
+    text-shadow: 0 0 12px #4c83ff;
+}
+
+.icono {
+    font-size: 58px;
+    color: #b7d0ff;
+    text-shadow: 0 0 15px #4781ff;
+}
+
+.tarjeta h2 {
+    font-size: 31px;
+    font-weight: normal;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.tarjeta p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    color: #d4def8;
+}
+
+.tarjeta .boton {
+    font-size: 16px;
+    padding: 8px 24px;
+}
+
+/* SOBRE NOSOTROS Y REDES */
+.informacion {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 25px;
+    padding: 35px 4%;
+    background: rgba(1, 4, 14, .75);
+    border-bottom: 1px solid #294b9d;
+}
+
+.sobre,
+.seguinos,
+.despedida {
+    padding: 15px 20px;
+}
+
+.sobre h2,
+.seguinos h2 {
+    font-size: 30px;
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #4b7eff;
+}
+
+.sobre p,
+.seguinos p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #d7e1ff;
+}
+
+.frase {
+    margin-top: 15px;
+    font-style: italic;
+    color: #b9ceff;
+}
+
+.seguinos {
+    text-align: center;
+    border-left: 1px solid #4267b4;
+    border-right: 1px solid #4267b4;
+}
+
+.iconos-redes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 22px;
+    flex-wrap: wrap;
+}
+
+.iconos-redes a {
+    color: #dce7ff;
+    border: 1px solid #6d96ed;
+    border-radius: 13px;
+    padding: 12px;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 0 0 10px #285bdb;
+}
+
+.despedida {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.despedida p {
+    font-size: 30px;
+    font-style: italic;
+    color: #dce7ff;
+    text-shadow: 0 0 12px #5284ff;
+}
+
+/* PIE DE PÁGINA */
+footer {
+    padding: 22px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    color: #cbd8ff;
+    background: #010208;
+}
+
+footer .logo-pie {
+    font-size: 35px;
+    font-style: italic;
+    text-shadow: 0 0 12px #5284ff;
+}
+
+footer small {
+    font-size: 14px;
+}
+
+/* ADAPTACIÓN A CELULARES */
+@media (max-width: 850px) {
+    header {
+        height: auto;
+        padding: 12px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 50px;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 14px;
+        padding: 7px 9px;
+    }
+
+    .redes {
+        display: none;
+    }
+
+    .portada {
+        min-height: 390px;
+        padding: 35px 25px;
+        align-items: flex-end;
+    }
+
+    .logo-grande {
+        font-size: 85px;
+    }
+
+    .mariposa {
+        right: 3%;
+        top: 15px;
+        font-size: 80px;
+    }
+
+    .portada::after {
+        font-size: 200px;
+        right: -30px;
+    }
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta {
+        min-height: 180px;
+    }
+
+    .informacion {
+        grid-template-columns: 1fr;
+    }
+
+    .seguinos {
+        border: none;
+        border-top: 1px solid #4267b4;
+        border-bottom: 1px solid #4267b4;
+    }
+
+    footer {
+        justify-content: center;
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="#inicio" class="logo">RL<span>✦</span></a>
+
+    <nav>
+        <a href="#inicio" class="activo">✦ Inicio</a>
+        <a href="#apps">Apps</a>
+        <a href="#blogs">Blogs</a>
+        <a href="#belleza">Belleza</a>
+        <a href="#nosotros">Sobre Nosotros</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="redes">
+        <a href="#contacto">◉</a>
+        <a href="#contacto">♪</a>
+        <a href="#contacto">▶</a>
+    </div>
+</header>
+
+<main>
+
+    <section class="portada" id="inicio">
+        <span class="destello uno">✦</span>
+        <span class="destello dos">✧</span>
+        <span class="destello tres">✦</span>
+        <span class="mariposa">🦋</span>
+        <span class="cadena">⛓</span>
+
+        <div class="portada-contenido">
+            <div class="logo-grande">RL<span>✧</span></div>
+
+            <h1>Belleza, tecnología y más...</h1>
+
+            <p>Explorá, aprendé y cuidate en un solo lugar.</p>
+
+            <a href="#espacios" class="boton">Comenzar &nbsp; ✦</a>
+        </div>
+    </section>
+
+    <section class="seccion" id="espacios">
+        <h2 class="titulo">Nuestros espacios</h2>
+
+        <div class="tarjetas">
+
+            <article class="tarjeta" id="apps">
+                <div class="icono">▱</div>
+                <div>
+                    <h2>APKs</h2>
+                    <p>Descubrí aplicaciones, herramientas y recursos digitales.</p>
+                    <a href="#" class="boton">Entrar &nbsp; →</a>
+                </div>
+            </article>
+
+            <article class="tarjeta" id="blogs">
+                <div class="icono">✎</div>
+                <div>
+                    <h2>Blogs</h2>
+                    <p>Leé artículos, ideas, consejos y novedades sobre todo lo que te gusta.</p>
+                    <a href="#" class="boton">Entrar &nbsp; →</a>
+                </div>
+            </article>
+
+            <article class="tarjeta" id="belleza">
+                <div class="icono">♧</div>
+                <div>
+                    <h2>Belleza</h2>
+                    <p>Cuidados, tips y rutinas para un cabello y piel increíbles.</p>
+                    <a href="#" class="boton">Entrar &nbsp; →</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="informacion" id="nosotros">
+
+        <div class="sobre">
+            <h2>✦ Sobre Nosotros</h2>
+            <p>
+                Somos RL, un espacio creado para compartir contenido
+                de calidad: desde aplicaciones y tecnología, hasta
+                blogs, ideas y consejos de belleza.
+            </p>
+            <p class="frase">
+                Porque en cada detalle, también brillás. ♡
+            </p>
+        </div>
+
+        <div class="seguinos" id="contacto">
+            <h2>✦ ¡Seguinos!</h2>
+            <p>No te pierdas nada de nuestro contenido.</p>
+
+            <div class="iconos-redes">
+                <a href="#" title="Instagram">◎</a>
+                <a href="#" title="TikTok">♪</a>
+                <a href="#" title="YouTube">▶</a>
+                <a href="#" title="Discord">◉</a>
+            </div>
+        </div>
+
+        <div class="despedida">
+            <p>Gracias por visitar</p>
+            <p>RL ♡</p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <span class="logo-pie">RL</span>
+    <span>✦ &nbsp; Belleza, tecnología y más &nbsp; ✦</span>
+    <small>Términos y condiciones &nbsp; | &nbsp; Política de privacidad</small>
+</footer>
+
+</body>
+</html>
