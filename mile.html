@@ -111,6 +111,78 @@ section {
   margin-bottom: 28px;
 }
 
+/* SOBRE MILE */
+
+.about-mile {
+  background: #f8f8ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+}
+
+.about-photo img {
+  width: 240px;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 120px 120px 12px 12px;
+  box-shadow: 10px 10px 0 #dce9d8;
+}
+
+.about-text {
+  max-width: 480px;
+}
+
+.about-text h2,
+.diary h2 {
+  font-family: 'Playfair Display', serif;
+  color: #456b50;
+  font-size: 34px;
+  margin: 13px 0;
+}
+
+.about-text p,
+.diary-paper p {
+  color: #687568;
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 13px;
+}
+
+/* DIARIO */
+
+.diary {
+  background: #e9eee5;
+}
+
+.diary-paper {
+  max-width: 720px;
+  margin: auto;
+  padding: 42px;
+  background: #fffdf5;
+  border: 1px solid #e3e5d5;
+  box-shadow: 5px 7px 20px #52694b15;
+  border-radius: 5px;
+  position: relative;
+}
+
+.diary-paper::before {
+  content: "✿";
+  position: absolute;
+  right: 25px;
+  top: 18px;
+  color: #a6bd9e;
+  font-size: 25px;
+}
+
+.diary-signature {
+  text-align: right;
+  color: #66866a;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  margin-top: 25px;
+}
+
 /* GALERÍA */
 
 .gallery-section {
@@ -309,6 +381,15 @@ footer {
     padding: 48px 6%;
   }
 
+  .about-mile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .diary-paper {
+    padding: 28px;
+  }
+
   .book {
     grid-template-columns: 1fr;
   }
@@ -332,11 +413,15 @@ footer {
   <div class="logo">El jardín de Mile ♡</div>
   <nav>
     <a href="index.html">Inicio</a>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#diario">Diario</a>
     <a href="#galeria">Galería</a>
     <a href="#libro">Mi libro</a>
     <a href="#curiosidades">Curiosidades</a>
   </nav>
 </header>
+
+<!-- PORTADA -->
 
 <div class="hero">
   <div class="hero-text">
@@ -351,6 +436,51 @@ footer {
 
   <img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=700" alt="Plantas verdes">
 </div>
+
+<!-- SOBRE MILE -->
+
+<section class="about-mile" id="sobre-mi">
+  <div class="about-photo">
+    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=700" alt="Flores">
+  </div>
+
+  <div class="about-text">
+    <span class="tag">♡ Un espacio personal</span>
+    <h2>Un poquito sobre mí</h2>
+    <p>
+      ¡Hola! Soy Mile. Bienvenidos a mi pequeño rincón.
+      Me encanta la naturaleza, las plantas y descubrir
+      los pequeños detalles que muchas veces pasan desapercibidos.
+    </p>
+    <p>
+      Este espacio es como mi pequeño cuaderno:
+      un lugar para guardar fotografías, aprender cosas nuevas
+      y compartir un poquito de lo que me gusta.
+    </p>
+  </div>
+</section>
+
+<!-- DIARIO -->
+
+<section class="diary" id="diario">
+  <div class="diary-paper">
+    <span class="tag">✿ Mi diario personal</span>
+    <h2>Querido diario...</h2>
+    <p>
+      Hoy quiero guardar este pequeño espacio para recordar
+      lo bonito que puede ser detenerse un momento y observar
+      la naturaleza.
+    </p>
+    <p>
+      Me gusta pensar que cada planta tiene su propia historia.
+      Algunas crecen lentamente, otras florecen y otras
+      simplemente nos acompañan con sus hojas.
+    </p>
+    <div class="diary-signature">Con cariño, Mile ♡</div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
 
 <section class="gallery-section" id="galeria">
   <h2 class="section-title">Un paseo por la naturaleza</h2>
@@ -394,6 +524,8 @@ footer {
   </div>
 </section>
 
+<!-- LIBRO -->
+
 <section class="book-section" id="libro">
   <h2 class="section-title">Mi libro de plantas 📖</h2>
   <p class="subtitle">Pasa las páginas y descubre algunas curiosidades del mundo vegetal.</p>
@@ -419,6 +551,8 @@ footer {
     <button onclick="changePage(1)">Siguiente →</button>
   </div>
 </section>
+
+<!-- CURIOSIDADES -->
 
 <section class="facts-section" id="curiosidades">
   <h2 class="section-title">¿Sabías que...? 💭</h2>
