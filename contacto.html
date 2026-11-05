@@ -4,303 +4,746 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contacto ♡</title>
+
+<title>chat.exe ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen&family=VT323&display=swap" rel="stylesheet">
 
 <style>
 * {
   box-sizing: border-box;
 }
 
+:root {
+  --pink: #f5b5ce;
+  --light: #fff0f5;
+  --dark: #71384f;
+  --border: #71384f;
+  --shadow: #b76b8b;
+  --white: #fff9f8;
+  --soft: #f8dce8;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background:
-    radial-gradient(circle, #ffffff 1.5px, transparent 2px),
-    linear-gradient(135deg, #f7a4d0, #e83d91, #f9b5dc);
-  background-size: 18px 18px, cover;
+  font-family: 'Silkscreen', monospace;
+  background-color: #fff0f4;
+  background-image:
+    radial-gradient(#e9b9ce 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px 12px;
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* DECORACIONES DEL FONDO */
+
+.decor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  color: #d99ab5;
+  animation: float 4s ease-in-out infinite;
+}
+
+.d1 { top: 4%; left: 5%; font-size: 30px; }
+.d2 { top: 15%; right: 7%; font-size: 25px; }
+.d3 { bottom: 10%; left: 8%; font-size: 35px; }
+.d4 { bottom: 5%; right: 8%; font-size: 30px; }
+.d5 { top: 45%; left: 2%; font-size: 23px; }
+.d6 { top: 60%; right: 3%; font-size: 28px; }
+
+@keyframes float {
+  50% { transform: translateY(-8px); }
+}
+
+/* VENTANA PRINCIPAL */
+
+.device {
+  width: min(820px, 100%);
+  position: relative;
+  z-index: 2;
+
+  background: var(--pink);
+  border: 5px solid var(--border);
+
+  box-shadow:
+    0 8px 0 var(--shadow),
+    8px 8px 0 var(--border);
+
+  padding: 8px;
+}
+
+/* BARRA SUPERIOR */
+
+.titlebar {
+  min-height: 95px;
+  background: #f4a9c7;
+
+  border-bottom: 5px solid var(--border);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  font-size: clamp(19px, 4vw, 34px);
+  color: #71384f;
+}
+
+.logo-icon {
+  font-size: 43px;
+}
+
+.window-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.window-buttons span {
+  width: 48px;
+  height: 48px;
+
+  background: #ffe9f1;
+  border: 4px solid var(--border);
+
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 35px;
-  color: #702044;
+
+  font-size: 23px;
 }
 
-.device {
-  width: min(950px, 95%);
-  min-height: 570px;
-  background: #f8a5d0;
-  border: 12px solid #fbd0e8;
-  border-radius: 55px;
-  padding: 22px;
-  box-shadow: 0 15px 35px #8d245b80;
+/* INFORMACIÓN DEL CONTACTO */
+
+.status {
+  background: #fff0f5;
+  border: 4px solid #b66d89;
+
+  padding: 14px;
+  margin: 12px 4px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-size: clamp(10px, 2vw, 15px);
+  flex-wrap: wrap;
 }
+
+.online {
+  color: #bd7793;
+}
+
+/* PANTALLA DE CHAT */
 
 .screen {
   min-height: 510px;
-  background: linear-gradient(145deg, #25152d, #4a2048);
-  border: 4px solid #e85b9f;
-  border-radius: 35px;
-  padding: 35px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  background-color: #fff9f7;
+
+  border: 4px solid #c17d99;
+
+  padding: 35px 20px;
+
   position: relative;
   overflow: hidden;
 }
 
-.logo {
+/* MENSAJES */
+
+.chat-content {
+  width: 100%;
+  min-height: 420px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 35px;
+}
+
+.message-row {
+  width: 100%;
+  display: flex;
+  animation: appear .7s ease both;
+}
+
+.message-row.left {
+  justify-content: flex-start;
+}
+
+.message-row.right {
+  justify-content: flex-end;
+}
+
+.bubble {
+  max-width: 75%;
+  min-width: 180px;
+
+  position: relative;
+
+  background: #f7c2d7;
+  border: 5px solid var(--border);
+
+  padding: 23px 20px;
+
+  box-shadow: 5px 5px 0 #d99bb4;
+
+  font-size: clamp(11px, 2vw, 16px);
+  line-height: 2;
+  overflow-wrap: anywhere;
+}
+
+.bubble.white {
+  background: #fff0f5;
+}
+
+.bubble::after {
+  content: "";
   position: absolute;
-  top: 20px;
-  font-size: 25px;
-  font-weight: bold;
-  color: #ffd4ed;
-  text-shadow: 0 0 12px #ff72c0;
+
+  bottom: -18px;
+  left: 25px;
+
+  width: 20px;
+  height: 15px;
+
+  background: inherit;
+  border-left: 5px solid var(--border);
+  border-bottom: 5px solid var(--border);
 }
 
-h1 {
-  color: #ffacd9;
-  font-size: 38px;
-  margin-bottom: 12px;
+.right .bubble::after {
+  left: auto;
+  right: 25px;
 }
 
-p {
-  color: #ffe5f3;
+.bubble p {
+  margin: 0;
+}
+
+.bubble h2 {
   font-size: 17px;
-  line-height: 1.6;
-  max-width: 650px;
+  margin: 0 0 10px;
+}
+
+/* ANIMACIONES */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .heart {
-  font-size: 90px;
-  animation: beat 1s infinite;
+  display: inline-block;
+  animation: heartbeat 1.2s infinite;
 }
 
-@keyframes beat {
-  50% { transform: scale(1.15); }
+@keyframes heartbeat {
+  50% { transform: scale(1.2); }
 }
+
+/* PANTALLA INICIAL */
+
+.center-content {
+  min-height: 420px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  gap: 15px;
+}
+
+.center-content h1 {
+  font-size: clamp(20px, 4vw, 32px);
+  line-height: 1.8;
+}
+
+.center-content p {
+  font-size: 13px;
+  line-height: 2;
+  max-width: 500px;
+}
+
+/* BOTONES PIXEL */
 
 button {
-  border: none;
-  background: #ff75ba;
-  color: white;
-  padding: 14px 32px;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: bold;
+  font-family: 'Silkscreen', monospace;
+  font-size: 12px;
+
+  padding: 15px 22px;
+
+  color: var(--dark);
+  background: #f7c2d7;
+
+  border: 4px solid var(--border);
+  box-shadow: 4px 4px 0 var(--shadow);
+
   cursor: pointer;
-  margin-top: 22px;
-  box-shadow: 0 5px 15px #00000040;
-  transition: .2s;
+  margin-top: 18px;
+
+  transition: .15s;
 }
 
 button:hover {
-  background: #ff9bce;
-  transform: translateY(-3px);
+  background: #ffe2ed;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--shadow);
 }
+
+button:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+
+/* BARRA INFERIOR */
+
+.bottom {
+  display: flex;
+  gap: 10px;
+  padding: 12px 4px 4px;
+}
+
+.input-decoration {
+  flex: 1;
+  background: #fff0f5;
+
+  border: 4px solid #c17d99;
+  padding: 13px;
+
+  font-size: 12px;
+  color: #bd8a9e;
+}
+
+.bottom-icon {
+  background: #ffe6ef;
+  border: 4px solid var(--border);
+
+  width: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 25px;
+}
+
+/* FORMULARIO */
 
 .panel {
-  width: 100%;
-  max-width: 650px;
-  background: #fff0f8;
-  border: 3px solid #ff8bc7;
-  border-radius: 18px;
-  padding: 25px;
-  color: #702044;
-}
+  background: #fff0f5;
+  border: 5px solid var(--border);
+  box-shadow: 5px 5px 0 #d99bb4;
 
-.panel p {
-  color: #702044;
+  padding: 22px;
+  width: 100%;
+  max-width: 600px;
 }
 
 textarea {
   width: 100%;
   min-height: 180px;
-  resize: vertical;
-  border: 2px solid #f3a0cc;
-  border-radius: 12px;
+
+  background: #fffafc;
+  border: 4px solid #d99ab5;
+
   padding: 15px;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
+
+  font-family: 'VT323', monospace;
+  font-size: 23px;
+  color: var(--dark);
+
+  resize: vertical;
   outline: none;
 }
 
 textarea:focus {
-  border-color: #d83c91;
+  border-color: #a95075;
 }
+
+textarea::placeholder {
+  color: #c69aab;
+}
+
+/* CONFIRMACIÓN */
 
 .hidden {
   display: none !important;
 }
 
-.error {
-  color: #ffb1d9;
-  font-size: 22px;
-  font-weight: bold;
-}
-
 .small {
-  font-size: 13px;
-  color: #ffe0ef;
-  margin-top: 20px;
+  font-size: 10px;
+  margin-top: 25px;
+  line-height: 2;
 }
 
-@media (max-width: 650px) {
-  body { padding: 10px; }
-  .device { width: 100%; padding: 10px; border-radius: 30px; }
-  .screen { padding: 25px 15px; }
-  h1 { font-size: 28px; }
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+  body {
+    padding: 15px 10px;
+  }
+
+  .device {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .titlebar {
+    min-height: 75px;
+    padding: 10px;
+  }
+
+  .logo-icon {
+    font-size: 30px;
+  }
+
+  .window-buttons span {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+    border-width: 3px;
+  }
+
+  .screen {
+    padding: 25px 12px;
+    min-height: 480px;
+  }
+
+  .chat-content {
+    min-height: 420px;
+    gap: 30px;
+  }
+
+  .bubble {
+    max-width: 90%;
+    min-width: 0;
+    padding: 16px;
+    border-width: 4px;
+  }
+
+  .status {
+    font-size: 9px;
+  }
+
+  .bottom-icon {
+    width: 48px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- DECORACIONES -->
+
+<div class="decor d1">✣</div>
+<div class="decor d2">♡</div>
+<div class="decor d3">✧</div>
+<div class="decor d4">✿</div>
+<div class="decor d5">✦</div>
+<div class="decor d6">♡</div>
+
 <div class="device">
-  <div class="screen">
 
-    <div class="logo">♡ TheSlap.com ♡</div>
+  <!-- BARRA SUPERIOR -->
 
-    <!-- PANTALLA DE ERROR -->
-    <div id="error">
-      <div class="error">ERROR 404</div>
-      <h1>¡Ups!</h1>
-      <p>Algo extraño ocurrió...</p>
-      <p>Intentando recuperar la conexión con el corazón.</p>
+  <div class="titlebar">
+
+    <div class="logo">
+      <span class="logo-icon">☏</span>
+      chat.exe
     </div>
 
-    <!-- CORAZÓN -->
-    <div id="love" class="hidden">
-      <div class="heart">💗</div>
-      <h1>I LOVE YOU</h1>
-      <p>Antes de continuar, tenemos algunas cosas que decirte.</p>
-      <button onclick="mostrarAviso()">Continuar ♡</button>
-    </div>
-
-    <!-- AVISOS -->
-    <div id="warnings" class="hidden">
-      <div class="panel">
-        <h1 id="tituloAviso">Un pequeño aviso...</h1>
-        <p id="textoAviso"></p>
-      </div>
-      <button onclick="siguienteAviso()">Siguiente →</button>
-      <p class="small" id="contador"></p>
-    </div>
-
-    <!-- FORMULARIO -->
-    <div id="formulario" class="hidden">
-      <h1>UPDATE 💌</h1>
-      <p>FEELING: ¿Qué querés contarme?</p>
-
-      <div class="panel">
-        <form id="mensajeForm">
-          <textarea id="mensaje"
-            placeholder="Escribí lo que quieras decirme..."
-            required></textarea>
-
-          <button type="submit">Enviar mensaje ♡</button>
-        </form>
-      </div>
-
-      <p class="small">Tu mensaje está listo para enviarse.</p>
-    </div>
-
-    <!-- CONFIRMACIÓN -->
-    <div id="enviado" class="hidden">
-      <div class="heart">💌</div>
-      <h1>¡Enviado!</h1>
-      <p>Tu mensaje salió correctamente.</p>
-      <p>Gracias por tomarte el tiempo de escribir ♡</p>
+    <div class="window-buttons">
+      <span>−</span>
+      <span>□</span>
+      <span>×</span>
     </div>
 
   </div>
+
+  <!-- CONTACTO -->
+
+  <div class="status">
+    <span>☻</span>
+    <span>🌼</span>
+    <span class="online">Friend · online now</span>
+    <span class="heart">♡</span>
+  </div>
+
+  <!-- CONTENIDO -->
+
+  <div class="screen">
+
+    <!-- INICIO -->
+
+    <div id="inicio" class="center-content">
+
+      <div style="font-size:65px">💗</div>
+
+      <h1>HELLO, YOU!</h1>
+
+      <p>
+        Hay algunas cosas que quiero decirte.
+        Preparé este pequeño espacio para vos.
+      </p>
+
+      <button onclick="iniciar()">
+        OPEN MESSAGE ♡
+      </button>
+
+    </div>
+
+    <!-- AVISOS -->
+
+    <div id="warnings" class="hidden">
+
+      <div class="chat-content">
+
+        <div class="message-row left">
+          <div class="bubble">
+            <p id="tituloAviso"></p>
+            <p id="textoAviso"></p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center">
+        <button onclick="siguienteAviso()">
+          NEXT MESSAGE →
+        </button>
+
+        <p class="small" id="contador"></p>
+      </div>
+
+    </div>
+
+    <!-- FORMULARIO -->
+
+    <div id="formulario" class="hidden">
+
+      <div class="center-content">
+
+        <h1>UPDATE 💌</h1>
+
+        <p>
+          FEELING: ¿Qué querés contarme?
+        </p>
+
+        <div class="panel">
+
+          <form id="mensajeForm">
+
+            <textarea
+              id="mensaje"
+              placeholder="Escribí lo que quieras decirme..."
+              required></textarea>
+
+            <button type="submit">
+              SEND MESSAGE ♡
+            </button>
+
+          </form>
+
+        </div>
+
+        <p class="small">
+          Your message is waiting...
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ENVIADO -->
+
+    <div id="enviado" class="hidden center-content">
+
+      <div style="font-size:70px">💌</div>
+
+      <h1>MESSAGE SENT!</h1>
+
+      <p>
+        Tu mensaje salió correctamente.
+        Gracias por tomarte el tiempo de escribir ♡
+      </p>
+
+      <div style="font-size:30px">✿ ♡ ✿</div>
+
+    </div>
+
+  </div>
+
+  <!-- BARRA INFERIOR -->
+
+  <div class="bottom">
+
+    <div class="input-decoration">
+      › type a message...
+    </div>
+
+    <div class="bottom-icon">🌼</div>
+    <div class="bottom-icon">♡</div>
+
+  </div>
+
 </div>
 
 <script>
+
 const avisos = [
+
   {
     titulo: "Primero, cuidate ♡",
     texto: "Tené cuidado con quién hablás y con quién compartís tus cosas personales."
   },
+
   {
     titulo: "No todo es lo que parece",
     texto: "No todas las personas que se acercan tienen buenas intenciones. Date tiempo para conocerlas."
   },
+
   {
     titulo: "Las amistades",
     texto: "No tenés que soportar actitudes que te lastiman solo por miedo a perder una amistad."
   },
+
   {
     titulo: "Un último recordatorio",
     texto: "Podés decir lo que pensás, contar lo que sentís o simplemente dejar un saludo. No tenés que compartir nada que no quieras."
   }
+
 ];
 
 let indice = 0;
 
 function ocultarTodo() {
-  ["error", "love", "warnings", "formulario", "enviado"]
-    .forEach(id => document.getElementById(id).classList.add("hidden"));
+
+  [
+    "inicio",
+    "warnings",
+    "formulario",
+    "enviado"
+  ].forEach(id => {
+
+    document.getElementById(id).classList.add("hidden");
+
+  });
+
 }
 
-setTimeout(() => {
-  document.getElementById("error").classList.add("hidden");
-  document.getElementById("love").classList.remove("hidden");
-}, 2200);
+function iniciar() {
 
-function mostrarAviso() {
   ocultarTodo();
+
+  indice = 0;
+
   document.getElementById("warnings").classList.remove("hidden");
+
   actualizarAviso();
+
 }
 
 function actualizarAviso() {
-  document.getElementById("tituloAviso").textContent =
-    avisos[indice].titulo;
 
-  document.getElementById("textoAviso").textContent =
-    avisos[indice].texto;
+  const titulo = document.getElementById("tituloAviso");
+  const texto = document.getElementById("textoAviso");
+  const contador = document.getElementById("contador");
 
-  document.getElementById("contador").textContent =
-    `Aviso ${indice + 1} de ${avisos.length}`;
+  titulo.textContent = avisos[indice].titulo;
+
+  texto.textContent = avisos[indice].texto;
+
+  contador.textContent =
+    `MESSAGE ${indice + 1} / ${avisos.length}`;
+
+  // Alternar los mensajes entre izquierda y derecha.
+
+  const fila = document.querySelector(".message-row");
+  const burbuja = document.querySelector(".bubble");
+
+  fila.classList.remove("left", "right");
+  fila.classList.add(indice % 2 === 0 ? "left" : "right");
+
+  burbuja.classList.toggle("white", indice % 2 !== 0);
+
+  // Reiniciar animación.
+
+  fila.style.animation = "none";
+  void fila.offsetWidth;
+  fila.style.animation = "appear .7s ease both";
+
 }
 
 function siguienteAviso() {
+
   indice++;
 
   if (indice < avisos.length) {
+
     actualizarAviso();
+
   } else {
+
     ocultarTodo();
+
     document.getElementById("formulario").classList.remove("hidden");
+
   }
+
 }
 
+/* ENVÍO POR WHATSAPP */
+
 document.getElementById("mensajeForm").addEventListener("submit", function(e) {
+
   e.preventDefault();
 
   const texto = document.getElementById("mensaje").value.trim();
 
   if (!texto) return;
 
-  // CAMBIÁ ESTO POR TU NÚMERO DE WHATSAPP
-  // Argentina: código 549 + código de área + número.
-  // Sin +, espacios ni guiones.
   const numeroWhatsApp = "5493863402551";
 
   const mensajeFinal = encodeURIComponent(
     "Mensaje desde mi página web 💌\n\n" + texto
   );
 
-  const enlace = `https://wa.me/${numeroWhatsApp}?text=${mensajeFinal}`;
+  const enlace =
+    `https://wa.me/${numeroWhatsApp}?text=${mensajeFinal}`;
 
   window.open(enlace, "_blank");
 
   ocultarTodo();
+
   document.getElementById("enviado").classList.remove("hidden");
+
 });
+
 </script>
 
 </body>
