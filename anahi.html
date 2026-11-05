@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>♡ Anahí | Model ♡</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+  --red:#79000c;
+  --dark:#300008;
+  --wine:#a60019;
+  --cream:#fff0e9;
+  --pink:#f8d9d5;
+}
+
+body{
+  margin:0;
+  font-family:Georgia,serif;
+  color:var(--cream);
+  background:
+    radial-gradient(ellipse at 15% 20%,#a5001d 0%,transparent 40%),
+    radial-gradient(ellipse at 85% 70%,#8b0014 0%,transparent 40%),
+    linear-gradient(135deg,#210006,#65000c 45%,#310008);
+  overflow-x:hidden;
+}
+
+/* DECORACIONES GRANDES */
+
+.decorations{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:0;
+}
+
+.decorations span{
+  position:absolute;
+  color:#ffb6b8;
+  text-shadow:0 0 20px #ff526b88;
+  opacity:.32;
+}
+
+.decorations span:nth-child(1){font-size:110px;top:5%;left:2%}
+.decorations span:nth-child(2){font-size:90px;top:15%;right:4%}
+.decorations span:nth-child(3){font-size:130px;top:48%;left:-25px}
+.decorations span:nth-child(4){font-size:100px;top:65%;right:2%}
+.decorations span:nth-child(5){font-size:75px;top:85%;left:12%}
+.decorations span:nth-child(6){font-size:100px;top:90%;right:15%}
+.decorations span:nth-child(7){font-size:55px;top:35%;right:15%}
+.decorations span:nth-child(8){font-size:65px;top:30%;left:12%}
+
+header,nav,.layout,footer{
+  position:relative;
+  z-index:1;
+}
+
+/* ENCABEZADO */
+
+header{
+  text-align:center;
+  padding:45px 15px 30px;
+  background:linear-gradient(120deg,#57000add,#a00018dd,#480008dd);
+  border-bottom:2px solid #e9a0a0;
+  box-shadow:0 5px 25px #17000488;
+}
+
+header h1{
+  margin:0;
+  font-size:clamp(55px,9vw,100px);
+  font-weight:normal;
+  font-style:italic;
+  color:#fff0e9;
+  text-shadow:0 0 20px #ff9ca8;
+}
+
+header p{
+  font-size:19px;
+  letter-spacing:5px;
+  color:#ffc5c7;
+  margin:5px 0;
+}
+
+/* NAVEGACIÓN */
+
+nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  padding:15px;
+  background:#350008dd;
+  border-bottom:1px solid #c76c78;
+}
+
+nav a{
+  color:#ffe5df;
+  text-decoration:none;
+  border:1px solid #d88b96;
+  border-radius:20px;
+  padding:10px 20px;
+  font-size:13px;
+  transition:.25s;
+}
+
+nav a:hover{
+  background:#a9001b;
+  transform:translateY(-3px);
+}
+
+/* COLUMNAS */
+
+.layout{
+  max-width:1350px;
+  margin:25px auto;
+  padding:0 15px;
+  display:grid;
+  grid-template-columns:250px minmax(0,1fr) 250px;
+  gap:20px;
+  align-items:start;
+}
+
+.panel,.post{
+  background:linear-gradient(145deg,#fff1e9,#f7dcd6);
+  color:#57000b;
+  border:2px solid #e7a6a5;
+  border-radius:13px;
+  padding:17px;
+  margin-bottom:18px;
+  box-shadow:0 5px 20px #16000466;
+}
+
+.panel h3{
+  font-size:17px;
+  font-style:italic;
+  border-bottom:1px solid #bd6570;
+  padding-bottom:9px;
+  color:#870014;
+}
+
+.panel p{
+  font-size:13px;
+  line-height:1.8;
+}
+
+.side-img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border:5px solid white;
+  outline:1px solid #d18a91;
+  margin:8px 0;
+}
+
+/* CENTRO */
+
+.center-title{
+  text-align:center;
+  color:#ffe4df;
+  font-size:24px;
+  font-weight:normal;
+  margin:20px 0;
+  text-shadow:0 0 12px #ff8a9b;
+}
+
+.hero{
+  text-align:center;
+  padding:35px 20px;
+  border:2px solid #f1b4b4;
+  border-radius:14px;
+  background:
+    linear-gradient(#51000cbb,#810015bb),
+    url("https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1000");
+  background-size:cover;
+  background-position:center;
+  box-shadow:0 5px 25px #16000488;
+}
+
+.hero h2{
+  font-size:32px;
+  font-style:italic;
+  font-weight:normal;
+  color:white;
+}
+
+.hero p{
+  line-height:1.9;
+  font-size:15px;
+  max-width:550px;
+  margin:auto;
+  color:#ffe9e5;
+}
+
+.tag{
+  font-size:11px;
+  letter-spacing:4px;
+  color:#ffc2c5;
+}
+
+/* PERFIL */
+
+.profile{
+  display:flex;
+  gap:15px;
+  align-items:center;
+}
+
+.profile img{
+  width:115px;
+  height:145px;
+  object-fit:cover;
+  border:5px solid white;
+}
+
+.profile p{
+  line-height:1.8;
+}
+
+/* ENTRADAS */
+
+.post{
+  padding:22px;
+}
+
+.post-date{
+  color:#a54b57;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.post h2{
+  font-size:25px;
+  font-weight:normal;
+  color:#870014;
+}
+
+.post p{
+  line-height:1.9;
+  font-size:14px;
+}
+
+.post-image{
+  width:100%;
+  max-height:430px;
+  object-fit:cover;
+  border:6px solid white;
+  margin-top:12px;
+}
+
+.post-actions{
+  border-top:1px dashed #c9868b;
+  padding-top:13px;
+  margin-top:15px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.like-button,.follow-button{
+  background:#870014;
+  color:white;
+  border:1px solid #bd5260;
+  padding:10px 17px;
+  border-radius:22px;
+  cursor:pointer;
+  font-family:Georgia,serif;
+  transition:.2s;
+}
+
+.like-button:hover,.follow-button:hover{
+  background:#b00020;
+  transform:translateY(-2px);
+}
+
+.like-button.liked{
+  background:#e4c1c5;
+  color:#79000c;
+}
+
+.like-count{
+  font-size:12px;
+  color:#98515a;
+}
+
+/* GALERÍA */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.gallery img{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  border:5px solid white;
+  box-shadow:0 3px 10px #50000b33;
+}
+
+/* SEGUIDORES */
+
+.follow-box{
+  text-align:center;
+  background:#f8e0dc;
+  border:1px dashed #c77b83;
+  padding:18px 10px;
+  border-radius:10px;
+}
+
+.follow-number{
+  display:block;
+  font-size:38px;
+  color:#870014;
+  margin:8px;
+}
+
+.follow-button.following{
+  background:#4f1018;
+}
+
+.small-note{
+  font-size:10px!important;
+  color:#a46a70;
+}
+
+/* FRASE */
+
+.quote{
+  text-align:center;
+  font-style:italic;
+  font-size:17px!important;
+  line-height:1.8;
+  color:#870014;
+}
+
+/* PIE */
+
+footer{
+  text-align:center;
+  padding:30px;
+  background:#310007dd;
+  border-top:2px solid #b45b69;
+  color:#ffc5c7;
+  letter-spacing:2px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr 1fr}
+  .center{grid-column:1/-1;grid-row:1}
+}
+
+@media(max-width:600px){
+  .layout{grid-template-columns:1fr}
+  .center{grid-column:auto}
+  .profile{flex-direction:column;text-align:center}
+  .profile img{width:160px;height:180px}
+  header{padding:35px 10px}
+  header p{font-size:13px;letter-spacing:3px}
+  .gallery img{height:150px}
+  .decorations span{opacity:.2}
+}
+</style>
+</head>
+
+<body>
+
+<div class="decorations" aria-hidden="true">
+  <span>♡</span>
+  <span>✦</span>
+  <span>♡</span>
+  <span>✦</span>
+  <span>♡</span>
+  <span>✦</span>
+  <span>♡</span>
+  <span>✦</span>
+</div>
+
+<header>
+  <h1>♡ Anahí ♡</h1>
+  <p>MODELO ✦</p>
+</header>
+
+<nav>
+  <a href="blogs.html">Home ♡</a>
+  <a href="#sobre-mi">Sobre mí</a>
+  <a href="#carrera">Mi carrera</a>
+  <a href="#galeria">Galería</a>
+  <a href="#favoritos">Mis favoritos</a>
+</nav>
+
+<div class="layout">
+
+<!-- COLUMNA IZQUIERDA -->
+
+<aside>
+
+  <section class="panel" id="sobre-mi">
+    <h3>♡ SOBRE MÍ</h3>
+    <div class="profile">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Retrato de modelo">
+      <p>
+        ¡Hola! Soy Anahí ♡
+        Me gusta el mundo de la moda,
+        la fotografía y expresarme
+        a través de cada imagen.
+      </p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h3>♡ MIS REDES</h3>
+    <p>📷 Instagram</p>
+    <p>♪ TikTok</p>
+    <p>▶ YouTube</p>
+    <p>♡ Mi mundo digital</p>
+  </section>
+
+  <section class="panel" id="favoritos">
+    <h3>✦ MIS FAVORITOS</h3>
+    <p>♥ Moda</p>
+    <p>♥ Fotografía</p>
+    <p>♥ Sesiones de fotos</p>
+    <p>♥ Looks elegantes</p>
+    <p>♥ El color rojo</p>
+  </section>
+
+</aside>
+
+<!-- COLUMNA CENTRAL -->
+
+<main class="center">
+
+  <section class="hero">
+    <span class="tag">BIENVENIDOS A MI MUNDO</span>
+    <h2>Una vida entre luces y cámaras ♡</h2>
+    <p>
+      Este es mi pequeño espacio personal.
+      Aquí comparto un poquito sobre mí,
+      mi pasión por el modelaje y las cosas
+      que forman parte de mi mundo.
+    </p>
+    <p style="font-size:30px;margin-top:15px">♡ ✦ ♡</p>
+  </section>
+
+  <h2 class="center-title" id="carrera">✦ Mi mundo como modelo ✦</h2>
+
+  <article class="post">
+    <span class="post-date">MI PASIÓN ♡</span>
+    <h2>El arte de expresarme</h2>
+    <p>
+      Para mí, ser modelo es mucho más que posar frente a una cámara.
+      Es expresar ideas, transmitir emociones y mostrar diferentes
+      versiones de uno mismo.
+
+      Cada fotografía puede contar una historia diferente.
+      Me encanta la moda y todo lo que puedo transmitir
+      a través de ella. ♡
+    </p>
+    <img class="post-image"
+    src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1000"
+    alt="Fotografía de moda">
+    <div class="post-actions">
+      <button class="like-button" id="like-1" onclick="toggleLike(1)">♡ Me gusta</button>
+      <span class="like-count" id="count-1">0 me gusta</span>
+    </div>
+  </article>
+
+  <article class="post">
+    <span class="post-date">UN POQUITO DE INSPIRACIÓN</span>
+    <h2>Detrás de cada fotografía ✦</h2>
+    <p>
+      Cada sesión tiene algo especial: los detalles,
+      la ropa, las poses y la creatividad.
+
+      Me gusta descubrir nuevos estilos y jugar
+      con diferentes ideas. Siempre hay algo nuevo
+      que aprender y una nueva historia que contar.
+    </p>
+    <img class="post-image"
+    src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1000"
+    alt="Editorial de moda">
+    <div class="post-actions">
+      <button class="like-button" id="like-2" onclick="toggleLike(2)">♡ Me gusta</button>
+      <span class="like-count" id="count-2">0 me gusta</span>
+    </div>
+  </article>
+
+  <h2 class="center-title" id="galeria">♡ Mi galería ♡</h2>
+
+  <section class="panel">
+    <p style="text-align:center">Algunos momentos de inspiración ✦</p>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500" alt="Moda">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500" alt="Retrato">
+      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500" alt="Estilo">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Fotografía">
+    </div>
+  </section>
+
+</main>
+
+<!-- COLUMNA DERECHA -->
+
+<aside>
+
+  <section class="panel">
+    <h3>♡ SEGUIDORES</h3>
+    <div class="follow-box">
+      <span style="font-size:30px">♥</span>
+      <span class="follow-number" id="followerCount">0</span>
+      <p>personas siguen a Anahí</p>
+      <button class="follow-button" id="followButton" onclick="toggleFollow()">
+        + Seguir a Anahí
+      </button>
+      <p class="small-note">¡Gracias por acompañarme! ♡</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h3>✦ FRASE DEL DÍA</h3>
+    <p class="quote">
+      «Confía en ti, brilla y nunca dejes de soñar». ♡
+    </p>
+  </section>
+
+  <section class="panel">
+    <h3>♡ SOBRE MI TRABAJO</h3>
+    <p>
+      La moda es una forma de expresión.
+      Cada estilo, cada fotografía y cada
+      detalle pueden transmitir algo distinto.
+    </p>
+  </section>
+
+  <section class="panel">
+    <h3>✦ UN RECORDATORIO</h3>
+    <p class="quote">
+      No tengas miedo de mostrar tu propia personalidad. ♡
+    </p>
+  </section>
+
+  <section class="panel">
+    <h3>♡ DETALLES</h3>
+    <p>♥ Modelaje</p>
+    <p>♥ Moda</p>
+    <p>♥ Fotografía</p>
+    <p>♥ Creatividad</p>
+  </section>
+
+</aside>
+
+</div>
+
+<footer>
+  ♡ ANAHÍ · MODEL BLOG · HECHO CON AMOR ✦
+</footer>
+
+<script>
+/* LIKES */
+
+const LIKE_KEY="anahi_likes";
+
+function getLikes(){
+  try{
+    return JSON.parse(localStorage.getItem(LIKE_KEY)) || {};
+  }catch(e){
+    return {};
+  }
+}
+
+function toggleLike(id){
+  const likes=getLikes();
+
+  if(likes[id]){
+    delete likes[id];
+  }else{
+    likes[id]=true;
+  }
+
+  localStorage.setItem(LIKE_KEY,JSON.stringify(likes));
+  updateLikes();
+}
+
+function updateLikes(){
+  const likes=getLikes();
+
+  [1,2].forEach(id=>{
+    const liked=!!likes[id];
+    const button=document.getElementById("like-"+id);
+    const count=document.getElementById("count-"+id);
+
+    button.classList.toggle("liked",liked);
+    button.textContent=liked?"♥ Te gusta":"♡ Me gusta";
+    count.textContent=(liked?1:0)+" me gusta";
+  });
+}
+
+/* SEGUIDORES */
+
+const FOLLOW_KEY="anahi_following";
+
+function toggleFollow(){
+  const following=localStorage.getItem(FOLLOW_KEY)==="true";
+  localStorage.setItem(FOLLOW_KEY,String(!following));
+  updateFollow();
+}
+
+function updateFollow(){
+  const following=localStorage.getItem(FOLLOW_KEY)==="true";
+
+  document.getElementById("followerCount").textContent=
+    following?"1":"0";
+
+  const button=document.getElementById("followButton");
+  button.textContent=following?"✓ Siguiendo":"＋ Seguir a Anahí";
+  button.classList.toggle("following",following);
+}
+
+updateLikes();
+updateFollow();
+</script>
+
+</body>
+</html>
