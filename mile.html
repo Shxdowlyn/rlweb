@@ -1,0 +1,1092 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>♡ El jardín de Mile ♡</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Georgia,serif;
+  color:#637565;
+  background:
+    radial-gradient(ellipse at 10% 15%,#a9ca98 0%,transparent 45%),
+    radial-gradient(ellipse at 90% 80%,#b5d4a7 0%,transparent 45%),
+    linear-gradient(135deg,#dcebd2,#eef4e5,#c9dfbd);
+  background-attachment:fixed;
+}
+
+/* DECORACIÓN DEL FONDO */
+.foliage{
+  position:fixed;
+  top:0;
+  bottom:0;
+  width:115px;
+  z-index:0;
+  pointer-events:none;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  overflow:hidden;
+  opacity:.35;
+}
+.foliage.left{left:0}
+.foliage.right{right:0;align-items:flex-end}
+.foliage span{font-size:45px}
+.foliage span:nth-child(even){font-size:30px}
+.foliage.left span:nth-child(odd){transform:rotate(-35deg)}
+.foliage.right span:nth-child(odd){transform:rotate(35deg) scaleX(-1)}
+
+header,nav,.layout,#curiosidades,footer,.extra-section{
+  position:relative;
+  z-index:1;
+}
+
+/* PORTADA */
+header{
+  text-align:center;
+  padding:55px 15px 40px;
+  background:linear-gradient(120deg,#e1ebd4ee,#f8f8e9ee,#dce9d2ee);
+  border-bottom:3px dotted #a9c39d;
+  position:relative;
+  overflow:hidden;
+}
+header:before,header:after{
+  content:"❀";
+  position:absolute;
+  top:15px;
+  color:#91ae83;
+  font-size:65px;
+  opacity:.6;
+}
+header:before{left:6%}
+header:after{right:6%}
+.header-small{
+  color:#91a88d;
+  letter-spacing:5px;
+  font-size:11px;
+}
+header h1{
+  color:#66866a;
+  font-size:clamp(38px,7vw,65px);
+  font-weight:normal;
+  margin:12px 0;
+  text-shadow:2px 2px white;
+}
+header p{color:#91a88d;font-style:italic}
+.header-decoration{
+  color:#9bb58f;
+  letter-spacing:12px;
+  font-size:18px;
+}
+
+/* NAVEGACIÓN */
+nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  background:#cbdcc5ee;
+  padding:13px;
+  gap:8px;
+  border-bottom:2px dotted #a9c39d;
+}
+nav a{
+  text-decoration:none;
+  color:#54745a;
+  background:#f5f8f1;
+  padding:10px 15px;
+  border-radius:20px;
+  font-size:12px;
+  border:1px solid #d1dfc8;
+  transition:.2s;
+}
+nav a:hover{
+  background:white;
+  transform:translateY(-3px);
+}
+
+/* ESTRUCTURA */
+.layout{
+  max-width:1300px;
+  margin:25px auto;
+  padding:0 15px;
+  display:grid;
+  grid-template-columns:225px minmax(0,1fr) 225px;
+  gap:18px;
+  align-items:start;
+}
+.panel,.post{
+  background:#f8faf4ed;
+  border:2px solid #d1e0ca;
+  border-radius:12px;
+  padding:16px;
+  box-shadow:0 4px 12px #a9bea033;
+  margin-bottom:18px;
+}
+.panel h3{
+  color:#7d9b79;
+  font-size:14px;
+  border-bottom:1px dashed #b8d3ad;
+  padding-bottom:9px;
+}
+.panel p,.panel a{font-size:13px;line-height:1.8}
+.side-img{
+  width:100%;
+  border:5px solid white;
+  outline:1px solid #c8d9c0;
+  margin:8px 0;
+}
+
+/* TÍTULOS */
+.center-title{
+  text-align:center;
+  color:#789777;
+  font-size:23px;
+  font-weight:normal;
+  margin:25px 0 18px;
+}
+.center-title span{
+  display:block;
+  font-size:11px;
+  letter-spacing:4px;
+  margin-bottom:7px;
+  color:#a2b69a;
+}
+.tag{
+  display:inline-block;
+  color:#8aa484;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+/* PRESENTACIÓN */
+.hero{
+  text-align:center;
+  padding:30px 22px;
+  background:linear-gradient(135deg,#e5efdb,#f7f8eb);
+  border:2px dashed #c5d8bd;
+  border-radius:14px;
+  margin-bottom:20px;
+  position:relative;
+  overflow:hidden;
+}
+.hero:before{
+  content:"✿";
+  position:absolute;
+  top:5px;
+  left:15px;
+  color:#a8c29c;
+  font-size:35px;
+  opacity:.6;
+}
+.hero:after{
+  content:"🌿";
+  position:absolute;
+  right:12px;
+  bottom:5px;
+  font-size:35px;
+  opacity:.4;
+}
+.hero h2{
+  font-weight:normal;
+  color:#587b5c;
+  font-size:27px;
+}
+.hero p{font-size:14px;line-height:1.9}
+
+/* DIARIO */
+.diary{
+  background:#fffdf5ed;
+  border:1px solid #e4e3d3;
+  border-radius:12px;
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:0 3px 10px #a9bea022;
+  position:relative;
+}
+.diary:before{
+  content:"❀";
+  position:absolute;
+  top:12px;
+  right:15px;
+  color:#b6c9a9;
+  font-size:25px;
+}
+.post-date{
+  color:#a0b394;
+  font-size:10px;
+  letter-spacing:2px;
+}
+.diary h2{
+  color:#648767;
+  font-weight:normal;
+  font-size:22px;
+  margin:12px 0;
+}
+.diary p{
+  font-size:14px;
+  line-height:1.9;
+  color:#637465;
+  white-space:pre-line;
+}
+.diary-sign{
+  text-align:right;
+  font-style:italic;
+  color:#8aa484;
+  margin-top:15px;
+}
+.like-area{
+  border-top:1px dashed #cbdcc5;
+  margin-top:18px;
+  padding-top:13px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.like-btn{
+  border:1px solid #c5d8bd;
+  background:#edf5e8;
+  color:#68886a;
+  padding:8px 14px;
+  border-radius:20px;
+  cursor:pointer;
+  font-family:Georgia,serif;
+}
+.like-btn.liked{
+  background:#f9e4e5;
+  color:#c45d69;
+  border-color:#e9bfc4;
+}
+.like-count{font-size:12px;color:#8aa484}
+
+/* GALERÍAS */
+.extra-section{
+  max-width:1150px;
+  margin:35px auto;
+  padding:22px;
+  background:#f8faf1ed;
+  border:2px solid #d1e0ca;
+  border-radius:16px;
+  box-shadow:0 5px 18px #80977520;
+}
+.section-heading{
+  text-align:center;
+  margin:5px 0 10px;
+  color:#66866a;
+  font-weight:normal;
+  font-size:29px;
+}
+.section-kicker{
+  text-align:center;
+  font-size:10px;
+  letter-spacing:4px;
+  color:#a0b394;
+}
+.section-description{
+  text-align:center;
+  font-size:13px;
+  line-height:1.8;
+  max-width:650px;
+  margin:12px auto 24px;
+  color:#82947d;
+}
+
+/* TARJETAS DE FOTOS */
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:15px;
+}
+.photo-card{
+  background:#fffdf6;
+  padding:9px;
+  border:1px solid #d8e4d0;
+  border-radius:9px;
+  box-shadow:0 3px 9px #819a7620;
+  transition:.25s;
+}
+.photo-card:hover{
+  transform:translateY(-5px) rotate(-1deg);
+  box-shadow:0 7px 15px #819a7630;
+}
+.photo-card img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+  border-radius:5px;
+  background:#e9f0e3;
+}
+.photo-card p{
+  text-align:center;
+  color:#789777;
+  font-size:12px;
+  margin:10px 2px 4px;
+}
+.photo-placeholder{
+  aspect-ratio:1/1;
+  background:linear-gradient(135deg,#e5efdb,#f7f8eb);
+  border:1px dashed #b8cdb2;
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  color:#91a88d;
+  text-align:center;
+  padding:10px;
+}
+.photo-placeholder span{font-size:35px}
+.photo-placeholder small{font-size:10px;margin-top:8px}
+
+/* GALERÍA HORIZONTAL */
+.gallery{
+  display:flex;
+  gap:13px;
+  overflow-x:auto;
+  padding:10px 3px 18px;
+  scroll-snap-type:x mandatory;
+  scrollbar-color:#a8bea3 transparent;
+}
+.gallery-item{
+  flex:0 0 175px;
+  scroll-snap-align:start;
+  background:#fffdf6;
+  padding:8px;
+  border:1px solid #d0dfca;
+  border-radius:8px;
+}
+.gallery-item img{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  border:3px solid white;
+}
+.gallery-item p{
+  font-size:12px;
+  color:#67836a;
+  text-align:center;
+  margin:8px 0 3px;
+}
+
+/* DIBUJOS */
+.art-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:17px;
+}
+.art-card{
+  background:#fffdf6;
+  padding:10px;
+  border:1px solid #d8e4d0;
+  border-radius:10px;
+  box-shadow:0 3px 10px #819a7620;
+  transition:.25s;
+}
+.art-card:hover{
+  transform:translateY(-5px);
+}
+.art-card img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border:4px solid white;
+  background:#f0eee5;
+  display:block;
+}
+.art-card p{
+  text-align:center;
+  font-size:12px;
+  color:#789777;
+  margin:10px 0 3px;
+}
+
+/* LIBRO */
+.book{
+  background:#fffdf5;
+  border:2px solid #d8e3cf;
+  border-radius:10px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  overflow:hidden;
+  box-shadow:0 5px 15px #a9bea033;
+}
+.book-image img{
+  width:100%;
+  height:100%;
+  min-height:260px;
+  object-fit:cover;
+}
+.book-content{
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.book-content h3{
+  color:#638566;
+  font-size:21px;
+  font-weight:normal;
+}
+.book-content p{
+  color:#667968;
+  font-size:13px;
+  line-height:1.8;
+}
+.book-controls{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin:15px 0 25px;
+}
+button{
+  border:0;
+  background:#9fbd98;
+  color:white;
+  padding:9px 13px;
+  border-radius:20px;
+  cursor:pointer;
+  font-family:Georgia,serif;
+  transition:.2s;
+}
+button:hover{background:#7fa47a;transform:translateY(-2px)}
+#pageCount{font-size:12px;color:#81977c}
+
+/* BURBUJAS */
+.bubble{
+  background:#ffffffed;
+  border:1px solid #dce8d7;
+  border-radius:22px 22px 22px 6px;
+  padding:15px;
+  margin:12px 0;
+}
+.bubble h4{color:#638566;margin:7px 0;font-size:15px}
+.bubble p{font-size:12px;line-height:1.7}
+.bubble-icon{font-size:23px}
+.facts{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+  margin-top:20px;
+}
+.facts .bubble{
+  max-width:230px;
+  flex:1 1 180px;
+  padding:20px;
+}
+
+/* SEGUIDORES */
+.follow-box{text-align:center;padding:12px 5px}
+.follow-count{font-size:30px;color:#71936f;margin:8px 0}
+.follow-btn{
+  background:#91b58a;
+  border:1px solid #7fa47a;
+  border-radius:20px;
+  padding:9px 18px;
+}
+.follow-btn.following{background:#e8efe3;color:#668566}
+.follow-note{font-size:11px!important;color:#91a88d;margin-top:10px}
+
+/* DECORACIONES Y CIERRE */
+.separator{
+  text-align:center;
+  color:#9bb58f;
+  font-size:25px;
+  letter-spacing:9px;
+  margin:35px 0;
+}
+.note{
+  background:#edf3e6;
+  border-left:4px solid #a8c29c;
+  padding:17px;
+  border-radius:8px;
+  font-size:13px;
+  line-height:1.8;
+  margin:20px 0;
+}
+footer{
+  text-align:center;
+  padding:30px 15px;
+  color:#8ba487;
+  font-size:12px;
+  line-height:2;
+  background:#e2ecdcdd;
+  border-top:2px dotted #b8cdb2;
+}
+footer a{color:#68886a}
+
+/* RESPONSIVE */
+@media(max-width:950px){
+  .layout{grid-template-columns:1fr 1fr}
+  .center{grid-column:1/-1;grid-row:1}
+  .photo-grid{grid-template-columns:repeat(3,1fr)}
+  .foliage{width:45px;opacity:.25}
+}
+@media(max-width:650px){
+  .layout{grid-template-columns:1fr}
+  .center{grid-column:auto}
+  .photo-grid{grid-template-columns:repeat(2,1fr)}
+  .art-grid{grid-template-columns:repeat(2,1fr)}
+  .book{grid-template-columns:1fr}
+  .book-image img{height:220px;min-height:220px}
+  header{padding:45px 12px 30px}
+  .foliage{width:25px;opacity:.2}
+  .foliage span{font-size:20px}
+  .extra-section{margin:25px 10px;padding:15px}
+}
+@media(max-width:390px){
+  .art-grid{grid-template-columns:1fr 1fr}
+  .photo-grid{gap:9px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="foliage left" aria-hidden="true">
+  <span>🌿</span><span>🍃</span><span>🌱</span>
+  <span>🍃</span><span>🌿</span><span>🍀</span>
+  <span>🌱</span><span>🍃</span><span>🌿</span>
+</div>
+<div class="foliage right" aria-hidden="true">
+  <span>🍃</span><span>🌿</span><span>🍀</span>
+  <span>🌱</span><span>🍃</span><span>🌿</span>
+  <span>🍃</span><span>🌱</span><span>🌿</span>
+</div>
+
+<header>
+  <div class="header-small">✿ RL PERSONAL BLOG ✿</div>
+  <h1>♡ El jardín de Mile ♡</h1>
+  <p>plantitas, naturaleza, recuerdos y pequeñas cosas</p>
+  <div class="header-decoration">❀ ✧ 🍃 ✧ ❀</div>
+</header>
+
+<nav>
+  <a href="blogs.html">Home ♡</a>
+  <a href="#sobre-mi">Sobre mí</a>
+  <a href="#diario">Mi diario</a>
+  <a href="#plantas">Plantas</a>
+  <a href="#mascotas">Mascotas</a>
+  <a href="#dibujos">Mis dibujos</a>
+  <a href="#momentos">Momentos</a>
+  <a href="#libro">Libro de plantas</a>
+</nav>
+
+<div class="layout">
+
+<aside>
+  <section class="panel">
+    <img class="side-img"
+    src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=500"
+    alt="Flores">
+    <h3>♡ MI PEQUEÑO RINCÓN</h3>
+    <p>Un espacio lleno de hojas, flores y momentos bonitos.</p>
+    <p>🌿 Amante de la naturaleza</p>
+    <p>🌸 Coleccionista de momentos</p>
+    <p>📖 Aprendiendo siempre</p>
+  </section>
+
+  <section class="panel">
+    <h3>✿ SOBRE ESTE BLOG</h3>
+    <p>Este es mi pequeño jardín virtual. Aquí guardo fotografías, pensamientos, dibujos y cosas que me gustan.</p>
+  </section>
+
+  <section class="panel">
+    <h3>🌱 MIS FAVORITAS</h3>
+    <p>♡ Girasoles</p>
+    <p>♡ Lavandas</p>
+    <p>♡ Suculentas</p>
+    <p>♡ Helechos</p>
+  </section>
+
+  <section class="panel">
+    <h3>🎨 MIS PASATIEMPOS</h3>
+    <p>♡ Dibujar y crear</p>
+    <p>♡ Fotografiar plantitas</p>
+    <p>♡ Pasar tiempo con mis mascotas</p>
+    <p>♡ Aprender cosas nuevas</p>
+  </section>
+</aside>
+
+<main class="center">
+
+  <h2 class="center-title">✿ Bienvenidos a mi jardín ✿</h2>
+
+  <section class="hero" id="sobre-mi">
+    <span class="tag">♡ UN POQUITO SOBRE MÍ</span>
+    <h2>¡Hola! Soy Mile 🌿</h2>
+    <p>
+      Me gusta la naturaleza, las plantas y descubrir
+      los pequeños detalles que muchas veces pasan desapercibidos.
+      También amo dibujar y guardar recuerdos de las cosas que
+      me hacen feliz. Este es mi rinconcito personal.
+    </p>
+    <div class="header-decoration">❀ ♡ ✧ ♡ ❀</div>
+  </section>
+
+  <div class="separator">✿ 🍃 ✿</div>
+
+  <h2 class="center-title" id="diario">
+    <span>MY LITTLE JOURNAL</span>
+    📖 Mi diario personal
+  </h2>
+
+  <article class="diary">
+    <span class="post-date">UNA NOTITA PARA RECORDAR</span>
+    <h2>Querido diario... ♡</h2>
+    <p>Hoy quiero guardar este pequeño espacio para recordar
+lo bonito que puede ser detenerse un momento y observar
+la naturaleza.
+
+Me gusta pensar que cada planta tiene su propia historia.
+Algunas crecen lentamente, otras florecen y otras
+simplemente nos acompañan con sus hojas.</p>
+    <div class="diary-sign">Con cariño, Mile ♡</div>
+    <div class="like-area">
+      <button class="like-btn" data-like="diario1" onclick="toggleLike('diario1')">♡ Me gusta</button>
+      <span class="like-count" id="count-diario1">0 me gusta</span>
+    </div>
+  </article>
+
+  <article class="diary">
+    <span class="post-date">PEQUEÑOS PENSAMIENTOS</span>
+    <h2>Un día entre flores 🌸</h2>
+    <p>A veces no hace falta hacer grandes cosas para encontrar
+algo bonito. Una flor nueva, una hoja diferente o una
+pequeña planta creciendo pueden alegrar el día.
+
+Quiero aprender muchas más cosas sobre este mundo verde.</p>
+    <div class="diary-sign">Una página más de mi diario ✿</div>
+    <div class="like-area">
+      <button class="like-btn" data-like="diario2" onclick="toggleLike('diario2')">♡ Me gusta</button>
+      <span class="like-count" id="count-diario2">0 me gusta</span>
+    </div>
+  </article>
+
+  <div class="note">
+    ✿ Este blog es como un álbum personal: cada sección guarda
+    una parte diferente de las cosas que me gustan.
+  </div>
+
+  <h2 class="center-title" id="libro">
+    <span>BOTANICAL ENCYCLOPEDIA</span>
+    📚 Mi libro de plantas
+  </h2>
+
+  <section class="panel">
+    <p>Un pequeño libro para descubrir el mundo vegetal. ¡Pasá las páginas! ♡</p>
+    <div class="book">
+      <div class="book-image">
+        <img id="plantImage"
+        src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600"
+        alt="Planta">
+      </div>
+      <div class="book-content">
+        <span class="post-date" id="pageNumber">PÁGINA 01</span>
+        <h3 id="plantTitle">Las suculentas</h3>
+        <p id="plantDescription">
+          Las suculentas almacenan agua en sus hojas, tallos o raíces.
+          Por eso muchas pueden sobrevivir en lugares secos.
+        </p>
+      </div>
+    </div>
+    <div class="book-controls">
+      <button onclick="changePage(-1)">← Anterior</button>
+      <span id="pageCount">1 / 5</span>
+      <button onclick="changePage(1)">Siguiente →</button>
+    </div>
+  </section>
+
+</main>
+
+<aside>
+  <section class="panel">
+    <h3>♡ SEGUIDORES</h3>
+    <div class="follow-box">
+      <div class="follow-count" id="followerCount">0</div>
+      <p>personas siguen este jardín</p>
+      <button class="follow-btn" id="followBtn" onclick="toggleFollow()">♡ Seguir a Mile</button>
+      <p class="follow-note">¡Gracias por visitar mi pequeño rincón!</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h3>♡ UNA NOTITA</h3>
+    <p>No olvides detenerte un ratito, respirar y apreciar las pequeñas cosas.</p>
+  </section>
+
+  <section class="panel">
+    <h3>✿ DATOS SOBRE MÍ</h3>
+    <p>🌿 Me gusta la naturaleza</p>
+    <p>📷 Me encanta guardar fotografías</p>
+    <p>🎨 Me gusta dibujar</p>
+    <p>🌸 Las flores alegran mis días</p>
+  </section>
+
+  <section class="panel">
+    <h3>🌻 PLANTA DEL MOMENTO</h3>
+    <img class="side-img"
+    src="https://images.unsplash.com/photo-1597848212624-e6b2e4e6e7d4?w=500"
+    alt="Girasol">
+    <p>El girasol: una flor llena de luz y color.</p>
+  </section>
+
+  <section class="panel">
+    <h3>💭 PENSAMIENTO DEL DÍA</h3>
+    <p>«Crecer también significa tomarse su tiempo» ♡</p>
+  </section>
+
+  <section class="panel">
+    <h3>🍃 PEQUEÑOS RECORDATORIOS</h3>
+    <div class="bubble">
+      <span class="bubble-icon">🌱</span>
+      <p>Todo crecimiento lleva su tiempo.</p>
+    </div>
+    <div class="bubble">
+      <span class="bubble-icon">🌸</span>
+      <p>Siempre hay algo bonito por descubrir.</p>
+    </div>
+  </section>
+</aside>
+
+</div>
+
+<!-- ÁLBUM DE PLANTAS -->
+<section class="extra-section" id="plantas">
+  <div class="section-kicker">MY LITTLE GREEN WORLD</div>
+  <h2 class="section-heading">🌷 Mi colección de plantas</h2>
+  <p class="section-description">
+    Flores, hojas, macetas y todos esos pequeños detalles verdes
+    que me encanta fotografiar.
+  </p>
+
+  <div class="photo-grid" id="plantGallery"></div>
+
+  <p class="section-description">✿ Un álbum dedicado a la naturaleza ✿</p>
+</section>
+
+<!-- MASCOTAS -->
+<section class="extra-section" id="mascotas">
+  <div class="section-kicker">MY LITTLE FRIENDS</div>
+  <h2 class="section-heading">🐾 Mis mascotas</h2>
+  <p class="section-description">
+    Un espacio especial para mis compañeros peludos.
+    Porque ellos también forman parte de mis recuerdos favoritos.
+  </p>
+
+  <div class="photo-grid" id="petGallery"></div>
+
+  <p class="section-description">♡ Las mejores compañías del mundo ♡</p>
+</section>
+
+<!-- DIBUJOS -->
+<section class="extra-section" id="dibujos">
+  <div class="section-kicker">ART CORNER</div>
+  <h2 class="section-heading">🎨 Mi rincón artístico</h2>
+  <p class="section-description">
+    Un lugar para guardar mis dibujos, bocetos, ideas y creaciones.
+    Cada dibujo tiene algo especial.
+  </p>
+
+  <div class="art-grid" id="artGallery"></div>
+
+  <div class="note">
+    ✿ Dibujar es una forma de guardar ideas, imaginar mundos
+    y expresarse. ¡Este espacio es para todas mis creaciones!
+  </div>
+</section>
+
+<!-- MOMENTOS -->
+<section class="extra-section" id="momentos">
+  <div class="section-kicker">LITTLE MEMORIES</div>
+  <h2 class="section-heading">📸 Momentos especiales</h2>
+  <p class="section-description">
+    Fotografías de días bonitos, lugares, paseos y pequeños recuerdos
+    que quiero conservar.
+  </p>
+
+  <div class="photo-grid">
+    <div class="photo-card">
+      <div class="photo-placeholder"><span>📷</span><small>Agregá una foto</small></div>
+      <p>Un día especial</p>
+    </div>
+    <div class="photo-card">
+      <div class="photo-placeholder"><span>🌼</span><small>Agregá una foto</small></div>
+      <p>Un recuerdo</p>
+    </div>
+    <div class="photo-card">
+      <div class="photo-placeholder"><span>☁️</span><small>Agregá una foto</small></div>
+      <p>Un momento tranquilo</p>
+    </div>
+    <div class="photo-card">
+      <div class="photo-placeholder"><span>♡</span><small>Agregá una foto</small></div>
+      <p>Algo para recordar</p>
+    </div>
+  </div>
+</section>
+
+<!-- CURIOSIDADES -->
+<section class="extra-section" id="curiosidades">
+  <div class="section-kicker">DID YOU KNOW?</div>
+  <h2 class="section-heading">💭 ¿Sabías que...?</h2>
+  <p class="section-description">Pequeños datos interesantes del mundo de las plantas ♡</p>
+
+  <div class="facts">
+    <div class="bubble">
+      <span class="bubble-icon">🌻</span>
+      <h4>¡Siguen al sol!</h4>
+      <p>Los girasoles jóvenes pueden orientarse siguiendo el movimiento del sol. Este fenómeno se llama heliotropismo.</p>
+    </div>
+    <div class="bubble">
+      <span class="bubble-icon">🌱</span>
+      <h4>Semillas dormidas</h4>
+      <p>Algunas semillas pueden permanecer en reposo hasta encontrar condiciones adecuadas para germinar.</p>
+    </div>
+    <div class="bubble">
+      <span class="bubble-icon">🌳</span>
+      <h4>Gigantes naturales</h4>
+      <p>Las secuoyas gigantes están entre los árboles más grandes del mundo por su volumen.</p>
+    </div>
+    <div class="bubble">
+      <span class="bubble-icon">🌸</span>
+      <h4>Colores especiales</h4>
+      <p>Muchas flores atraen abejas y mariposas con sus colores, aromas y formas.</p>
+    </div>
+    <div class="bubble">
+      <span class="bubble-icon">🍃</span>
+      <h4>Fabrican su alimento</h4>
+      <p>Las plantas utilizan la luz para realizar la fotosíntesis y producir su alimento.</p>
+    </div>
+    <div class="bubble">
+      <span class="bubble-icon">🌿</span>
+      <h4>Los helechos</h4>
+      <p>Los helechos no producen flores ni semillas. Se reproducen mediante esporas.</p>
+    </div>
+  </div>
+</section>
+
+<div class="separator">❀ 🍃 ♡ 🍃 ❀</div>
+
+<footer>
+  <strong>♡ EL JARDÍN DE MILE ♡</strong>
+  <br>
+  Un pequeño rincón lleno de plantas, dibujos y recuerdos.
+  <br>
+  Hecho con cariño y muchas hojitas ✿
+  <br>
+  <a href="blogs.html">Volver a RL Blogs</a>
+</footer>
+
+<script>
+/* LIBRO DE PLANTAS */
+const pages=[
+  {
+    title:"Las suculentas",
+    image:"https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600",
+    description:"Las suculentas almacenan agua en sus hojas, tallos o raíces. Por eso muchas pueden sobrevivir en lugares secos."
+  },
+  {
+    title:"Los girasoles",
+    image:"https://images.unsplash.com/photo-1597848212624-e6b2e4e6e7d4?w=600",
+    description:"Los girasoles son conocidos por sus grandes flores amarillas. Sus semillas también sirven de alimento para personas y animales."
+  },
+  {
+    title:"Los helechos",
+    image:"https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600",
+    description:"Los helechos son plantas muy antiguas. No producen flores ni semillas: se reproducen mediante esporas."
+  },
+  {
+    title:"Las lavandas",
+    image:"https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=600",
+    description:"La lavanda es una planta aromática de flores violetas. Su aroma atrae a distintos polinizadores."
+  },
+  {
+    title:"Los árboles",
+    image:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600",
+    description:"Los árboles ofrecen refugio y alimento a muchos seres vivos. También ayudan a mantener el equilibrio de los ecosistemas."
+  }
+];
+
+let currentPage=0;
+
+function changePage(direction){
+  currentPage=(currentPage+direction+pages.length)%pages.length;
+  const page=pages[currentPage];
+  document.getElementById("plantImage").src=page.image;
+  document.getElementById("plantTitle").textContent=page.title;
+  document.getElementById("plantDescription").textContent=page.description;
+  document.getElementById("pageNumber").textContent=
+    "PÁGINA "+String(currentPage+1).padStart(2,"0");
+  document.getElementById("pageCount").textContent=
+    (currentPage+1)+" / "+pages.length;
+}
+
+/* FOTOS DE PLANTAS */
+/* Podés reemplazar cada enlace por el de las fotos de Mile. */
+const plantPhotos=[
+  "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600",
+  "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=600",
+  "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600",
+  "https://images.unsplash.com/photo-1483794344563-d27a8d18014e?w=600",
+  "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=600",
+  "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600",
+  "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=600",
+  "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600",
+  "https://images.unsplash.com/photo-1508184964240-ee96bb9677a7?w=600",
+  "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600",
+  "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600",
+  "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=600",
+  "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600",
+  "https://images.unsplash.com/photo-1483794344563-d27a8d18014e?w=600",
+  "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=600",
+  "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600",
+  "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=600",
+  "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600",
+  "https://images.unsplash.com/photo-1508184964240-ee96bb9677a7?w=600",
+  "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600"
+];
+
+/* FOTOS DE MASCOTAS */
+/* Reemplazá estos enlaces por las fotos de sus animales. */
+const petPhotos=[
+  "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600",
+  "https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600",
+  "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=600",
+  "https://images.unsplash.com/photo-1552053831-71594a27632d?w=600",
+  "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=600",
+  "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=600",
+  "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600",
+  "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=600",
+  "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600",
+  "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=600",
+  "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600",
+  "https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600",
+  "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=600",
+  "https://images.unsplash.com/photo-1552053831-71594a27632d?w=600",
+  "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=600",
+  "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=600",
+  "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600",
+  "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=600",
+  "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600",
+  "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=600"
+];
+
+/* FOTOS DE DIBUJOS */
+/* Podés reemplazar los enlaces por fotografías de sus dibujos. */
+const artPhotos=[
+  "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600",
+  "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600",
+  "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600",
+  "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600",
+  "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600",
+  "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600",
+  "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600",
+  "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600",
+  "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600",
+  "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600",
+  "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600",
+  "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600"
+];
+
+/* GENERADOR DE GALERÍAS */
+function createPhotoGallery(containerId,photos,labels){
+  const container=document.getElementById(containerId);
+
+  photos.forEach((url,index)=>{
+    const card=document.createElement("div");
+    card.className=containerId==="artGallery"?"art-card":"photo-card";
+
+    const img=document.createElement("img");
+    img.src=url;
+    img.alt=labels.alt+" "+(index+1);
+    img.loading="lazy";
+
+    const caption=document.createElement("p");
+    caption.textContent=labels.caption+" "+(index+1)+" ♡";
+
+    card.appendChild(img);
+    card.appendChild(caption);
+    container.appendChild(card);
+  });
+}
+
+createPhotoGallery("plantGallery",plantPhotos,{
+  alt:"Planta de Mile",
+  caption:"Plantita"
+});
+
+createPhotoGallery("petGallery",petPhotos,{
+  alt:"Mascota de Mile",
+  caption:"Mi mascota"
+});
+
+createPhotoGallery("artGallery",artPhotos,{
+  alt:"Dibujo de Mile",
+  caption:"Dibujo"
+});
+
+/* LIKES */
+const LIKE_KEY="mile_diary_likes";
+let likes={};
+
+try{
+  likes=JSON.parse(localStorage.getItem(LIKE_KEY))||{};
+}catch(error){likes={};}
+
+function renderLikes(){
+  document.querySelectorAll("[data-like]").forEach(button=>{
+    const id=button.dataset.like;
+    const liked=!!likes[id];
+    const count=document.getElementById("count-"+id);
+    button.classList.toggle("liked",liked);
+    button.textContent=liked?"♥ Te gusta":"♡ Me gusta";
+    if(count) count.textContent=(liked?1:0)+" me gusta";
+  });
+}
+
+function toggleLike(id){
+  likes[id]=!likes[id];
+  try{
+    localStorage.setItem(LIKE_KEY,JSON.stringify(likes));
+  }catch(error){}
+  renderLikes();
+}
+
+/* SEGUIDORES */
+const FOLLOW_KEY="mile_following";
+let following=false;
+
+try{
+  following=localStorage.getItem(FOLLOW_KEY)==="true";
+}catch(error){}
+
+function updateFollow(){
+  const button=document.getElementById("followBtn");
+  document.getElementById("followerCount").textContent=following?"1":"0";
+  button.textContent=following?"✓ Siguiendo":"♡ Seguir a Mile";
+  button.classList.toggle("following",following);
+}
+
+function toggleFollow(){
+  following=!following;
+  try{
+    localStorage.setItem(FOLLOW_KEY,String(following));
+  }catch(error){}
+  updateFollow();
+}
+
+renderLikes();
+updateFollow();
+</script>
+
+</body>
+</html>
