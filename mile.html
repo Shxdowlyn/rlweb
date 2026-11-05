@@ -978,7 +978,7 @@ function renderLikes(){
     const count=document.getElementById("count-"+id);
     button.classList.toggle("liked",liked);
     button.textContent=liked?"♥ Te gusta":"♡ Me gusta";
-    if(count) count.textContent=(liked?1:490.000)+" me gusta";
+    if(count) count.textContent=(liked?490.001:490.000)+" me gusta";
   });
 }
 
