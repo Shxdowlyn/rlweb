@@ -696,7 +696,7 @@ Quiero aprender muchas más cosas sobre este mundo verde.</p>
   <section class="panel">
     <h3>♡ SEGUIDORES</h3>
     <div class="follow-box">
-      <div class="follow-count" id="followerCount">0</div>
+      <div class="follow-count" id="followerCount">400.000</div>
       <p>personas siguen este jardín</p>
       <button class="follow-btn" id="followBtn" onclick="toggleFollow()">♡ Seguir a Mile</button>
       <p class="follow-note">¡Gracias por visitar mi pequeño rincón!</p>
@@ -978,7 +978,7 @@ function renderLikes(){
     const count=document.getElementById("count-"+id);
     button.classList.toggle("liked",liked);
     button.textContent=liked?"♥ Te gusta":"♡ Me gusta";
-    if(count) count.textContent=(liked?1:0)+" me gusta";
+    if(count) count.textContent=(liked?1:490.000)+" me gusta";
   });
 }
 
@@ -1000,7 +1000,8 @@ try{
 
 function updateFollow(){
   const button=document.getElementById("followBtn");
-  document.getElementById("followerCount").textContent=following?"1":"0";
+  document.getElementById("followerCount").textContent=
+  following?"400.001":"400.000";
   button.textContent=following?"✓ Siguiendo":"♡ Seguir a Mile";
   button.classList.toggle("following",following);
 }
