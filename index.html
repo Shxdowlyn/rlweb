@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -39,13 +38,57 @@ body::before {
     background-size: 180px 180px;
 }
 
+/* LOGOS RL: IMAGEN ORIGINAL */
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 7px #8ba8e9);
+}
+
+.logo-grande {
+    width: 210px;
+    height: 210px;
+    margin-bottom: 10px;
+}
+
+.logo-grande img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 12px #8ba8e9);
+}
+
+.logo-pie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-pie img {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px #8ba8e9);
+}
+
 /* BARRA DE NAVEGACIÓN */
+
 header {
-    height: 76px;
-    padding: 0 5%;
+    min-height: 76px;
+    padding: 5px 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
     background: rgba(0, 0, 0, 0.94);
     border-top: 1px solid #385ba9;
     border-bottom: 1px solid #385ba9;
@@ -53,21 +96,6 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-}
-
-.logo {
-    font-size: 65px;
-    font-style: italic;
-    color: #dce7ff;
-    text-shadow: 0 0 12px #4b80ff;
-    letter-spacing: -12px;
-    padding-right: 15px;
-}
-
-.logo span {
-    font-size: 24px;
-    vertical-align: top;
-    letter-spacing: 0;
 }
 
 nav {
@@ -107,9 +135,10 @@ nav a.activo {
 }
 
 /* PORTADA */
+
 .portada {
-    min-height: 340px;
-    padding: 55px 9%;
+    min-height: 420px;
+    padding: 45px 9%;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -149,22 +178,6 @@ nav a.activo {
     max-width: 650px;
 }
 
-.logo-grande {
-    font-size: 115px;
-    font-style: italic;
-    line-height: 1;
-    color: #e3ebff;
-    text-shadow: 0 0 15px #4b80ff, 0 0 30px #174bff;
-    letter-spacing: -20px;
-    padding-right: 20px;
-}
-
-.logo-grande span {
-    font-size: 35px;
-    vertical-align: top;
-    letter-spacing: 0;
-}
-
 .portada h1 {
     font-size: clamp(30px, 4vw, 46px);
     font-weight: normal;
@@ -198,6 +211,7 @@ nav a.activo {
 }
 
 /* DECORACIONES */
+
 .destello {
     position: absolute;
     color: #dce8ff;
@@ -231,6 +245,7 @@ nav a.activo {
 }
 
 /* SECCIONES */
+
 .seccion {
     padding: 35px 4%;
     border-bottom: 1px solid #294b9d;
@@ -320,7 +335,8 @@ nav a.activo {
     padding: 8px 24px;
 }
 
-/* BOTÓN PEQUEÑO DEL JUEGO */
+/* BOTÓN DEL JUEGO */
+
 .jugar-mini {
     text-align: center;
     margin: 35px auto 5px;
@@ -344,7 +360,8 @@ nav a.activo {
     box-shadow: 0 0 15px #5287ff;
 }
 
-/* SOBRE NOSOTROS Y REDES */
+/* INFORMACIÓN */
+
 .informacion {
     display: grid;
     grid-template-columns: 1.2fr 1fr 1fr;
@@ -422,6 +439,7 @@ nav a.activo {
 }
 
 /* PIE DE PÁGINA */
+
 footer {
     padding: 22px 5%;
     display: flex;
@@ -433,18 +451,14 @@ footer {
     background: #010208;
 }
 
-footer .logo-pie {
-    font-size: 35px;
-    font-style: italic;
-    text-shadow: 0 0 12px #5284ff;
-}
-
 footer small {
     font-size: 14px;
 }
 
-/* ADAPTACIÓN A CELULARES */
+/* CELULARES Y TABLETS */
+
 @media (max-width: 850px) {
+
     header {
         height: auto;
         padding: 12px;
@@ -452,8 +466,9 @@ footer small {
         gap: 10px;
     }
 
-    .logo {
-        font-size: 50px;
+    .logo img {
+        width: 65px;
+        height: 65px;
     }
 
     nav {
@@ -478,7 +493,8 @@ footer small {
     }
 
     .logo-grande {
-        font-size: 85px;
+        width: 145px;
+        height: 145px;
     }
 
     .mariposa {
@@ -515,33 +531,57 @@ footer small {
         text-align: center;
     }
 }
+
+@media (max-width: 400px) {
+    .logo-grande {
+        width: 125px;
+        height: 125px;
+    }
+
+    .portada h1 {
+        font-size: 28px;
+    }
+
+    .portada p {
+        font-size: 16px;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <a href="#inicio" class="logo">RL<span>✦</span></a>
+
+    <!-- LOGO DE LA BARRA SUPERIOR -->
+    <a href="#inicio" class="logo">
+        <img src="logo-rl.png" alt="Logo RL plateado">
+    </a>
 
     <nav>
-    <a href="#inicio" class="activo">✦ Inicio</a>
-    <a href="#apps">Apps</a>
-    <a href="#blogs">Blogs</a>
-    <a href="#belleza">Belleza</a>
-    <a href="#nosotros">Sobre Nosotros</a>
-    <a href="contacto.html">Contacto</a>
-</nav>
+        <a href="#inicio" class="activo">✦ Inicio</a>
+        <a href="#apps">Apps</a>
+        <a href="#blogs">Blogs</a>
+        <a href="#belleza">Belleza</a>
+        <a href="#nosotros">Sobre Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
 
-<div class="redes">
-    <a href="#contacto">◉</a>
-    <a href="#contacto">♪</a>
-    <a href="#contacto">▶</a>
-</div>
+    <div class="redes">
+        <a href="#contacto">◉</a>
+        <a href="#contacto">♪</a>
+        <a href="#contacto">▶</a>
+    </div>
+
 </header>
 
 <main>
 
+    <!-- PORTADA -->
+
     <section class="portada" id="inicio">
+
         <span class="destello uno">✦</span>
         <span class="destello dos">✧</span>
         <span class="destello tres">✦</span>
@@ -549,46 +589,84 @@ footer small {
         <span class="cadena">⛓</span>
 
         <div class="portada-contenido">
-            <div class="logo-grande">RL<span>✧</span></div>
+
+            <!-- LOGO PRINCIPAL -->
+            <div class="logo-grande">
+                <img src="logo-rl.png" alt="Logo RL plateado con mariposa">
+            </div>
 
             <h1>Belleza, tecnología y más...</h1>
 
             <p>Explorá, aprendé y cuidate en un solo lugar.</p>
 
-            <a href="#espacios" class="boton">Comenzar &nbsp; ✦</a>
+            <a href="#espacios" class="boton">
+                Comenzar &nbsp; ✦
+            </a>
+
         </div>
+
     </section>
 
+    <!-- ESPACIOS -->
+
     <section class="seccion" id="espacios">
+
         <h2 class="titulo">Nuestros espacios</h2>
 
         <div class="tarjetas">
 
             <article class="tarjeta" id="apps">
+
                 <div class="icono">▱</div>
+
                 <div>
                     <h2>APKs</h2>
-                    <p>Descubrí aplicaciones, herramientas y recursos digitales.</p>
-                    <a href="apks.html" class="boton">Entrar &nbsp; →</a>
+
+                    <p>
+                        Descubrí aplicaciones, herramientas y recursos digitales.
+                    </p>
+
+                    <a href="apks.html" class="boton">
+                        Entrar &nbsp; →
+                    </a>
                 </div>
+
             </article>
 
             <article class="tarjeta" id="blogs">
+
                 <div class="icono">✎</div>
+
                 <div>
                     <h2>Blogs</h2>
-                    <p>Leé artículos, ideas, consejos y novedades sobre todo lo que te gusta.</p>
-                    <a href="blogs.html" class="boton">Entrar &nbsp; →</a>
+
+                    <p>
+                        Leé artículos, ideas, consejos y novedades sobre todo lo que te gusta.
+                    </p>
+
+                    <a href="blogs.html" class="boton">
+                        Entrar &nbsp; →
+                    </a>
                 </div>
+
             </article>
 
             <article class="tarjeta" id="belleza">
+
                 <div class="icono">♧</div>
+
                 <div>
                     <h2>Belleza</h2>
-                    <p>Cuidados, tips y rutinas para un cabello y piel increíbles.</p>
-                    <a href="belleza.html" class="boton">Entrar &nbsp; →</a>
+
+                    <p>
+                        Cuidados, tips y rutinas para un cabello y piel increíbles.
+                    </p>
+
+                    <a href="belleza.html" class="boton">
+                        Entrar &nbsp; →
+                    </a>
                 </div>
+
             </article>
 
         </div>
@@ -599,22 +677,30 @@ footer small {
 
     </section>
 
+    <!-- SOBRE NOSOTROS -->
+
     <section class="informacion" id="nosotros">
 
         <div class="sobre">
+
             <h2>✦ Sobre Nosotros</h2>
+
             <p>
                 Somos RL, un espacio creado para compartir contenido
                 de calidad: desde aplicaciones y tecnología, hasta
                 blogs, ideas y consejos de belleza.
             </p>
+
             <p class="frase">
                 Porque en cada detalle, también brillás. ♡
             </p>
+
         </div>
 
         <div class="seguinos" id="contacto">
+
             <h2>✦ ¡Seguinos!</h2>
+
             <p>No te pierdas nada de nuestro contenido.</p>
 
             <div class="iconos-redes">
@@ -623,21 +709,35 @@ footer small {
                 <a href="#" title="YouTube">▶</a>
                 <a href="#" title="Discord">◉</a>
             </div>
+
         </div>
 
         <div class="despedida">
+
             <p>Gracias por visitar</p>
             <p>RL ♡</p>
+
         </div>
 
     </section>
 
 </main>
 
+<!-- PIE DE PÁGINA -->
+
 <footer>
-    <span class="logo-pie">RL</span>
+
+    <!-- LOGO INFERIOR -->
+    <span class="logo-pie">
+        <img src="logo-rl.png" alt="Logo RL">
+    </span>
+
     <span>✦ &nbsp; Belleza, tecnología y más &nbsp; ✦</span>
-    <small>Términos y condiciones &nbsp; | &nbsp; Política de privacidad</small>
+
+    <small>
+        Términos y condiciones &nbsp; | &nbsp; Política de privacidad
+    </small>
+
 </footer>
 
 </body>
