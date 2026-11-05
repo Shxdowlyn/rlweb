@@ -4,112 +4,215 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aylin's Blog ♡</title>
+<title>♡ Aylin's Ocean Blog ♡</title>
 
 <style>
 *{box-sizing:border-box}
 
+:root{
+  --deep:#061522;
+  --navy:#0a2033;
+  --blue:#123c59;
+  --light:#a9d9ed;
+  --cyan:#65c5df;
+  --pale:#d8f2fa;
+  --border:#28536d;
+  --text:#c5dce8;
+}
+
+html{scroll-behavior:smooth}
+
 body{
   margin:0;
-  background:repeating-linear-gradient(90deg,#eaf5ff 0px,#eaf5ff 15px,#fff 15px,#fff 30px);
-  color:#52677f;
+  color:var(--text);
   font-family:Georgia,serif;
+  background:
+    radial-gradient(ellipse at 15% 20%,#12334b 0%,transparent 40%),
+    radial-gradient(ellipse at 90% 65%,#0d2d46 0%,transparent 40%),
+    var(--deep);
+  overflow-x:hidden;
+}
+
+/* DECORACIÓN MARINA */
+
+.bubble{
+  position:fixed;
+  bottom:-40px;
+  width:9px;
+  height:9px;
+  border:1px solid #7acde5;
+  border-radius:50%;
+  opacity:.25;
+  pointer-events:none;
+  animation:float 13s linear infinite;
+  z-index:0;
+}
+
+.bubble:nth-child(1){left:8%;animation-delay:1s}
+.bubble:nth-child(2){left:24%;animation-delay:5s;width:15px;height:15px}
+.bubble:nth-child(3){left:46%;animation-delay:3s}
+.bubble:nth-child(4){left:68%;animation-delay:8s;width:13px;height:13px}
+.bubble:nth-child(5){left:90%;animation-delay:2s}
+
+@keyframes float{
+  from{transform:translateY(0)}
+  to{transform:translateY(-115vh)}
 }
 
 header{
+  position:relative;
   text-align:center;
-  padding:55px 15px 35px;
-  background:linear-gradient(#e1f0ff,#f7fbff);
-  border-bottom:4px dotted #b8d7f5;
+  padding:65px 15px 45px;
+  background:
+    linear-gradient(180deg,#102f49,#091b2c);
+  border-bottom:2px solid #28536d;
+  overflow:hidden;
+}
+
+header:before{
+  content:"✧ 𓇼 ｡°✩ 𓆝 ｡°✧ 𓆟";
+  display:block;
+  color:#69b8d3;
+  letter-spacing:12px;
+  font-size:19px;
+  margin-bottom:22px;
 }
 
 header h1{
-  color:#668dbb;
-  font-size:clamp(38px,7vw,65px);
+  color:#bceafa;
+  font-size:clamp(38px,8vw,68px);
   font-weight:normal;
   margin:0;
-  text-shadow:2px 2px white;
+  text-shadow:0 0 18px #58b9df66;
 }
 
-header p{color:#91abc9;font-style:italic}
+header p{
+  color:#82b9d2;
+  font-style:italic;
+  font-size:14px;
+  letter-spacing:2px;
+}
+
+.header-bottom{
+  margin-top:25px;
+  color:#5da6c5;
+  font-size:24px;
+  letter-spacing:15px;
+}
+
+/* NAVEGACIÓN */
 
 nav{
+  position:sticky;
+  top:0;
+  z-index:20;
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
-  background:#c6def5;
-  padding:12px;
   gap:8px;
+  padding:13px;
+  background:#071a2aee;
+  border-bottom:1px solid #28536d;
+  backdrop-filter:blur(10px);
 }
 
 nav a{
   text-decoration:none;
-  color:#547ba7;
-  background:#f5faff;
-  padding:10px 16px;
-  border-radius:5px;
-  font-size:13px;
+  color:#a9d9ed;
+  background:#102d43;
+  border:1px solid #28536d;
+  padding:9px 15px;
+  border-radius:4px;
+  font-size:12px;
+  transition:.2s;
 }
 
-nav a:hover{background:#fff}
+nav a:hover{
+  background:#1c4966;
+  color:white;
+  transform:translateY(-2px);
+}
+
+/* ESTRUCTURA */
 
 .layout{
+  position:relative;
+  z-index:1;
   max-width:1250px;
-  margin:22px auto;
+  margin:25px auto;
   padding:0 15px;
   display:grid;
-  grid-template-columns:230px minmax(0,1fr) 230px;
+  grid-template-columns:220px minmax(0,1fr) 220px;
   gap:18px;
   align-items:start;
 }
 
-.panel,.post{
-  background:#f5faff;
-  border:2px solid #c7def3;
-  padding:15px;
-  box-shadow:0 3px 10px #b8cee033;
+.panel,.post,.section-box{
+  background:#0c2235;
+  border:1px solid #28536d;
+  padding:17px;
+  box-shadow:0 5px 18px #0004;
   margin-bottom:18px;
 }
 
 .panel h3{
-  color:#7d9fc3;
-  font-size:15px;
-  border-bottom:1px dashed #b8d3ed;
-  padding-bottom:8px;
+  color:#82c7df;
+  font-size:14px;
+  font-weight:normal;
+  letter-spacing:1px;
+  border-bottom:1px dashed #38647c;
+  padding-bottom:9px;
 }
 
-.panel p,.panel a{
+.panel p,.panel li{
   font-size:13px;
-  line-height:1.7;
+  line-height:1.8;
+  color:#b5cfdd;
 }
+
+.panel a{
+  color:#83c9e4;
+  text-decoration:none;
+}
+
+.panel a:hover{text-decoration:underline}
 
 .side-img{
   width:100%;
-  border:5px solid white;
-  outline:1px solid #c8dced;
+  border:5px solid #17364e;
+  outline:1px solid #4d819b;
   margin:8px 0;
 }
 
 .center-title{
   text-align:center;
-  color:#789bc0;
-  font-size:22px;
-  margin:8px 0 18px;
+  color:#a9ddec;
+  font-size:24px;
+  font-weight:normal;
+  margin:10px 0 20px;
+}
+
+.small-decoration{
+  text-align:center;
+  color:#579dbb;
+  letter-spacing:8px;
+  margin:15px 0;
 }
 
 .post{
-  background:#edf6ff;
+  background:#102b40;
   padding:20px;
 }
 
 .post-date{
-  color:#8da9c9;
-  font-size:12px;
+  color:#69a9c6;
+  font-size:11px;
   text-transform:uppercase;
+  letter-spacing:2px;
 }
 
 .post h2{
-  color:#648bb7;
+  color:#a9ddec;
   font-weight:normal;
   font-size:22px;
 }
@@ -117,315 +220,767 @@ nav a:hover{background:#fff}
 .post p{
   font-size:14px;
   line-height:1.9;
-  color:#53677d;
-  white-space:pre-wrap;
+  color:#c1d7e2;
 }
 
 .post img{
   max-width:100%;
-  max-height:420px;
+  max-height:350px;
   display:block;
   margin:15px auto;
-  border:6px solid white;
-  outline:1px solid #c5d9ed;
+  border:5px solid #1b405a;
 }
 
-.post-actions{
+.tag{
+  display:inline-block;
+  padding:5px 9px;
+  margin:4px;
+  background:#173b54;
+  border:1px solid #32627c;
+  color:#a8d9eb;
+  font-size:11px;
+}
+
+/* SECCIONES */
+
+.section-box{
+  scroll-margin-top:80px;
+  padding:23px;
+}
+
+.section-box h2{
+  color:#a9ddec;
+  font-size:23px;
+  font-weight:normal;
+  text-align:center;
+}
+
+.section-box h3{
+  color:#80c2dc;
+  font-weight:normal;
+  font-size:17px;
+}
+
+.section-box p{
+  font-size:14px;
+  line-height:1.9;
+  color:#c1d7e2;
+}
+
+.interest-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.interest-card{
+  background:#102b40;
+  border:1px solid #28536d;
+  padding:17px;
+  transition:.2s;
+}
+
+.interest-card:hover{
+  border-color:#75c8e1;
+  transform:translateY(-3px);
+}
+
+.interest-card .emoji{
+  font-size:28px;
+}
+
+.interest-card h3{
+  color:#a8ddec;
+  font-size:16px;
+  margin:9px 0;
+}
+
+.interest-card p{
+  font-size:12px;
+  margin:0;
+  line-height:1.7;
+}
+
+.quote{
+  text-align:center;
+  color:#83b9d0;
+  font-style:italic;
+  padding:18px;
+  border-top:1px dashed #315b73;
+  border-bottom:1px dashed #315b73;
+  line-height:1.8;
+  margin:20px 0;
+}
+
+/* LIENZO PIXEL */
+
+#pixel-art{
+  scroll-margin-top:80px;
+}
+
+.pixel-intro{
+  text-align:center;
+  font-size:13px;
+  color:#a9cddd;
+  line-height:1.8;
+}
+
+.canvas-wrap{
+  background:#071827;
+  border:2px solid #32627c;
+  padding:12px;
+  margin:18px 0;
+  overflow:hidden;
+}
+
+#pixelCanvas{
+  display:block;
+  width:100%;
+  max-width:640px;
+  height:auto;
+  aspect-ratio:64/44;
+  margin:auto;
+  background:#fff;
+  image-rendering:pixelated;
+  cursor:crosshair;
+  touch-action:none;
+  border:1px solid #54849c;
+}
+
+.palette{
   display:flex;
-  gap:10px;
-  align-items:center;
-  border-top:1px dashed #b6cee6;
-  padding-top:12px;
-  margin-top:15px;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:9px;
+  margin:15px 0;
+}
+
+.color-btn{
+  width:32px;
+  height:32px;
+  border:2px solid #9bbdcc;
+  border-radius:50%;
+  cursor:pointer;
+  padding:0;
+  transition:.15s;
+}
+
+.color-btn:hover{transform:scale(1.15)}
+
+.color-btn.selected{
+  outline:3px solid #b5e8f5;
+  outline-offset:3px;
+  transform:scale(1.08);
+}
+
+.canvas-tools{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:9px;
+  margin:12px 0;
 }
 
 button{
-  border:0;
-  background:#9fc5e9;
-  color:white;
+  border:1px solid #3b718d;
+  background:#17405b;
+  color:#d4eff8;
   padding:9px 14px;
-  border-radius:5px;
+  border-radius:4px;
   cursor:pointer;
   font-family:Georgia,serif;
+  font-size:12px;
+  transition:.2s;
 }
 
-button:hover{background:#7faedb}
-
-.follow{
-  width:100%;
-  margin-top:8px;
+button:hover{
+  background:#28617f;
 }
 
-input,textarea{
-  width:100%;
-  padding:10px;
-  border:1px solid #c3d9ed;
-  background:white;
-  color:#53677d;
+button.active{
+  background:#367d9d;
+  border-color:#a7e4f5;
+}
+
+select{
+  background:#102b40;
+  border:1px solid #3b718d;
+  color:#cceaf4;
+  padding:8px;
   font-family:Georgia,serif;
-  margin:6px 0;
 }
 
-textarea{min-height:110px;resize:vertical}
+.canvas-note{
+  color:#79b5ce;
+  font-size:12px;
+  text-align:center;
+  line-height:1.7;
+}
 
-#editor{display:none}
+/* PIE */
 
 footer{
+  position:relative;
+  z-index:1;
   text-align:center;
-  padding:25px;
-  color:#8ba9ca;
+  padding:35px 15px;
+  color:#6fa9c2;
   font-size:12px;
+  line-height:2;
+  border-top:1px solid #28536d;
+  background:#071827;
 }
 
-@media(max-width:850px){
-  .layout{grid-template-columns:1fr 1fr}
-  .center{grid-column:1/-1;grid-row:1}
+/* RESPONSIVE */
+
+@media(max-width:900px){
+  .layout{
+    grid-template-columns:1fr 1fr;
+  }
+  .center{
+    grid-column:1/-1;
+    grid-row:1;
+  }
 }
 
 @media(max-width:550px){
-  .layout{grid-template-columns:1fr}
-  .center{grid-column:auto}
+  .layout{
+    grid-template-columns:1fr;
+  }
+  .center{
+    grid-column:auto;
+  }
+  .interest-grid{
+    grid-template-columns:1fr;
+  }
+  header{padding:45px 12px 30px}
+  nav{gap:6px}
+  nav a{padding:8px 10px;font-size:11px}
 }
 </style>
 </head>
 
 <body>
 
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+
 <header>
-  <h1>♡ Aylin's Blog ♡</h1>
-  <p>little moments, memories & dreams ✧</p>
+  <h1>♡ Aylin's Ocean ♡</h1>
+  <p>a little world beneath the waves ✧</p>
+  <div class="header-bottom">𓇼 𓆝 𓆟 𓆞</div>
 </header>
 
 <nav>
-  <a href="blogs.html">Home ♡</a>
-  <a href="#welcome">Welcome</a>
-  <a href="#publicaciones">My Diary</a>
-  <a href="#editor">New Post ✎</a>
-  <a href="blogs.html">RL Blogs</a>
+  <a href="#inicio">Home ♡</a>
+  <a href="#sobre-mi">About me</a>
+  <a href="#intereses">My interests</a>
+  <a href="#programacion">Coding</a>
+  <a href="#cortos">Short films</a>
+  <a href="#pixel-art">Pixel art</a>
+  <a href="#otros">More things</a>
 </nav>
 
 <div class="layout">
 
-  <!-- IZQUIERDA -->
+  <!-- COLUMNA IZQUIERDA -->
+
   <aside>
+
     <section class="panel">
       <img class="side-img"
-      src="https://placehold.co/400x300/d9eaff/7297c0?text=♡+Aylin+♡"
-      alt="Foto de Aylin">
+      src="https://placehold.co/400x300/123c59/a9d9ed?text=♡+Aylin+♡"
+      alt="Decoración de Aylin">
 
-      <h3>♡ MY LITTLE SPACE</h3>
-      <p>Welcome to my little corner of the internet!</p>
-      <p>♡ My Pinterest</p>
-      <p>♡ My favorite things</p>
-      <p>♡ My memories</p>
+      <h3>𓇼 MY LITTLE SPACE</h3>
+      <p>Welcome to my little corner of the internet.</p>
+      <p>♡ Ideas and projects</p>
+      <p>♡ Things I love</p>
+      <p>♡ Little memories</p>
     </section>
 
     <section class="panel">
       <h3>✧ ABOUT THIS BLOG</h3>
-      <p>Un lugar para guardar pensamientos, fotos, recomendaciones y pequeños momentos.</p>
+      <p>Un pequeño rincón para mis ideas, proyectos, creatividad y todo lo que me gusta.</p>
     </section>
 
     <section class="panel">
-      <h3>♫ CURRENTLY LISTENING</h3>
-      <p>♪ My favorite songs</p>
-      <p>♪ Soft playlist</p>
-      <p>♪ Songs on repeat</p>
+      <h3>𓆝 OCEAN MOOD</h3>
+      <p>Currently dreaming about:</p>
+      <p>☾ Deep blue oceans</p>
+      <p>𓇼 Underwater worlds</p>
+      <p>✧ Little stars</p>
+      <p>𓆟 Sea creatures</p>
     </section>
+
   </aside>
 
   <!-- CENTRO -->
-  <main class="center" id="publicaciones">
-    <h2 class="center-title">✿ Welcome to my page ✿</h2>
 
-    <section class="panel" id="editor">
-      <h3>♡ CREATE A NEW POST</h3>
-      <input id="postTitle" placeholder="Post title...">
-      <textarea id="postText" placeholder="Write something..."></textarea>
-      <label>Choose a photo:</label>
-      <input type="file" id="postImage" accept="image/*">
-      <button onclick="addPost()">Publish ♡</button>
-      <button onclick="closeEditor()">Cancel</button>
+  <main class="center" id="inicio">
+
+    <h2 class="center-title">✧ Welcome to my ocean ✧</h2>
+
+    <article class="post">
+      <div class="post-date">A LITTLE INTRODUCTION</div>
+      <h2>Welcome to my world ♡</h2>
+
+      <p>
+¡Hola! Bienvenidos a mi pequeño espacio.
+
+Este blog es una colección de cosas que me gustan, ideas que se me ocurren y proyectos que quiero hacer.
+
+Me gusta crear, imaginar, programar, dibujar y descubrir cosas nuevas.
+
+No todo tiene que ser perfecto. A veces una idea empieza siendo pequeñita y termina convirtiéndose en algo increíble.
+
+Así que... ¡explorá un poquito!
+      </p>
+
+      <div class="small-decoration">𓇼 𓆝 ✧ 𓆟 𓇼</div>
+    </article>
+
+    <section class="section-box" id="sobre-mi">
+      <h2>♡ A little about me ♡</h2>
+      <p>
+Soy una persona creativa a la que le gusta experimentar con distintas ideas. Me encanta aprender cosas nuevas y convertir algunas de ellas en proyectos.
+
+Este espacio reúne un poquito de todo eso: tecnología, arte, historias, videojuegos y creatividad.
+      </p>
+
+      <div class="quote">
+        "A veces, las mejores ideas aparecen cuando simplemente empezamos a crear."
+      </div>
     </section>
 
-    <section style="text-align:center;margin-bottom:18px">
-      <button onclick="openEditor()">＋ New publication</button>
+    <section class="section-box" id="intereses">
+      <h2>✧ Things I love ✧</h2>
+
+      <div class="interest-grid">
+
+        <div class="interest-card">
+          <div class="emoji">💻</div>
+          <h3>Programming</h3>
+          <p>Crear páginas, experimentar con código y construir proyectos desde cero.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="emoji">🎬</div>
+          <h3>Short films</h3>
+          <p>Historias cortitas, ideas cinematográficas, escenas y mundos imaginarios.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="emoji">🎮</div>
+          <h3>Video games</h3>
+          <p>Jugar, imaginar personajes y pensar en videojuegos propios.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="emoji">🎨</div>
+          <h3>Digital art</h3>
+          <p>Dibujar, diseñar, probar colores y crear cosas visuales.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="emoji">🐈</div>
+          <h3>Cats & animals</h3>
+          <p>Los gatitos, los animales y todas esas pequeñas criaturas adorables.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="emoji">🎧</div>
+          <h3>Music</h3>
+          <p>Canciones favoritas, playlists y música para acompañar cada momento.</p>
+        </div>
+
+      </div>
     </section>
 
-    <div id="posts"></div>
+    <!-- PROGRAMACIÓN -->
+
+    <section class="section-box" id="programacion">
+      <h2>⌘ My coding corner</h2>
+
+      <div class="post-date">TECHNOLOGY · CREATIVE PROJECTS</div>
+
+      <h3>Building things with code ♡</h3>
+
+      <p>
+Me gusta la idea de poder crear algo desde una pantalla. Una página web, un bot, una pequeña aplicación o un videojuego.
+
+La programación es una forma de transformar ideas en algo que se puede usar y explorar.
+      </p>
+
+      <div class="interest-grid">
+
+        <div class="interest-card">
+          <div class="emoji">🌐</div>
+          <h3>Web design</h3>
+          <p>HTML, CSS y JavaScript. Diseños, páginas personales y pequeños experimentos.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="emoji">🤖</div>
+          <h3>Bot projects</h3>
+          <p>Comandos, funciones, respuestas y personalidades para bots.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="emoji">🕹️</div>
+          <h3>Game development</h3>
+          <p>Ideas de juegos, personajes, escenarios y aprendizaje de Godot.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="emoji">✨</div>
+          <h3>Experiments</h3>
+          <p>Probar efectos, animaciones, diseños y nuevas ideas.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORTOMETRAJES -->
+
+    <section class="section-box" id="cortos">
+      <h2>🎬 Little movie studio</h2>
+
+      <div class="post-date">STORIES · CINEMA · IMAGINATION</div>
+
+      <h3>Stories in little pieces</h3>
+
+      <p>
+Los cortometrajes son una forma de contar historias sin necesitar horas. Una escena, un personaje, una emoción o un pequeño misterio pueden convertirse en una historia completa.
+      </p>
+
+      <div class="post">
+        <h3>✧ Ideas for a short film</h3>
+        <p>
+        • Una historia que empieza con una llamada inesperada.
+
+        • Un lugar que parece normal, pero esconde un secreto.
+
+        • Un día contado desde el punto de vista de un animal.
+
+        • Una pequeña aventura en un mundo fantástico.
+        </p>
+      </div>
+
+      <div class="quote">
+        Every little scene can tell a big story.
+      </div>
+    </section>
+
+    <!-- VIDEOJUEGOS -->
+
+    <section class="section-box" id="videojuegos">
+      <h2>🎮 Game universe</h2>
+
+      <h3>Dreaming up new worlds</h3>
+
+      <p>
+Me encanta imaginar videojuegos, pensar cómo serían sus escenarios, qué personajes aparecerían y qué secretos podrían esconder.
+      </p>
+
+      <div class="interest-grid">
+        <div class="interest-card">
+          <div class="emoji">🎡</div>
+          <h3>Horror games</h3>
+          <p>Parques misteriosos, lugares abandonados y aventuras llenas de secretos.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="emoji">🐱</div>
+          <h3>Characters</h3>
+          <p>Personajes con personalidad, historias y pequeños detalles especiales.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIXEL ART -->
+
+    <section class="section-box" id="pixel-art">
+      <h2>🎨 My pixel art studio</h2>
+
+      <p class="pixel-intro">
+        ¡Este espacio es para dibujar! Elegí un color y empezá a crear con tu dedo o cursor.
+        <br>Un pequeño lienzo de 64 × 44 píxeles.
+      </p>
+
+      <div class="palette" id="palette">
+        <button class="color-btn selected" style="background:#071827" data-color="#071827" aria-label="Negro azulado"></button>
+        <button class="color-btn" style="background:#ffffff" data-color="#ffffff" aria-label="Blanco"></button>
+        <button class="color-btn" style="background:#8bd3e6" data-color="#8bd3e6" aria-label="Celeste"></button>
+        <button class="color-btn" style="background:#287ba5" data-color="#287ba5" aria-label="Azul"></button>
+        <button class="color-btn" style="background:#16415f" data-color="#16415f" aria-label="Azul oscuro"></button>
+        <button class="color-btn" style="background:#a9c7d5" data-color="#a9c7d5" aria-label="Gris azulado"></button>
+        <button class="color-btn" style="background:#b5d88a" data-color="#b5d88a" aria-label="Verde"></button>
+        <button class="color-btn" style="background:#f2d16d" data-color="#f2d16d" aria-label="Amarillo"></button>
+        <button class="color-btn" style="background:#ed9eae" data-color="#ed9eae" aria-label="Rosa"></button>
+        <button class="color-btn" style="background:#a78bd4" data-color="#a78bd4" aria-label="Violeta"></button>
+        <button class="color-btn" style="background:#d98b58" data-color="#d98b58" aria-label="Naranja"></button>
+        <button class="color-btn" style="background:#6c4b3b" data-color="#6c4b3b" aria-label="Marrón"></button>
+      </div>
+
+      <div class="canvas-tools">
+        <button id="eraserBtn" onclick="toggleEraser()">⌫ Borrador</button>
+
+        <label style="font-size:12px;color:#a9d9ed;align-self:center">
+          Tamaño:
+          <select id="brushSize">
+            <option value="1">1 px</option>
+            <option value="2">2 px</option>
+            <option value="3">3 px</option>
+            <option value="4">4 px</option>
+          </select>
+        </label>
+
+        <button onclick="clearCanvas()">✧ Limpiar</button>
+        <button onclick="downloadCanvas()">↓ Descargar</button>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="pixelCanvas" width="64" height="44"></canvas>
+      </div>
+
+      <p class="canvas-note">
+        𓇼 Tip: podés dibujar manteniendo presionado y arrastrando.
+        <br>Tu dibujo se guarda automáticamente en este navegador.
+      </p>
+
+    </section>
+
+    <!-- OTROS -->
+
+    <section class="section-box" id="otros">
+      <h2>𓆝 Other little things</h2>
+
+      <div class="interest-grid">
+
+        <div class="interest-card">
+          <div class="emoji">📚</div>
+          <h3>Stories & books</h3>
+          <p>Historias, personajes y mundos que vale la pena descubrir.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="emoji">🌊</div>
+          <h3>The ocean</h3>
+          <p>El mar, sus criaturas, los colores y todo lo que vive bajo el agua.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="emoji">🌙</div>
+          <h3>Aesthetic things</h3>
+          <p>Diseños, decoración, ideas y pequeños detalles bonitos.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="emoji">💭</div>
+          <h3>Random ideas</h3>
+          <p>Proyectos que aparecen de repente y que algún día quiero realizar.</p>
+        </div>
+
+      </div>
+
+      <div class="quote">
+        𓇼 There is always something new beneath the waves. 𓇼
+      </div>
+    </section>
+
   </main>
 
-  <!-- DERECHA -->
+  <!-- COLUMNA DERECHA -->
+
   <aside>
-    <section class="panel" id="welcome">
-      <h3>♡ Welcome to my page</h3>
-      <p>Hi! I'm Aylin. This is my personal blog, a little place where I can share the things I love.</p>
-      <p>Thanks for visiting! ♡</p>
+
+    <section class="panel">
+      <h3>♡ A LITTLE NOTE</h3>
+      <p>
+        This is my own little world. A place for ideas, creativity and imagination.
+      </p>
     </section>
 
     <section class="panel">
-      <h3>♡ FOLLOWERS</h3>
-      <p id="followerCount">Followers: 0</p>
-      <button class="follow" id="followButton" onclick="toggleFollow()">Follow ♡</button>
+      <h3>✧ MY FAVORITE VIBES</h3>
+      <p>Color: Deep blue</p>
+      <p>Place: The ocean</p>
+      <p>Animal: Cats</p>
+      <p>Hobby: Creating things</p>
+      <p>Dream: Make something amazing</p>
     </section>
 
     <section class="panel">
-      <h3>✧ MY FAVORITES</h3>
-      <p>Color: Baby blue</p>
-      <p>Season: Spring</p>
-      <p>Flower: Daisy</p>
-      <p>Word: Happiness</p>
-      <p>♡ Always dreaming</p>
+      <h3>𓆝 UNDER THE SEA</h3>
+      <p>
+        Did you know?
+      </p>
+      <p>
+        The ocean is home to an incredible variety of life, from tiny plankton to enormous whales.
+      </p>
+      <div class="small-decoration">𓆟 𓆞 𓆝</div>
     </section>
 
     <section class="panel">
-      <h3>♡ LITTLE NOTE</h3>
-      <p>Make memories, take pictures and enjoy the little things.</p>
+      <h3>♫ CURRENT MOOD</h3>
+      <p>☾ Dreaming</p>
+      <p>✧ Creating</p>
+      <p>𓇼 Exploring</p>
+      <p>♡ Learning</p>
     </section>
+
   </aside>
 
 </div>
 
 <footer>
-  Made with ♡ by Aylin · RL Blogs
+  <div class="small-decoration">𓇼 𓆝 𓆟 𓆞 𓇼</div>
+  Made with ♡ by Aylin
+  <br>
+  A little world beneath the waves.
 </footer>
 
 <script>
-const STORAGE_KEY = "rl_aylin_posts";
-const FOLLOW_KEY = "rl_aylin_following";
+/* PIXEL ART */
 
-let posts = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+const canvas = document.getElementById("pixelCanvas");
+const ctx = canvas.getContext("2d");
 
-function savePosts(){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
-}
+const STORAGE_KEY = "aylin_ocean_pixel_art";
 
-function openEditor(){
-  document.getElementById("editor").style.display="block";
-  document.getElementById("postTitle").focus();
-}
+let selectedColor = "#071827";
+let erasing = false;
+let drawing = false;
 
-function closeEditor(){
-  document.getElementById("editor").style.display="none";
-}
+const paletteButtons = document.querySelectorAll(".color-btn");
 
-function addPost(){
-  const title=document.getElementById("postTitle").value.trim();
-  const text=document.getElementById("postText").value.trim();
-  const file=document.getElementById("postImage").files[0];
+/* Cargar dibujo guardado */
 
-  if(!title || !text){
-    alert("Write a title and something for your post ♡");
-    return;
-  }
+function loadDrawing(){
+  const saved = localStorage.getItem(STORAGE_KEY);
 
-  const create = (image) => {
-    posts.unshift({
-      id:Date.now(),
-      title,
-      text,
-      image,
-      date:new Date().toLocaleDateString("es-AR"),
-      likes:0
-    });
+  if(saved){
+    const image = new Image();
 
-    savePosts();
-    renderPosts();
-    document.getElementById("postTitle").value="";
-    document.getElementById("postText").value="";
-    document.getElementById("postImage").value="";
-    closeEditor();
-  };
+    image.onload = () => {
+      ctx.drawImage(image,0,0,canvas.width,canvas.height);
+    };
 
-  if(file){
-    const reader=new FileReader();
-    reader.onload=()=>create(reader.result);
-    reader.readAsDataURL(file);
+    image.src = saved;
   }else{
-    create("");
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
   }
 }
 
-function likePost(id){
-  const post=posts.find(p=>p.id===id);
-  if(!post)return;
-  post.likes++;
-  savePosts();
-  renderPosts();
-}
-
-function deletePost(id){
-  if(!confirm("Delete this publication?"))return;
-  posts=posts.filter(p=>p.id!==id);
-  savePosts();
-  renderPosts();
-}
-
-function renderPosts(){
-  const container=document.getElementById("posts");
-
-  if(posts.length===0){
-    container.innerHTML=`
-      <article class="post">
-        <div class="post-date">AUGUST 04, 2026</div>
-        <h2>My first little post ♡</h2>
-        <p>Welcome to my blog! This is where I'll share my memories, thoughts, pictures and favorite things.
-
-I'm so happy to have my own little space here. Thanks for visiting! ♡</p>
-        <div class="post-actions">
-          <button onclick="likeFirst()">♡ Like</button>
-          <span id="firstLikes">0 likes</span>
-        </div>
-      </article>`;
-    return;
+function saveDrawing(){
+  try{
+    localStorage.setItem(STORAGE_KEY,canvas.toDataURL("image/png"));
+  }catch(error){
+    console.log("No se pudo guardar el dibujo.");
   }
-
-  container.innerHTML=posts.map(post=>`
-    <article class="post">
-      <div class="post-date">${post.date}</div>
-      <h2>${escapeHTML(post.title)}</h2>
-      ${post.image?`<img src="${post.image}" alt="Post image">`:""}
-      <p>${escapeHTML(post.text)}</p>
-      <div class="post-actions">
-        <button onclick="likePost(${post.id})">♡ Like</button>
-        <span>${post.likes} likes</span>
-        <button onclick="deletePost(${post.id})">Delete</button>
-      </div>
-    </article>
-  `).join("");
 }
 
-function escapeHTML(value){
-  return value.replace(/[&<>"']/g, char => ({
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#39;"
-  })[char]);
+/* Seleccionar color */
+
+paletteButtons.forEach(button => {
+  button.addEventListener("click",() => {
+    selectedColor = button.dataset.color;
+    erasing = false;
+
+    document.getElementById("eraserBtn").classList.remove("active");
+
+    paletteButtons.forEach(b => b.classList.remove("selected"));
+    button.classList.add("selected");
+  });
+});
+
+/* Borrador */
+
+function toggleEraser(){
+  erasing = !erasing;
+
+  document.getElementById("eraserBtn").classList.toggle("active",erasing);
+
+  paletteButtons.forEach(b => b.classList.remove("selected"));
 }
 
-let firstLikes=0;
-function likeFirst(){
-  firstLikes++;
-  document.getElementById("firstLikes").textContent=firstLikes+" likes";
+/* Dibujar */
+
+function getPixelPosition(event){
+  const rect = canvas.getBoundingClientRect();
+
+  const x = Math.floor((event.clientX - rect.left) * canvas.width / rect.width);
+  const y = Math.floor((event.clientY - rect.top) * canvas.height / rect.height);
+
+  return {
+    x:Math.max(0,Math.min(canvas.width-1,x)),
+    y:Math.max(0,Math.min(canvas.height-1,y))
+  };
 }
 
-function toggleFollow(){
-  const following=localStorage.getItem(FOLLOW_KEY)==="true";
-  localStorage.setItem(FOLLOW_KEY,String(!following));
-  updateFollow();
+function paint(event){
+  const pos = getPixelPosition(event);
+  const size = Number(document.getElementById("brushSize").value);
+
+  ctx.fillStyle = erasing ? "#ffffff" : selectedColor;
+
+  ctx.fillRect(
+    pos.x - Math.floor(size/2),
+    pos.y - Math.floor(size/2),
+    size,
+    size
+  );
 }
 
-function updateFollow(){
-  const following=localStorage.getItem(FOLLOW_KEY)==="true";
-  document.getElementById("followButton").textContent=
-    following?"Following ✓":"Follow ♡";
-  document.getElementById("followerCount").textContent=
-    "Followers: "+(following?1:0);
+canvas.addEventListener("pointerdown",event => {
+  drawing = true;
+  canvas.setPointerCapture(event.pointerId);
+  paint(event);
+});
+
+canvas.addEventListener("pointermove",event => {
+  if(!drawing)return;
+  paint(event);
+});
+
+function stopDrawing(){
+  if(!drawing)return;
+  drawing = false;
+  saveDrawing();
 }
 
-renderPosts();
-updateFollow();
+canvas.addEventListener("pointerup",stopDrawing);
+canvas.addEventListener("pointercancel",stopDrawing);
+canvas.addEventListener("lostpointercapture",stopDrawing);
+
+/* Limpiar */
+
+function clearCanvas(){
+  if(!confirm("¿Querés borrar todo tu dibujo?"))return;
+
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  saveDrawing();
+}
+
+/* Descargar */
+
+function downloadCanvas(){
+  const link = document.createElement("a");
+  link.download = "aylin-pixel-art.png";
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+}
+
+/* Inicializar */
+
+loadDrawing();
 </script>
 
 </body>
