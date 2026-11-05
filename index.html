@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -38,7 +37,7 @@ body::before {
     background-size: 180px 180px;
 }
 
-/* LOGOS RL: IMAGEN ORIGINAL */
+/* LOGOS RL */
 
 .logo {
     display: flex;
@@ -405,22 +404,89 @@ nav a.activo {
     border-right: 1px solid #4267b4;
 }
 
-.iconos-redes {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+/* REPRODUCTOR MUSICAL RL */
+
+.music-container {
     margin-top: 22px;
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
 
-.iconos-redes a {
-    color: #dce7ff;
-    border: 1px solid #6d96ed;
-    border-radius: 13px;
-    padding: 12px;
-    font-size: 20px;
-    text-decoration: none;
-    box-shadow: 0 0 10px #285bdb;
+.music-button {
+    color: #e5eaff;
+    background: linear-gradient(135deg, #10285c, #030a20);
+    border: 1px solid #83aaff;
+    border-radius: 30px;
+    padding: 13px 25px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 0 12px #3974ff, inset 0 0 10px #244fbb;
+    transition: .3s;
+}
+
+.music-button:hover {
+    background: #173d91;
+    box-shadow: 0 0 23px #5287ff;
+    transform: translateY(-3px);
+}
+
+.music-button.playing {
+    animation: musicGlow 1.5s infinite alternate;
+}
+
+@keyframes musicGlow {
+    from {
+        box-shadow: 0 0 8px #3974ff;
+    }
+    to {
+        box-shadow: 0 0 25px #83aaff, 0 0 35px #285bdb;
+    }
+}
+
+.music-status {
+    font-size: 12px;
+    color: #a9c4ff;
+    letter-spacing: 2px;
+}
+
+.music-bars {
+    display: none;
+    align-items: center;
+    gap: 4px;
+    height: 20px;
+}
+
+.music-bars.active {
+    display: flex;
+}
+
+.music-bars span {
+    display: block;
+    width: 3px;
+    height: 7px;
+    border-radius: 5px;
+    background: #83aaff;
+    animation: equalizer .6s infinite alternate;
+}
+
+.music-bars span:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.music-bars span:nth-child(3) {
+    animation-delay: .4s;
+}
+
+.music-bars span:nth-child(4) {
+    animation-delay: .1s;
+}
+
+@keyframes equalizer {
+    from { height: 5px; }
+    to { height: 19px; }
 }
 
 .despedida {
@@ -554,7 +620,6 @@ footer small {
 
 <header>
 
-    <!-- LOGO DE LA BARRA SUPERIOR -->
     <a href="#inicio" class="logo">
         <img src="logo-rl.png" alt="Logo RL plateado">
     </a>
@@ -578,8 +643,6 @@ footer small {
 
 <main>
 
-    <!-- PORTADA -->
-
     <section class="portada" id="inicio">
 
         <span class="destello uno">✦</span>
@@ -590,7 +653,6 @@ footer small {
 
         <div class="portada-contenido">
 
-            <!-- LOGO PRINCIPAL -->
             <div class="logo-grande">
                 <img src="logo-rl.png" alt="Logo RL plateado con mariposa">
             </div>
@@ -606,8 +668,6 @@ footer small {
         </div>
 
     </section>
-
-    <!-- ESPACIOS -->
 
     <section class="seccion" id="espacios">
 
@@ -677,8 +737,6 @@ footer small {
 
     </section>
 
-    <!-- SOBRE NOSOTROS -->
-
     <section class="informacion" id="nosotros">
 
         <div class="sobre">
@@ -703,11 +761,33 @@ footer small {
 
             <p>No te pierdas nada de nuestro contenido.</p>
 
-            <div class="iconos-redes">
-                <a href="#" title="Instagram">◎</a>
-                <a href="#" title="TikTok">♪</a>
-                <a href="#" title="YouTube">▶</a>
-                <a href="#" title="Discord">◉</a>
+            <div class="music-container">
+
+                <audio id="musica" loop>
+                    <source src="intro.mp3" type="audio/mpeg">
+                </audio>
+
+                <button
+                    class="music-button"
+                    id="musicBtn"
+                    type="button"
+                    onclick="toggleMusic()"
+                    aria-label="Reproducir música"
+                >
+                    ♫ REPRODUCIR MÚSICA
+                </button>
+
+                <div class="music-bars" id="musicBars">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <span class="music-status" id="musicStatus">
+                    ♡ RL MUSIC PLAYER ♡
+                </span>
+
             </div>
 
         </div>
@@ -723,11 +803,8 @@ footer small {
 
 </main>
 
-<!-- PIE DE PÁGINA -->
-
 <footer>
 
-    <!-- LOGO INFERIOR -->
     <span class="logo-pie">
         <img src="logo-rl.png" alt="Logo RL">
     </span>
@@ -739,6 +816,56 @@ footer small {
     </small>
 
 </footer>
+
+<script>
+const musica = document.getElementById("musica");
+const boton = document.getElementById("musicBtn");
+const barras = document.getElementById("musicBars");
+const estado = document.getElementById("musicStatus");
+
+async function toggleMusic() {
+
+    if (musica.paused) {
+
+        try {
+            await musica.play();
+
+            boton.textContent = "♫ PAUSAR MÚSICA";
+            boton.classList.add("playing");
+            boton.setAttribute("aria-label", "Pausar música");
+
+            barras.classList.add("active");
+            estado.textContent = "♪ REPRODUCIENDO ♪";
+
+        } catch (error) {
+
+            estado.textContent = "No se pudo cargar la música ♡";
+        }
+
+    } else {
+
+        musica.pause();
+
+        boton.textContent = "♫ REPRODUCIR MÚSICA";
+        boton.classList.remove("playing");
+        boton.setAttribute("aria-label", "Reproducir música");
+
+        barras.classList.remove("active");
+        estado.textContent = "♡ RL MUSIC PLAYER ♡";
+    }
+}
+
+musica.addEventListener("ended", () => {
+    boton.textContent = "♫ REPRODUCIR MÚSICA";
+    boton.classList.remove("playing");
+    barras.classList.remove("active");
+    estado.textContent = "♡ RL MUSIC PLAYER ♡";
+});
+
+musica.addEventListener("error", () => {
+    estado.textContent = "No se encontró intro.mp3 ♡";
+});
+</script>
 
 </body>
 </html>
