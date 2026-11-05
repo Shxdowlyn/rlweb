@@ -976,9 +976,13 @@ function renderLikes(){
     const id=button.dataset.like;
     const liked=!!likes[id];
     const count=document.getElementById("count-"+id);
+
     button.classList.toggle("liked",liked);
     button.textContent=liked?"♥ Te gusta":"♡ Me gusta";
-    if(count) count.textContent=(liked?690.1M:690M)+" me gusta";
+
+    if(count){
+      count.textContent=(liked?"690.1M":"690M")+" me gusta";
+    }
   });
 }
 
