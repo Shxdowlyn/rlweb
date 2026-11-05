@@ -9,27 +9,37 @@
 <style>
 *{box-sizing:border-box}
 
+:root{
+ --cream:#fffaf3;
+ --pink:#f1d8d0;
+ --brown:#80675b;
+ --green:#aab99a;
+ --darkgreen:#71866c;
+ --border:#e8d4c6;
+}
+
 body{
  margin:0;
- background:#f5eee5;
- color:#66564c;
+ background:#f7efe7;
+ color:var(--brown);
  font-family:Verdana,sans-serif;
 }
 
 header{
  text-align:center;
  padding:25px 12px;
- background:#f4dcd0;
- border-bottom:4px dotted #d6a99a;
+ background:linear-gradient(135deg,#f7ded5,#f1e4d4);
+ border-bottom:4px dotted #d6aa9b;
 }
 
 header h1{
  margin:0;
- font-size:30px;
  color:#a66f62;
+ font-family:Georgia,serif;
+ font-size:32px;
 }
 
-header p{font-size:12px}
+header p{font-size:12px;margin-bottom:0}
 
 .back{
  display:inline-block;
@@ -39,52 +49,22 @@ header p{font-size:12px}
  font-size:13px;
 }
 
-.game{
- width:min(950px,94%);
- margin:10px auto 35px;
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:18px;
+main{
+ width:min(1000px,94%);
+ margin:10px auto 40px;
 }
 
 .panel{
- background:#fffaf4;
- border:2px solid #e7cfc0;
- border-radius:15px;
- padding:18px;
- box-shadow:3px 4px 0 #e9d8cb;
+ background:var(--cream);
+ border:2px solid var(--border);
+ border-radius:18px;
+ padding:20px;
+ box-shadow:3px 5px 0 #e9d8cb;
 }
 
-.preview{
- text-align:center;
- background:#e8e8d9;
- border-radius:12px;
- padding:15px;
-}
-
-.preview h2{
- color:#887a65;
- font-size:17px;
-}
-
-canvas{
- width:100%;
- max-width:440px;
- height:auto;
- image-rendering:pixelated;
- image-rendering:crisp-edges;
- background:#e8e8d9;
-}
-
-.name{
- width:90%;
- padding:10px;
- border:2px solid #e3cbbd;
- border-radius:8px;
- text-align:center;
- margin:10px;
- font-size:15px;
- background:white;
+h2{
+ color:#a77d6c;
+ font-family:Georgia,serif;
 }
 
 h3{
@@ -92,27 +72,23 @@ h3{
  color:#a47a67;
  border-bottom:1px dotted #d9bbaa;
  padding-bottom:7px;
- margin-top:20px;
+ margin-top:22px;
 }
 
-.options{
- display:flex;
- flex-wrap:wrap;
- gap:7px;
-}
-
-button,.option{
+button{
  border:1px solid #dfc4b4;
  background:#fff4eb;
  color:#765d51;
- border-radius:8px;
- padding:9px 11px;
+ border-radius:10px;
+ padding:10px 12px;
  font-size:12px;
  cursor:pointer;
+ transition:.2s;
 }
 
-button:hover,.option:hover{
+button:hover{
  background:#efd5c7;
+ transform:translateY(-2px);
 }
 
 button.selected{
@@ -121,46 +97,313 @@ button.selected{
  border-color:#c49b87;
 }
 
-.colors{
+.game{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:18px;
+}
+
+.preview{
+ text-align:center;
+ background:#e8e8d9;
+ border-radius:14px;
+ padding:15px;
+}
+
+canvas{
+ width:100%;
+ max-width:440px;
+ height:auto;
+ image-rendering:pixelated;
+ image-rendering:crisp-edges;
+}
+
+.name{
+ width:90%;
+ padding:11px;
+ border:2px solid var(--border);
+ border-radius:10px;
+ text-align:center;
+ margin:10px;
+ font-size:14px;
+ background:white;
+ color:var(--brown);
+}
+
+.options,.colors{
  display:flex;
  flex-wrap:wrap;
- gap:9px;
+ gap:8px;
 }
 
 .color{
- width:30px;
- height:30px;
+ width:31px;
+ height:31px;
  border-radius:50%;
  border:2px solid white;
  outline:1px solid #cdb9aa;
- cursor:pointer;
+ padding:0;
 }
 
-.color.selected{
- outline:3px solid #a77a67;
-}
+.color.selected{outline:3px solid #a77a67}
 
-.save{
+.primary{
  width:100%;
  margin-top:20px;
- padding:13px;
- background:#b9c5a1;
+ padding:14px;
+ background:#a9b99a;
  border:0;
- color:#fff;
+ color:white;
  font-weight:bold;
  font-size:14px;
 }
 
-.saved{
+.primary:hover{background:#899f7b}
+
+.hidden{display:none!important}
+
+/* CASITA */
+
+.home-title{
+ text-align:center;
+ margin:5px 0 15px;
+}
+
+.home-title h2{margin-bottom:5px}
+
+.home-title p{
+ font-size:12px;
+ color:#9b8476;
+}
+
+.home-scene{
+ position:relative;
+ overflow:hidden;
+ border:3px solid #e4cbb9;
+ border-radius:18px;
+ min-height:310px;
+ background:#f5e8d9;
+}
+
+.wall{
+ position:absolute;
+ inset:0 0 65px;
+ background:
+  radial-gradient(circle at 15% 20%,#fff8e9 0 3px,transparent 4px),
+  linear-gradient(90deg,transparent 49%,#ead8c8 50%,transparent 51%),
+  #f3e4d7;
+ background-size:35px 35px,100% 100%,auto;
+}
+
+.window{
+ position:absolute;
+ top:22px;
+ right:22px;
+ width:76px;
+ height:65px;
+ border:6px solid #fff9ef;
+ border-radius:8px;
+ background:linear-gradient(#c6e2e6 55%,#b6c99f 56%);
+ box-shadow:0 2px 5px #d4c0ae;
+}
+
+.window:before{
+ content:"";
+ position:absolute;
+ left:32px;
+ top:0;
+ height:100%;
+ width:4px;
+ background:#fff9ef;
+}
+
+.window:after{
+ content:"";
+ position:absolute;
+ left:0;
+ top:27px;
+ height:4px;
+ width:100%;
+ background:#fff9ef;
+}
+
+.shelf{
+ position:absolute;
+ top:105px;
+ right:20px;
+ font-size:25px;
+}
+
+.floor{
+ position:absolute;
+ bottom:0;
+ height:68px;
+ width:100%;
+ background:repeating-linear-gradient(90deg,#d6b99f 0 38px,#c9aa91 39px 41px);
+ border-top:5px solid #c9ad96;
+}
+
+.rug{
+ position:absolute;
+ bottom:16px;
+ left:50%;
+ transform:translateX(-50%);
+ width:190px;
+ height:43px;
+ border-radius:50%;
+ background:#e8bfc0;
+ border:4px dotted #f7e8dd;
+}
+
+.pet-bed{
+ position:absolute;
+ bottom:19px;
+ left:50%;
+ transform:translateX(-50%);
+ width:105px;
+ height:55px;
+ border-radius:35px 35px 20px 20px;
+ background:#c6a8c8;
+ border:7px solid #a88bac;
+ z-index:2;
+}
+
+.pet-bed:after{
+ content:"";
+ position:absolute;
+ inset:7px;
+ border-radius:50%;
+ background:#f4dfeb;
+}
+
+.home-dog{
+ position:absolute;
+ z-index:3;
+ bottom:65px;
+ left:50%;
+ transform:translateX(-50%);
+ width:170px;
+}
+
+.home-dog canvas{
+ width:100%;
+ display:block;
+}
+
+.plant{
+ position:absolute;
+ z-index:4;
+ bottom:65px;
+ left:17px;
+ font-size:37px;
+}
+
+.toybox{
+ position:absolute;
+ z-index:4;
+ bottom:14px;
+ right:18px;
+ font-size:35px;
+}
+
+.bowl{
+ position:absolute;
+ z-index:5;
+ bottom:13px;
+ font-size:28px;
+}
+
+.food-bowl{left:20px}
+.water-bowl{left:67px}
+
+.home-label{
+ position:absolute;
+ z-index:5;
+ top:12px;
+ left:12px;
+ background:#fffaf0dd;
+ padding:7px 10px;
+ border-radius:10px;
+ font-size:11px;
+}
+
+.stats{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:9px;
+ margin:16px 0;
+}
+
+.stat{
+ background:#fff7ee;
+ border:1px solid var(--border);
+ border-radius:12px;
+ padding:10px;
+}
+
+.stat-title{
+ display:flex;
+ justify-content:space-between;
+ font-size:11px;
+ margin-bottom:7px;
+}
+
+.meter{
+ height:9px;
+ background:#eadfd4;
+ border-radius:20px;
+ overflow:hidden;
+}
+
+.meter-fill{
+ height:100%;
+ width:70%;
+ border-radius:20px;
+ background:#aabd98;
+ transition:width .3s;
+}
+
+.actions{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:9px;
+}
+
+.action{
+ padding:13px 5px;
+ background:#fff5ec;
+ border-radius:13px;
+ font-size:12px;
+}
+
+.action span{
+ display:block;
+ font-size:24px;
+ margin-bottom:5px;
+}
+
+.message{
+ margin-top:14px;
+ background:#f4e7dd;
+ border-radius:12px;
+ padding:13px;
  text-align:center;
  font-size:12px;
- color:#82906d;
- min-height:20px;
+ min-height:42px;
+}
+
+.small-btn{
+ margin-top:15px;
+ font-size:11px;
+ background:#f2e9df;
 }
 
 @media(max-width:650px){
  .game{grid-template-columns:1fr}
- header h1{font-size:25px}
+ header h1{font-size:26px}
+ .stats{grid-template-columns:1fr}
+ .actions{grid-template-columns:repeat(2,1fr)}
+ .home-scene{min-height:285px}
 }
 </style>
 </head>
@@ -169,113 +412,169 @@ button.selected{
 
 <header>
  <h1>♡ PUPPY WORLD ♡</h1>
- <p>Un pequeño mundo para crear a tu mejor amigo.</p>
+ <p>Un pequeño mundo para crear y cuidar a tu mejor amigo.</p>
 </header>
 
 <a class="back" href="index.html">← Volver al jardín</a>
 
-<main class="game">
+<main>
 
-<section class="panel preview">
- <h2>✿ Tu nuevo amiguito ✿</h2>
+<!-- CREADOR -->
+<section id="creator" class="game">
 
- <canvas id="dog" width="128" height="100"></canvas>
+ <div class="panel">
+  <div class="preview">
+   <h2>✿ Tu nuevo amiguito ✿</h2>
+   <canvas id="dog" width="128" height="100"></canvas>
+   <p id="nameDisplay">¡Tu perrito te espera!</p>
+  </div>
 
- <div>
   <input class="name" id="dogName"
    placeholder="Nombre de tu perrito..."
    maxlength="18">
  </div>
 
- <p id="nameDisplay">¡Tu perrito te espera!</p>
+ <div class="panel">
+
+  <h3>🐾 RAZA</h3>
+  <div class="options" id="breeds">
+   <button class="selected" data-value="golden">Golden</button>
+   <button data-value="corgi">Corgi</button>
+   <button data-value="dachshund">Salchicha</button>
+   <button data-value="husky">Husky</button>
+   <button data-value="poodle">Caniche</button>
+   <button data-value="pug">Pug</button>
+   <button data-value="chihuahua">Chihuahua</button>
+   <button data-value="dalmatian">Dálmata</button>
+  </div>
+
+  <h3>🎨 COLOR DEL PELAJE</h3>
+  <div class="colors" id="colors">
+   <button class="color selected" style="background:#c88b4d" data-color="#c88b4d" aria-label="Dorado"></button>
+   <button class="color" style="background:#f0dfb9" data-color="#f0dfb9" aria-label="Crema"></button>
+   <button class="color" style="background:#704b35" data-color="#704b35" aria-label="Marrón"></button>
+   <button class="color" style="background:#33343b" data-color="#33343b" aria-label="Negro"></button>
+   <button class="color" style="background:#aaa9a4" data-color="#aaa9a4" aria-label="Gris"></button>
+   <button class="color" style="background:#e9e1d5" data-color="#e9e1d5" aria-label="Blanco"></button>
+   <button class="color" style="background:#d68b8c" data-color="#d68b8c" aria-label="Rosa fantasía"></button>
+  </div>
+
+  <h3>👕 ROPITA</h3>
+  <div class="options" id="clothes">
+   <button class="selected" data-value="none">Sin ropa</button>
+   <button data-value="sweater">Suéter</button>
+   <button data-value="shirt">Remerita</button>
+   <button data-value="dress">Vestidito</button>
+   <button data-value="bandana">Pañuelo</button>
+  </div>
+
+  <h3>🎀 ACCESORIOS</h3>
+  <div class="options" id="accessories">
+   <button class="selected" data-value="none">Ninguno</button>
+   <button data-value="bow">Moñito</button>
+   <button data-value="hat">Gorrito</button>
+   <button data-value="glasses">Anteojos</button>
+   <button data-value="collar">Collar</button>
+  </div>
+
+  <button class="primary" id="create">♡ CREAR MI PERRITO ♡</button>
+ </div>
 </section>
 
-<section class="panel">
+<!-- CASITA -->
+<section id="home" class="panel hidden">
 
-<h3>🐾 RAZA</h3>
-<div class="options" id="breeds">
- <button class="selected" data-value="golden">Golden</button>
- <button data-value="corgi">Corgi</button>
- <button data-value="dachshund">Salchicha</button>
- <button data-value="husky">Husky</button>
- <button data-value="poodle">Caniche</button>
- <button data-value="pug">Pug</button>
- <button data-value="chihuahua">Chihuahua</button>
- <button data-value="dalmatian">Dálmata</button>
-</div>
+ <div class="home-title">
+  <h2>♡ La casita de <span id="petName">tu perrito</span> ♡</h2>
+  <p>¡Bienvenido a tu nuevo hogar!</p>
+ </div>
 
-<h3>🎨 COLOR DEL PELAJE</h3>
-<div class="colors" id="colors">
- <button class="color selected" style="background:#c88b4d" data-color="#c88b4d" aria-label="Dorado"></button>
- <button class="color" style="background:#f0dfb9" data-color="#f0dfb9" aria-label="Crema"></button>
- <button class="color" style="background:#704b35" data-color="#704b35" aria-label="Marrón"></button>
- <button class="color" style="background:#33343b" data-color="#33343b" aria-label="Negro"></button>
- <button class="color" style="background:#aaa9a4" data-color="#aaa9a4" aria-label="Gris"></button>
- <button class="color" style="background:#e9e1d5" data-color="#e9e1d5" aria-label="Blanco"></button>
- <button class="color" style="background:#d68b8c" data-color="#d68b8c" aria-label="Rosa fantasía"></button>
-</div>
+ <div class="home-scene">
+  <div class="wall"></div>
+  <div class="window"></div>
+  <div class="shelf">♡ 🖼️</div>
+  <div class="home-label">🏡 Mi casita</div>
+  <div class="plant">🪴</div>
+  <div class="rug"></div>
+  <div class="pet-bed"></div>
+  <div class="home-dog">
+   <canvas id="homeDog" width="128" height="100"></canvas>
+  </div>
+  <div class="toybox">🧸</div>
+  <div class="bowl food-bowl">🥣</div>
+  <div class="bowl water-bowl">💧</div>
+  <div class="floor"></div>
+ </div>
 
-<h3>👕 ROPITA</h3>
-<div class="options" id="clothes">
- <button class="selected" data-value="none">Sin ropa</button>
- <button data-value="sweater">Suéter</button>
- <button data-value="shirt">Remerita</button>
- <button data-value="dress">Vestidito</button>
- <button data-value="bandana">Pañuelo</button>
-</div>
+ <div class="stats">
+  <div class="stat">
+   <div class="stat-title"><span>🍖 Hambre</span><b id="hungerText">70%</b></div>
+   <div class="meter"><div class="meter-fill" id="hungerBar"></div></div>
+  </div>
+  <div class="stat">
+   <div class="stat-title"><span>💧 Sed</span><b id="thirstText">70%</b></div>
+   <div class="meter"><div class="meter-fill" id="thirstBar"></div></div>
+  </div>
+  <div class="stat">
+   <div class="stat-title"><span>💗 Felicidad</span><b id="happyText">70%</b></div>
+   <div class="meter"><div class="meter-fill" id="happyBar"></div></div>
+  </div>
+ </div>
 
-<h3>🎀 ACCESORIOS</h3>
-<div class="options" id="accessories">
- <button class="selected" data-value="none">Ninguno</button>
- <button data-value="bow">Moñito</button>
- <button data-value="hat">Gorrito</button>
- <button data-value="glasses">Anteojos</button>
- <button data-value="collar">Collar</button>
-</div>
+ <h3>♡ ¿QUÉ HACEMOS HOY?</h3>
 
-<button class="save" id="save">♡ GUARDAR MI PERRITO ♡</button>
-<p class="saved" id="saved"></p>
+ <div class="actions">
+  <button class="action" id="feed"><span>🍖</span>Dar comida</button>
+  <button class="action" id="water"><span>💧</span>Dar agüita</button>
+  <button class="action" id="pet"><span>🐾</span>Acariciar</button>
+  <button class="action" id="walk"><span>🌳</span>Salir a pasear</button>
+  <button class="action" id="play"><span>🎾</span>Jugar juntos</button>
+  <button class="action" id="sleep"><span>🛏️</span>Tomar siesta</button>
+ </div>
 
+ <div class="message" id="message">
+  ¡Tu perrito está feliz de tenerte! ♡
+ </div>
+
+ <button class="small-btn" id="edit">✎ Cambiar apariencia</button>
 </section>
+
 </main>
 
 <script>
 const canvas=document.getElementById("dog");
 const ctx=canvas.getContext("2d");
 
+const homeCanvas=document.getElementById("homeDog");
+const homeCtx=homeCanvas.getContext("2d");
+
 let breed="golden";
 let fur="#c88b4d";
 let clothes="none";
 let accessory="none";
 
-function rect(x,y,w,h,color){
- ctx.fillStyle=color;
- ctx.fillRect(x,y,w,h);
-}
+let pet={
+ name:"",
+ hunger:70,
+ thirst:70,
+ happy:70
+};
 
-function drawDog(){
+function drawDog(context){
+ const ctx=context;
  ctx.clearRect(0,0,128,100);
 
- // Fondo
- rect(0,0,128,100,"#e8e8d9");
- rect(0,79,128,21,"#d2d6bd");
- rect(0,84,128,2,"#c0c9a9");
+ function rect(x,y,w,h,color){
+  ctx.fillStyle=color;
+  ctx.fillRect(x,y,w,h);
+ }
 
  const dark="#584235";
  const light="#f2d7ad";
 
- let bodyColor=fur;
- let bodyY=40;
- let bodyH=24;
- let bodyX=28;
- let bodyW=57;
- let headX=76;
- let headY=20;
- let headW=30;
- let headH=30;
- let legH=20;
- let legW=8;
- let legY=59;
+ let bodyY=40,bodyH=24,bodyX=28,bodyW=57;
+ let headX=76,headY=20,headW=30,headH=30;
+ let legH=20,legW=8,legY=59;
  let ear="normal";
 
  if(breed==="corgi"){
@@ -283,121 +582,100 @@ function drawDog(){
   headX=76;headY=23;headW=29;headH=28;
   legH=12;legW=9;legY=64;ear="point";
  }
-
  if(breed==="dachshund"){
   bodyY=43;bodyH=18;bodyX=20;bodyW=70;
   headX=81;headY=28;headW=27;headH=24;
   legH=15;legW=7;legY=59;ear="long";
  }
-
  if(breed==="husky"){
   bodyY=39;bodyH=26;bodyX=27;bodyW=58;
   headX=75;headY=19;headW=31;headH=32;
   legH=19;legY=59;ear="point";
  }
-
  if(breed==="poodle"){
   bodyY=39;bodyH=25;bodyX=28;bodyW=55;
   headX=76;headY=19;headW=32;headH=32;
   legH=20;legY=59;
  }
-
  if(breed==="pug"){
   bodyY=43;bodyH=25;bodyX=28;bodyW=55;
   headX=76;headY=23;headW=34;headH=30;
   legH=16;legY=62;ear="small";
  }
-
  if(breed==="chihuahua"){
   bodyY=43;bodyH=21;bodyX=31;bodyW=49;
   headX=77;headY=21;headW=29;headH=29;
   legH=18;legY=60;ear="point";
  }
-
  if(breed==="dalmatian"){
   bodyY=40;bodyH=24;bodyX=27;bodyW=58;
   headX=76;headY=20;headW=30;headH=30;
   legH=19;legY=59;
  }
 
- // Cola
- rect(18,43,8,5,bodyColor);
- rect(14,38,7,7,bodyColor);
- rect(11,35,6,6,bodyColor);
+ rect(18,43,8,5,fur);
+ rect(14,38,7,7,fur);
+ rect(11,35,6,6,fur);
 
- // Patas traseras
- rect(35,legY,legW,legH,bodyColor);
+ rect(35,legY,legW,legH,fur);
  rect(32,legY+legH,legW+5,4,dark);
- rect(68,legY,legW,legH,bodyColor);
+ rect(68,legY,legW,legH,fur);
  rect(65,legY+legH,legW+5,4,dark);
 
- // Cuerpo
- rect(bodyX,bodyY,bodyW,bodyH,bodyColor);
+ rect(bodyX,bodyY,bodyW,bodyH,fur);
  rect(bodyX+5,bodyY+bodyH,bodyW-10,3,dark);
 
- // Patas delanteras
- rect(83,legY-2,legW,legH+2,bodyColor);
+ rect(83,legY-2,legW,legH+2,fur);
  rect(80,legY+legH,legW+5,4,dark);
- rect(99,legY-2,legW,legH+2,bodyColor);
+ rect(99,legY-2,legW,legH+2,fur);
  rect(96,legY+legH,legW+5,4,dark);
 
- // Cabeza y hocico
- rect(headX,headY,headW,headH,bodyColor);
- rect(headX+20,headY+16,15,12,bodyColor);
+ rect(headX,headY,headW,headH,fur);
+ rect(headX+20,headY+16,15,12,fur);
  rect(headX+27,headY+21,8,7,light);
  rect(headX+31,headY+20,5,5,dark);
 
- // Orejas
  if(ear==="point"){
   rect(headX+3,headY-8,9,13,dark);
-  rect(headX+5,headY-10,7,11,bodyColor);
+  rect(headX+5,headY-10,7,11,fur);
   rect(headX+23,headY-8,9,13,dark);
-  rect(headX+24,headY-10,7,11,bodyColor);
+  rect(headX+24,headY-10,7,11,fur);
  }else if(ear==="long"){
   rect(headX+1,headY+2,8,20,dark);
-  rect(headX+2,headY+4,6,16,bodyColor);
+  rect(headX+2,headY+4,6,16,fur);
   rect(headX+24,headY+3,9,19,dark);
-  rect(headX+25,headY+5,7,15,bodyColor);
+  rect(headX+25,headY+5,7,15,fur);
  }else{
   rect(headX+2,headY+2,9,12,dark);
-  rect(headX+3,headY+3,7,9,bodyColor);
+  rect(headX+3,headY+3,7,9,fur);
   rect(headX+23,headY+2,9,12,dark);
-  rect(headX+24,headY+3,7,9,bodyColor);
+  rect(headX+24,headY+3,7,9,fur);
  }
 
- // Ojo
  rect(headX+21,headY+13,4,4,"#292522");
  rect(headX+22,headY+13,2,2,"white");
 
- // Pug: carita
  if(breed==="pug"){
   rect(headX+18,headY+19,14,8,"#755345");
   rect(headX+21,headY+21,4,3,"#292522");
  }
-
- // Dálmata: manchas
  if(breed==="dalmatian"){
   rect(37,43,7,7,"#393735");
   rect(56,50,6,6,"#393735");
   rect(70,42,5,5,"#393735");
   rect(headX+7,headY+7,5,6,"#393735");
  }
-
- // Husky: máscara
  if(breed==="husky"){
   rect(headX+17,headY+10,8,13,"#f2eee4");
   rect(headX+22,headY+19,11,8,"#f2eee4");
  }
-
- // Caniche: pelito esponjoso
  if(breed==="poodle"){
-  rect(headX-3,headY+1,7,9,bodyColor);
-  rect(headX+24,headY-3,8,8,bodyColor);
-  rect(bodyX+4,bodyY-5,12,7,bodyColor);
-  rect(bodyX+24,bodyY-5,12,7,bodyColor);
+  rect(headX-3,headY+1,7,9,fur);
+  rect(headX+24,headY-3,8,8,fur);
+  rect(bodyX+4,bodyY-5,12,7,fur);
+  rect(bodyX+24,bodyY-5,12,7,fur);
  }
 
- // Ropa
  if(clothes==="sweater"){
   rect(42,bodyY+1,39,bodyH-1,"#a6b6a0");
   rect(42,bodyY+1,5,bodyH-1,"#899b83");
@@ -417,7 +695,6 @@ function drawDog(){
   rect(83,bodyY+5,8,8,"#d78d87");
  }
 
- // Accesorios
  if(accessory==="bow"){
   rect(headX+9,headY-5,5,5,"#dc879c");
   rect(headX+14,headY-5,5,5,"#dc879c");
@@ -436,12 +713,11 @@ function drawDog(){
   rect(headX+4,headY+28,23,4,"#d6a35e");
   rect(headX+15,headY+31,5,5,"#e9c56d");
  }
+}
 
- // Pug nariz y ojos reforzados
- if(breed==="pug"){
-  rect(headX+24,headY+19,4,3,"#302623");
- }
-
+function redraw(){
+ drawDog(ctx);
+ drawDog(homeCtx);
 }
 
 function choose(container,callback){
@@ -451,7 +727,7 @@ function choose(container,callback){
     .forEach(b=>b.classList.remove("selected"));
    btn.classList.add("selected");
    callback(btn.dataset.value);
-   drawDog();
+   redraw();
   });
  });
 }
@@ -466,7 +742,7 @@ document.querySelectorAll(".color").forEach(btn=>{
    .forEach(b=>b.classList.remove("selected"));
   btn.classList.add("selected");
   fur=btn.dataset.color;
-  drawDog();
+  redraw();
  });
 });
 
@@ -475,41 +751,126 @@ document.getElementById("dogName").addEventListener("input",e=>{
  e.target.value ? "♡ "+e.target.value+" ♡" : "¡Tu perrito te espera!";
 });
 
-document.getElementById("save").addEventListener("click",()=>{
- const data={
-  name:document.getElementById("dogName").value || "Mi perrito",
-  breed,fur,clothes,accessory
- };
- localStorage.setItem("puppyWorldDog",JSON.stringify(data));
- document.getElementById("saved").textContent=
- "♡ ¡ "+data.name+" fue guardado! ♡";
-});
+function saveGame(){
+ localStorage.setItem("puppyWorldGame",JSON.stringify({
+  breed,fur,clothes,accessory,pet
+ }));
+}
 
-const saved=localStorage.getItem("puppyWorldDog");
-if(saved){
- const d=JSON.parse(saved);
- breed=d.breed;
- fur=d.fur;
- clothes=d.clothes;
- accessory=d.accessory;
- document.getElementById("dogName").value=d.name;
- document.getElementById("nameDisplay").textContent="♡ "+d.name+" ♡";
-
- document.querySelectorAll("#breeds button").forEach(b=>{
-  b.classList.toggle("selected",b.dataset.value===breed);
- });
- document.querySelectorAll("#clothes button").forEach(b=>{
-  b.classList.toggle("selected",b.dataset.value===clothes);
- });
- document.querySelectorAll("#accessories button").forEach(b=>{
-  b.classList.toggle("selected",b.dataset.value===accessory);
- });
- document.querySelectorAll(".color").forEach(b=>{
-  b.classList.toggle("selected",b.dataset.color===fur);
+function updateStats(){
+ ["hunger","thirst","happy"].forEach(stat=>{
+  const value=Math.max(0,Math.min(100,pet[stat]));
+  document.getElementById(stat+"Bar").style.width=value+"%";
+  document.getElementById(stat+"Text").textContent=value+"%";
  });
 }
 
-drawDog();
+function say(message){
+ document.getElementById("message").textContent=message;
+ saveGame();
+ updateStats();
+}
+
+function showHome(){
+ document.getElementById("creator").classList.add("hidden");
+ document.getElementById("home").classList.remove("hidden");
+ document.getElementById("petName").textContent=pet.name;
+ redraw();
+ updateStats();
+}
+
+document.getElementById("create").addEventListener("click",()=>{
+ pet.name=document.getElementById("dogName").value.trim() || "Puppy";
+ pet.hunger=70;
+ pet.thirst=70;
+ pet.happy=80;
+ showHome();
+ say("¡"+pet.name+" llegó a su casita! 🏡♡");
+});
+
+document.getElementById("feed").addEventListener("click",()=>{
+ if(pet.hunger>=100){
+  say("¡"+pet.name+" ya está llenito! ♡");
+  return;
+ }
+ pet.hunger=Math.min(100,pet.hunger+25);
+ pet.happy=Math.min(100,pet.happy+5);
+ say("🍖 ¡"+pet.name+" disfrutó su comidita!");
+});
+
+document.getElementById("water").addEventListener("click",()=>{
+ if(pet.thirst>=100){
+  say("¡"+pet.name+" ya tomó suficiente agüita! 💧");
+  return;
+ }
+ pet.thirst=Math.min(100,pet.thirst+30);
+ say("💧 ¡Qué rica agüita! "+pet.name+" está feliz.");
+});
+
+document.getElementById("pet").addEventListener("click",()=>{
+ pet.happy=Math.min(100,pet.happy+15);
+ say("♡ "+pet.name+" mueve la colita. ¡Le encantan tus mimos!");
+});
+
+document.getElementById("walk").addEventListener("click",()=>{
+ pet.happy=Math.min(100,pet.happy+20);
+ pet.hunger=Math.max(0,pet.hunger-10);
+ pet.thirst=Math.max(0,pet.thirst-12);
+ say("🌳 ¡Qué lindo paseo! "+pet.name+" volvió a casa.");
+});
+
+document.getElementById("play").addEventListener("click",()=>{
+ pet.happy=Math.min(100,pet.happy+18);
+ pet.hunger=Math.max(0,pet.hunger-8);
+ pet.thirst=Math.max(0,pet.thirst-8);
+ say("🎾 ¡Se divirtieron muchísimo jugando juntos!");
+});
+
+document.getElementById("sleep").addEventListener("click",()=>{
+ pet.happy=Math.min(100,pet.happy+8);
+ say("🛏️ "+pet.name+" se acurrucó en su camita. ¡A descansar!");
+});
+
+document.getElementById("edit").addEventListener("click",()=>{
+ document.getElementById("home").classList.add("hidden");
+ document.getElementById("creator").classList.remove("hidden");
+});
+
+const saved=localStorage.getItem("puppyWorldGame");
+
+if(saved){
+ try{
+  const data=JSON.parse(saved);
+  breed=data.breed || breed;
+  fur=data.fur || fur;
+  clothes=data.clothes || clothes;
+  accessory=data.accessory || accessory;
+  pet=data.pet || pet;
+
+  document.getElementById("dogName").value=pet.name || "";
+  document.getElementById("nameDisplay").textContent="♡ "+pet.name+" ♡";
+
+  document.querySelectorAll("#breeds button").forEach(b=>{
+   b.classList.toggle("selected",b.dataset.value===breed);
+  });
+  document.querySelectorAll("#clothes button").forEach(b=>{
+   b.classList.toggle("selected",b.dataset.value===clothes);
+  });
+  document.querySelectorAll("#accessories button").forEach(b=>{
+   b.classList.toggle("selected",b.dataset.value===accessory);
+  });
+  document.querySelectorAll(".color").forEach(b=>{
+   b.classList.toggle("selected",b.dataset.color===fur);
+  });
+
+  showHome();
+  document.getElementById("message").textContent="¡Qué lindo volver a verte, "+pet.name+"! ♡";
+ }catch(e){
+  localStorage.removeItem("puppyWorldGame");
+ }
+}
+
+redraw();
 </script>
 
 </body>
