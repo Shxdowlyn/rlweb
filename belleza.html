@@ -16,6 +16,7 @@
   --light:#fff5f8;
   --lilac:#ead9ed;
   --cream:#fffaf5;
+  --gold:#c6a16b;
 }
 
 body{
@@ -26,11 +27,12 @@ body{
     radial-gradient(circle at 10% 10%,#f8dce9,transparent 35%),
     radial-gradient(circle at 90% 70%,#e9d8f1,transparent 40%),
     linear-gradient(135deg,#fff5f7,#f5eafa,#fff8f1);
+  overflow-x:hidden;
 }
 
 a{color:inherit}
 
-/* DECORACIONES */
+/* FONDO DECORATIVO */
 
 .decor{
   position:fixed;
@@ -43,8 +45,9 @@ a{color:inherit}
 .decor span{
   position:absolute;
   color:#c77fa1;
-  opacity:.16;
+  opacity:.18;
   font-size:90px;
+  text-shadow:0 0 15px #fff;
 }
 
 .decor span:nth-child(1){top:5%;left:2%}
@@ -52,6 +55,9 @@ a{color:inherit}
 .decor span:nth-child(3){top:48%;left:-20px;font-size:120px}
 .decor span:nth-child(4){top:72%;right:1%;font-size:110px}
 .decor span:nth-child(5){top:90%;left:15%;font-size:65px}
+.decor span:nth-child(6){top:35%;right:12%;font-size:40px}
+.decor span:nth-child(7){top:60%;left:12%;font-size:35px}
+.decor span:nth-child(8){top:12%;right:22%;font-size:30px}
 
 header,nav,main,footer{
   position:relative;
@@ -62,10 +68,59 @@ header,nav,main,footer{
 
 header{
   text-align:center;
-  padding:55px 15px 45px;
-  background:linear-gradient(135deg,#f3d6e4dd,#fff5f8ee,#e9d9efdd);
+  padding:65px 15px 55px;
+  background:
+    radial-gradient(circle at 15% 30%,#ffffff9c,transparent 25%),
+    radial-gradient(circle at 85% 70%,#ffffff9c,transparent 25%),
+    linear-gradient(135deg,#f3d6e4ee,#fff5f8f5,#e9d9efee);
   border-bottom:2px dashed #d9a4bc;
+  position:relative;
+  overflow:hidden;
 }
+
+header:before,
+header:after{
+  content:"✿";
+  position:absolute;
+  color:#c783a2;
+  opacity:.32;
+  font-size:100px;
+}
+
+header:before{
+  left:5%;
+  top:10px;
+  transform:rotate(-20deg);
+}
+
+header:after{
+  right:5%;
+  bottom:0;
+  transform:rotate(20deg);
+}
+
+.header-frame{
+  max-width:850px;
+  margin:auto;
+  padding:25px;
+  border:1px solid #d6a7bd;
+  outline:1px solid #d6a7bd;
+  outline-offset:6px;
+  border-radius:8px;
+  position:relative;
+  background:#fff9fc66;
+}
+
+.header-frame:before,
+.header-frame:after{
+  content:"✧";
+  position:absolute;
+  color:#b87998;
+  font-size:28px;
+}
+
+.header-frame:before{top:-16px;left:-12px}
+.header-frame:after{bottom:-16px;right:-12px}
 
 header .small{
   font-size:12px;
@@ -78,13 +133,20 @@ header h1{
   font-size:clamp(48px,9vw,85px);
   font-weight:normal;
   color:#9c5578;
-  text-shadow:2px 2px white;
+  text-shadow:2px 2px white,4px 4px #e9c8d9;
 }
 
 header p{
   color:#a77b94;
   font-style:italic;
   font-size:16px;
+}
+
+.header-bottom{
+  margin-top:22px;
+  color:#b17b99;
+  letter-spacing:8px;
+  font-size:19px;
 }
 
 /* NAVEGACIÓN */
@@ -94,25 +156,27 @@ nav{
   justify-content:center;
   flex-wrap:wrap;
   gap:9px;
-  padding:13px;
+  padding:15px;
   background:#e9d3e3ee;
   border-bottom:1px solid #d5a9c4;
+  box-shadow:0 4px 15px #9c66851a;
 }
 
 nav a{
   text-decoration:none;
-  padding:9px 15px;
+  padding:9px 16px;
   border:1px solid #d3a5bd;
   border-radius:20px;
   background:#fff8fb;
   color:#8d5574;
   font-size:13px;
-  transition:.2s;
+  transition:.25s;
 }
 
 nav a:hover{
   background:#f4d8e7;
-  transform:translateY(-2px);
+  transform:translateY(-3px);
+  box-shadow:0 4px 10px #bd8ba7;
 }
 
 /* CONTENIDO */
@@ -120,7 +184,7 @@ nav a:hover{
 main{
   max-width:1200px;
   margin:auto;
-  padding:20px;
+  padding:25px;
 }
 
 .section-title{
@@ -128,72 +192,115 @@ main{
   color:#985b7b;
   font-size:29px;
   font-weight:normal;
-  margin:45px 0 12px;
+  margin:50px 0 12px;
+  text-shadow:1px 1px white;
+}
+
+.section-title:before{
+  content:"✧  ";
+  color:#c38ba8;
+}
+
+.section-title:after{
+  content:"  ✧";
+  color:#c38ba8;
 }
 
 .section-subtitle{
   text-align:center;
   color:#98758a;
   font-size:14px;
-  line-height:1.8;
+  line-height:1.9;
   max-width:700px;
-  margin:0 auto 25px;
+  margin:0 auto 28px;
 }
 
 /* ELECCIÓN INICIAL */
 
 .choice{
   max-width:950px;
-  margin:35px auto;
-  padding:35px 20px;
+  margin:40px auto;
+  padding:40px 25px;
   text-align:center;
-  background:#fff9fc;
+  background:
+    radial-gradient(circle at 0 0,#f6e2ed,transparent 35%),
+    radial-gradient(circle at 100% 100%,#eee0f3,transparent 35%),
+    #fff9fc;
   border:2px dashed #d7a5bf;
-  border-radius:18px;
-  box-shadow:0 7px 25px #a66a881b;
+  border-radius:20px;
+  box-shadow:0 10px 30px #a66a8820;
+  position:relative;
 }
+
+.choice:before,
+.choice:after{
+  content:"❀";
+  position:absolute;
+  font-size:36px;
+  color:#c58aa8;
+  opacity:.65;
+}
+
+.choice:before{top:12px;left:18px}
+.choice:after{bottom:12px;right:18px}
 
 .choice h2{
   color:#925373;
-  font-size:36px;
+  font-size:clamp(30px,6vw,42px);
   font-weight:normal;
-  margin:5px;
+  margin:12px;
+  text-shadow:2px 2px white;
 }
 
 .choice p{
   color:#a17c91;
-  line-height:1.8;
+  line-height:1.9;
 }
 
 .choice-buttons{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:18px;
-  max-width:650px;
-  margin:25px auto 0;
+  gap:20px;
+  max-width:700px;
+  margin:30px auto 0;
 }
 
 .choice-card{
   text-decoration:none;
-  border-radius:15px;
+  border-radius:18px;
   overflow:hidden;
   border:2px solid #e3bfd1;
   background:#f9e8f0;
-  transition:.25s;
+  transition:.3s;
+  position:relative;
+  box-shadow:0 5px 15px #a66a8818;
 }
 
 .choice-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 8px 20px #8e54751c;
+  transform:translateY(-7px) rotate(-1deg);
+  box-shadow:0 12px 25px #8e54752c;
 }
 
 .choice-art{
-  min-height:145px;
+  min-height:160px;
   display:flex;
   justify-content:center;
   align-items:center;
-  font-size:80px;
-  background:linear-gradient(135deg,#f4d6e4,#e8d8ef);
+  font-size:85px;
+  background:
+    radial-gradient(circle,#fff8fb 0 5%,transparent 6%),
+    linear-gradient(135deg,#f4d6e4,#e8d8ef);
+  position:relative;
+}
+
+.choice-art:after{
+  content:"✧ ♡ ✧";
+  position:absolute;
+  bottom:8px;
+  right:12px;
+  color:#b57c99;
+  font-size:14px;
+  letter-spacing:3px;
 }
 
 .choice-card strong{
@@ -206,20 +313,55 @@ main{
 
 .choice-card small{
   display:block;
-  padding:0 10px 16px;
+  padding:0 10px 18px;
   color:#a17c91;
+}
+
+/* ETIQUETAS DECORATIVAS */
+
+.ribbon{
+  display:table;
+  margin:0 auto 15px;
+  padding:7px 20px;
+  background:#f1dce8;
+  border:1px solid #dfb7cb;
+  border-radius:30px;
+  color:#a26484;
+  font-size:11px;
+  letter-spacing:3px;
+  text-align:center;
+}
+
+.mini-decoration{
+  text-align:center;
+  color:#bd85a1;
+  font-size:20px;
+  letter-spacing:7px;
+  margin:20px 0;
 }
 
 /* CAJAS GENERALES */
 
 .intro{
-  background:#fff9fc;
+  background:
+    linear-gradient(135deg,#fff9fc,#fff4f8);
   border:1px solid #e5c5d5;
-  border-radius:14px;
-  padding:22px;
-  margin:22px 0;
+  border-radius:16px;
+  padding:25px;
+  margin:25px 0;
   line-height:1.9;
-  box-shadow:0 4px 15px #9b66851a;
+  box-shadow:0 5px 18px #9b66851a;
+  position:relative;
+}
+
+.intro:after{
+  content:"♡";
+  position:absolute;
+  right:18px;
+  top:12px;
+  font-size:28px;
+  color:#d6a5bd;
+  opacity:.7;
 }
 
 .intro h3{
@@ -228,56 +370,99 @@ main{
   font-weight:normal;
 }
 
+/* TARJETAS DE TIPOS */
+
 .type-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:16px;
-  margin:22px 0;
+  gap:20px;
+  margin:25px 0;
 }
 
 .type-card{
-  background:#fff9fc;
+  background:
+    linear-gradient(145deg,#fffafd,#fff5f8);
   border:1px solid #e3c4d4;
-  border-radius:13px;
+  border-radius:16px;
   padding:17px;
-  box-shadow:0 4px 15px #9b66851a;
+  box-shadow:0 5px 17px #9b66851a;
   min-width:0;
+  position:relative;
+  transition:.3s;
+}
+
+.type-card:before{
+  content:"✧";
+  position:absolute;
+  top:10px;
+  right:13px;
+  color:#c58ba7;
+  font-size:20px;
+}
+
+.type-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 25px #9b66852a;
+  border-color:#d5a2bc;
 }
 
 .type-card h3{
-  font-size:24px;
+  font-size:27px;
   color:#985775;
   font-weight:normal;
-  margin:8px 0;
+  margin:13px 0 5px;
 }
 
 .type-card p{
   font-size:13px;
-  line-height:1.8;
+  line-height:1.9;
 }
 
 .type-card .description{
+  display:inline-block;
   color:#a16b87;
-  font-size:11px;
-  letter-spacing:1px;
+  font-size:10px;
+  letter-spacing:1.5px;
   text-transform:uppercase;
+  background:#f7e5ee;
+  padding:5px 10px;
+  border-radius:20px;
 }
 
 /* ILUSTRACIONES DE CABELLO */
 
 .hair-art{
-  height:135px;
-  border-radius:10px;
-  background:linear-gradient(135deg,#f4dce8,#eadcf0);
+  height:145px;
+  border-radius:12px;
+  background:
+    radial-gradient(circle at 50% 50%,#fff9fcaa,transparent 70%),
+    linear-gradient(135deg,#f4dce8,#eadcf0);
   display:flex;
   align-items:center;
   justify-content:center;
   overflow:hidden;
+  border:1px solid #edd3e0;
+  position:relative;
+}
+
+.hair-art:after{
+  content:"♡";
+  position:absolute;
+  right:9px;
+  bottom:5px;
+  color:#c58ba7;
+  font-size:18px;
+  opacity:.6;
 }
 
 .hair-art svg{
   width:100%;
-  height:120px;
+  height:125px;
+  transition:.3s;
+}
+
+.type-card:hover .hair-art svg{
+  transform:scale(1.06);
 }
 
 .hair-art path{
@@ -295,11 +480,12 @@ main{
 /* CONSEJOS */
 
 .tips{
-  background:#f9eaf1;
+  background:
+    linear-gradient(135deg,#f9eaf1,#f6e9f4);
   border-left:4px solid #cf8eac;
   border-radius:8px;
-  padding:15px;
-  margin-top:15px;
+  padding:16px;
+  margin-top:17px;
 }
 
 .tips h4{
@@ -315,7 +501,7 @@ main{
 
 .tips li{
   font-size:12px;
-  line-height:1.8;
+  line-height:1.9;
   margin:5px 0;
 }
 
@@ -324,20 +510,37 @@ main{
 .routine{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:14px;
-  margin:20px 0;
+  gap:17px;
+  margin:25px 0;
 }
 
 .routine-card{
-  background:#fff9fc;
+  background:linear-gradient(145deg,#fff9fc,#f9eff5);
   border:1px solid #e4c5d6;
-  border-radius:12px;
-  padding:18px;
+  border-radius:15px;
+  padding:22px 18px;
   text-align:center;
+  box-shadow:0 5px 15px #9b66851a;
+  transition:.3s;
+  position:relative;
+}
+
+.routine-card:after{
+  content:"✧";
+  position:absolute;
+  top:8px;
+  right:12px;
+  color:#c58ba7;
+}
+
+.routine-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 20px #9b668525;
 }
 
 .routine-card .emoji{
-  font-size:35px;
+  font-size:39px;
+  filter:drop-shadow(0 3px 3px #d8b4c8);
 }
 
 .routine-card h3{
@@ -347,7 +550,7 @@ main{
 
 .routine-card p{
   font-size:12px;
-  line-height:1.8;
+  line-height:1.9;
 }
 
 /* SEPARADORES */
@@ -355,25 +558,53 @@ main{
 .big-separator{
   text-align:center;
   color:#b77999;
-  font-size:35px;
-  margin:40px 0;
+  font-size:32px;
+  margin:45px 0;
   letter-spacing:10px;
+  text-shadow:0 2px 8px #e6c5d7;
 }
 
 .guide{
-  padding:25px;
-  margin:35px 0;
-  border-radius:18px;
+  padding:30px;
+  margin:40px 0;
+  border-radius:22px;
   background:#fff8fbdd;
   border:2px solid #e2bfd1;
-  box-shadow:0 6px 20px #9b66851a;
+  box-shadow:0 8px 25px #9b66851a;
+  position:relative;
+  overflow:hidden;
+}
+
+.guide:before{
+  content:"✿";
+  position:absolute;
+  top:-22px;
+  right:12px;
+  font-size:100px;
+  color:#d5a6bd;
+  opacity:.14;
+  pointer-events:none;
+}
+
+.guide:after{
+  content:"♡";
+  position:absolute;
+  bottom:0;
+  left:12px;
+  font-size:85px;
+  color:#d5a6bd;
+  opacity:.13;
+  pointer-events:none;
 }
 
 .guide h2{
   text-align:center;
-  font-size:34px;
+  font-size:36px;
   color:#955575;
   font-weight:normal;
+  text-shadow:1px 1px white;
+  position:relative;
+  z-index:1;
 }
 
 .guide-lead{
@@ -387,25 +618,52 @@ main{
 /* LACIO */
 
 #lacia{
-  background:linear-gradient(135deg,#fff9fc,#f3e8f5);
+  background:
+    radial-gradient(circle at 100% 0,#e8d8f3aa,transparent 30%),
+    linear-gradient(135deg,#fff9fc,#f3e8f5);
+  border-color:#d8c0e3;
+}
+
+#lacia .type-card{
+  border-color:#dfcce8;
+}
+
+#lacia .hair-art{
+  background:linear-gradient(135deg,#f0e2f3,#f9eaf3);
 }
 
 /* RIZADA */
 
 #rizada{
-  background:linear-gradient(135deg,#fff8fb,#f7e5ed);
+  background:
+    radial-gradient(circle at 0 0,#f8dce9aa,transparent 30%),
+    linear-gradient(135deg,#fff8fb,#f7e5ed);
 }
 
 /* MINI CONSEJOS */
 
 .note{
-  background:#eee0ef;
-  border-radius:12px;
-  padding:20px;
-  margin:20px 0;
+  background:
+    linear-gradient(135deg,#eee0ef,#f9e9f0);
+  border:1px dashed #d1a4be;
+  border-radius:14px;
+  padding:22px;
+  margin:25px 0;
   color:#76556f;
   font-size:13px;
-  line-height:1.8;
+  line-height:1.9;
+  box-shadow:0 4px 12px #a66a8812;
+  position:relative;
+}
+
+.note:before{
+  content:"✧ NOTE ✧";
+  display:block;
+  text-align:center;
+  letter-spacing:4px;
+  color:#a66a88;
+  font-size:10px;
+  margin-bottom:10px;
 }
 
 /* IDENTIFICACIÓN */
@@ -414,17 +672,23 @@ main{
   counter-reset:step;
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin:20px 0;
+  gap:15px;
+  margin:25px 0;
 }
 
 .step{
-  background:#fff9fc;
+  background:linear-gradient(145deg,#fff9fc,#f8edf4);
   border:1px solid #e5c8d7;
-  border-radius:12px;
-  padding:16px;
+  border-radius:14px;
+  padding:20px;
   font-size:13px;
-  line-height:1.8;
+  line-height:1.9;
+  box-shadow:0 4px 12px #9b668514;
+  transition:.3s;
+}
+
+.step:hover{
+  transform:translateY(-4px);
 }
 
 .step strong{
@@ -441,22 +705,66 @@ main{
   text-align:center;
   text-decoration:none;
   color:#985775;
-  padding:15px;
-  margin:15px auto;
+  padding:16px;
+  margin:20px auto;
   font-size:13px;
+  transition:.2s;
 }
+
+.back:hover{
+  letter-spacing:2px;
+}
+
+/* FOOTER */
 
 footer{
   text-align:center;
-  background:#e9d6e4;
+  background:
+    radial-gradient(circle at 10% 10%,#ffffff80,transparent 30%),
+    linear-gradient(135deg,#f0dce9,#e9d6e4);
   border-top:2px dashed #d1a2bc;
-  padding:30px 15px;
+  padding:38px 15px;
   color:#95617e;
   font-size:13px;
-  line-height:1.8;
+  line-height:2;
+  position:relative;
 }
 
-/* RESPONSIVE */
+footer:before{
+  content:"✿  ♡  ✧  ♡  ✿";
+  display:block;
+  font-size:20px;
+  letter-spacing:5px;
+  margin-bottom:15px;
+  color:#b77999;
+}
+
+footer a{
+  text-decoration:none;
+  border-bottom:1px dashed #b77999;
+  padding-bottom:3px;
+}
+
+/* DETALLES EXTRA */
+
+::selection{
+  background:#e9c5d8;
+  color:#71465e;
+}
+
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:#f9edf3;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#d9a9c1;
+  border-radius:20px;
+  border:2px solid #f9edf3;
+}
 
 @media(max-width:800px){
   .type-grid{grid-template-columns:repeat(2,1fr)}
@@ -466,6 +774,10 @@ footer{
 
 @media(max-width:520px){
   main{padding:12px}
+  header{padding:40px 15px}
+  .header-frame{padding:22px 12px}
+  header:before,header:after{font-size:55px}
+  .choice{padding:30px 14px}
   .choice-buttons{gap:10px}
   .choice-art{min-height:110px;font-size:55px}
   .choice-card strong{font-size:16px}
@@ -473,6 +785,10 @@ footer{
   .routine{grid-template-columns:1fr}
   .guide{padding:15px}
   .guide h2{font-size:28px}
+  .section-title{font-size:24px}
+  nav{gap:7px}
+  nav a{font-size:11px;padding:8px 11px}
+  .big-separator{font-size:25px}
 }
 </style>
 </head>
@@ -485,12 +801,18 @@ footer{
   <span>♡</span>
   <span>✧</span>
   <span>♡</span>
+  <span>❀</span>
+  <span>✿</span>
+  <span>✧</span>
 </div>
 
 <header>
-  <div class="small">RL BEAUTY MAGAZINE</div>
-  <h1>Beauty Room ♡</h1>
-  <p>Un espacio para conocer, aprender y cuidar tu cabello ✦</p>
+  <div class="header-frame">
+    <div class="small">✧ RL BEAUTY MAGAZINE ✧</div>
+    <h1>Beauty Room ♡</h1>
+    <p>Un espacio para conocer, aprender y cuidar tu cabello ✦</p>
+    <div class="header-bottom">♡ ✧ ❀ ✧ ♡</div>
+  </div>
 </header>
 
 <nav>
@@ -504,11 +826,9 @@ footer{
 
 <main>
 
-<!-- PORTADA Y ELECCIÓN -->
-
 <section class="choice" id="inicio">
   <span style="letter-spacing:4px;color:#b27b99;font-size:11px">
-    THE HAIR GUIDE
+    THE HAIR GUIDE · Nº 01
   </span>
 
   <h2>¿RIZO O LACIA?</h2>
@@ -517,6 +837,8 @@ footer{
     Cada cabello tiene su propia forma, textura y personalidad.
     Elegí una guía y descubrí cómo conocerlo y cuidarlo.
   </p>
+
+  <div class="mini-decoration">୨୧ ───── ♡ ───── ୨୧</div>
 
   <div class="choice-buttons">
 
@@ -533,9 +855,13 @@ footer{
     </a>
 
   </div>
+
+  <div class="mini-decoration">✧ YOUR HAIR, YOUR STYLE ✧</div>
 </section>
 
-<h2 class="section-title">✧ Primero, conozcamos los tipos ✧</h2>
+<div class="ribbon">THE BASICS · CONOCÉ TU CABELLO</div>
+
+<h2 class="section-title">Primero, conozcamos los tipos</h2>
 
 <p class="section-subtitle">
   Existe una clasificación muy utilizada que organiza los patrones
@@ -561,11 +887,11 @@ footer{
   </p>
 </section>
 
-<div class="big-separator">♡ ✦ ♡</div>
-
-<!-- GUÍA RIZADA -->
+<div class="big-separator">♡ ✦ ❀ ✦ ♡</div>
 
 <section class="guide" id="rizada">
+
+  <div class="ribbon">CURLY HAIR CLUB · THE CURL GUIDE</div>
 
   <h2>♡ Guía para cabello rizado</h2>
 
@@ -575,6 +901,8 @@ footer{
     Conocerlas ayuda a elegir técnicas de cuidado que acompañen
     su patrón natural.
   </p>
+
+  <div class="mini-decoration">〰 〰 〰 〰 〰</div>
 
   <div class="intro">
     <h3>¿Qué caracteriza al cabello con textura?</h3>
@@ -674,6 +1002,8 @@ footer{
 
   </div>
 
+  <div class="mini-decoration">♡ · · · · · · · · · ♡</div>
+
   <h2 class="section-title">Tipo 3 · Rizado</h2>
 
   <p class="section-subtitle">
@@ -756,6 +1086,8 @@ footer{
     </article>
 
   </div>
+
+  <div class="mini-decoration">✧ · · · · · · · · · ✧</div>
 
   <h2 class="section-title">Tipo 4 · Afro o ensortijado</h2>
 
@@ -852,11 +1184,11 @@ footer{
 
 </section>
 
-<div class="big-separator">✦ ♡ ✦</div>
-
-<!-- GUÍA LACIA -->
+<div class="big-separator">✦ ♡ ❀ ♡ ✦</div>
 
 <section class="guide" id="lacia">
+
+  <div class="ribbon">STRAIGHT HAIR CLUB · THE HAIR GUIDE</div>
 
   <h2>✦ Guía para cabello lacio</h2>
 
@@ -865,6 +1197,8 @@ footer{
     hasta las puntas. También puede variar en grosor, volumen
     y textura.
   </p>
+
+  <div class="mini-decoration">─── ✧ ───</div>
 
   <div class="intro">
     <h3>¿Qué caracteriza al cabello lacio?</h3>
@@ -970,11 +1304,11 @@ footer{
 
 </section>
 
-<div class="big-separator">♡ ✦ ♡</div>
-
-<!-- RUTINA GENERAL -->
+<div class="big-separator">♡ ✦ ❀ ✦ ♡</div>
 
 <section id="rutina">
+
+  <div class="ribbon">SELF CARE · HAIR CARE</div>
 
   <h2 class="section-title">♡ Una rutina para cuidar tu cabello</h2>
 
@@ -1043,9 +1377,9 @@ footer{
 
 </section>
 
-<!-- IDENTIFICAR -->
-
 <section id="identificar">
+
+  <div class="ribbon">FIND YOUR HAIR TYPE</div>
 
   <h2 class="section-title">✦ ¿Cómo identifico mi tipo?</h2>
 
@@ -1097,7 +1431,9 @@ footer{
   </p>
 </section>
 
-<a href="#inicio" class="back">↑ Volver al comienzo</a>
+<div class="mini-decoration">୨୧ ───── ♡ ───── ୨୧</div>
+
+<a href="#inicio" class="back">↑ Volver al comienzo ♡</a>
 
 </main>
 
