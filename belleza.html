@@ -1,0 +1,1113 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>♡ Beauty Room | RL Blogs</title>
+
+<style>
+*{box-sizing:border-box;scroll-behavior:smooth}
+
+:root{
+  --pink:#d98eae;
+  --rose:#a9577e;
+  --dark:#57354b;
+  --light:#fff5f8;
+  --lilac:#ead9ed;
+  --cream:#fffaf5;
+}
+
+body{
+  margin:0;
+  font-family:Georgia,serif;
+  color:#65485a;
+  background:
+    radial-gradient(circle at 10% 10%,#f8dce9,transparent 35%),
+    radial-gradient(circle at 90% 70%,#e9d8f1,transparent 40%),
+    linear-gradient(135deg,#fff5f7,#f5eafa,#fff8f1);
+}
+
+a{color:inherit}
+
+/* DECORACIONES */
+
+.decor{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:0;
+}
+
+.decor span{
+  position:absolute;
+  color:#c77fa1;
+  opacity:.16;
+  font-size:90px;
+}
+
+.decor span:nth-child(1){top:5%;left:2%}
+.decor span:nth-child(2){top:20%;right:3%;font-size:70px}
+.decor span:nth-child(3){top:48%;left:-20px;font-size:120px}
+.decor span:nth-child(4){top:72%;right:1%;font-size:110px}
+.decor span:nth-child(5){top:90%;left:15%;font-size:65px}
+
+header,nav,main,footer{
+  position:relative;
+  z-index:1;
+}
+
+/* PORTADA */
+
+header{
+  text-align:center;
+  padding:55px 15px 45px;
+  background:linear-gradient(135deg,#f3d6e4dd,#fff5f8ee,#e9d9efdd);
+  border-bottom:2px dashed #d9a4bc;
+}
+
+header .small{
+  font-size:12px;
+  letter-spacing:5px;
+  color:#a66a88;
+}
+
+header h1{
+  margin:15px 0 5px;
+  font-size:clamp(48px,9vw,85px);
+  font-weight:normal;
+  color:#9c5578;
+  text-shadow:2px 2px white;
+}
+
+header p{
+  color:#a77b94;
+  font-style:italic;
+  font-size:16px;
+}
+
+/* NAVEGACIÓN */
+
+nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+  padding:13px;
+  background:#e9d3e3ee;
+  border-bottom:1px solid #d5a9c4;
+}
+
+nav a{
+  text-decoration:none;
+  padding:9px 15px;
+  border:1px solid #d3a5bd;
+  border-radius:20px;
+  background:#fff8fb;
+  color:#8d5574;
+  font-size:13px;
+  transition:.2s;
+}
+
+nav a:hover{
+  background:#f4d8e7;
+  transform:translateY(-2px);
+}
+
+/* CONTENIDO */
+
+main{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
+
+.section-title{
+  text-align:center;
+  color:#985b7b;
+  font-size:29px;
+  font-weight:normal;
+  margin:45px 0 12px;
+}
+
+.section-subtitle{
+  text-align:center;
+  color:#98758a;
+  font-size:14px;
+  line-height:1.8;
+  max-width:700px;
+  margin:0 auto 25px;
+}
+
+/* ELECCIÓN INICIAL */
+
+.choice{
+  max-width:950px;
+  margin:35px auto;
+  padding:35px 20px;
+  text-align:center;
+  background:#fff9fc;
+  border:2px dashed #d7a5bf;
+  border-radius:18px;
+  box-shadow:0 7px 25px #a66a881b;
+}
+
+.choice h2{
+  color:#925373;
+  font-size:36px;
+  font-weight:normal;
+  margin:5px;
+}
+
+.choice p{
+  color:#a17c91;
+  line-height:1.8;
+}
+
+.choice-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  max-width:650px;
+  margin:25px auto 0;
+}
+
+.choice-card{
+  text-decoration:none;
+  border-radius:15px;
+  overflow:hidden;
+  border:2px solid #e3bfd1;
+  background:#f9e8f0;
+  transition:.25s;
+}
+
+.choice-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 8px 20px #8e54751c;
+}
+
+.choice-art{
+  min-height:145px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:80px;
+  background:linear-gradient(135deg,#f4d6e4,#e8d8ef);
+}
+
+.choice-card strong{
+  display:block;
+  padding:15px;
+  color:#8d5274;
+  font-size:20px;
+  letter-spacing:2px;
+}
+
+.choice-card small{
+  display:block;
+  padding:0 10px 16px;
+  color:#a17c91;
+}
+
+/* CAJAS GENERALES */
+
+.intro{
+  background:#fff9fc;
+  border:1px solid #e5c5d5;
+  border-radius:14px;
+  padding:22px;
+  margin:22px 0;
+  line-height:1.9;
+  box-shadow:0 4px 15px #9b66851a;
+}
+
+.intro h3{
+  color:#a05e80;
+  font-size:21px;
+  font-weight:normal;
+}
+
+.type-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin:22px 0;
+}
+
+.type-card{
+  background:#fff9fc;
+  border:1px solid #e3c4d4;
+  border-radius:13px;
+  padding:17px;
+  box-shadow:0 4px 15px #9b66851a;
+  min-width:0;
+}
+
+.type-card h3{
+  font-size:24px;
+  color:#985775;
+  font-weight:normal;
+  margin:8px 0;
+}
+
+.type-card p{
+  font-size:13px;
+  line-height:1.8;
+}
+
+.type-card .description{
+  color:#a16b87;
+  font-size:11px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+/* ILUSTRACIONES DE CABELLO */
+
+.hair-art{
+  height:135px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#f4dce8,#eadcf0);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.hair-art svg{
+  width:100%;
+  height:120px;
+}
+
+.hair-art path{
+  fill:none;
+  stroke:#75465c;
+  stroke-width:5;
+  stroke-linecap:round;
+}
+
+.hair-art .thin{
+  stroke-width:3;
+  stroke:#b16e8d;
+}
+
+/* CONSEJOS */
+
+.tips{
+  background:#f9eaf1;
+  border-left:4px solid #cf8eac;
+  border-radius:8px;
+  padding:15px;
+  margin-top:15px;
+}
+
+.tips h4{
+  color:#965775;
+  margin:0 0 8px;
+  font-size:15px;
+}
+
+.tips ul{
+  padding-left:20px;
+  margin:0;
+}
+
+.tips li{
+  font-size:12px;
+  line-height:1.8;
+  margin:5px 0;
+}
+
+/* RUTINA */
+
+.routine{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin:20px 0;
+}
+
+.routine-card{
+  background:#fff9fc;
+  border:1px solid #e4c5d6;
+  border-radius:12px;
+  padding:18px;
+  text-align:center;
+}
+
+.routine-card .emoji{
+  font-size:35px;
+}
+
+.routine-card h3{
+  color:#985775;
+  font-weight:normal;
+}
+
+.routine-card p{
+  font-size:12px;
+  line-height:1.8;
+}
+
+/* SEPARADORES */
+
+.big-separator{
+  text-align:center;
+  color:#b77999;
+  font-size:35px;
+  margin:40px 0;
+  letter-spacing:10px;
+}
+
+.guide{
+  padding:25px;
+  margin:35px 0;
+  border-radius:18px;
+  background:#fff8fbdd;
+  border:2px solid #e2bfd1;
+  box-shadow:0 6px 20px #9b66851a;
+}
+
+.guide h2{
+  text-align:center;
+  font-size:34px;
+  color:#955575;
+  font-weight:normal;
+}
+
+.guide-lead{
+  text-align:center;
+  max-width:700px;
+  margin:auto;
+  font-size:14px;
+  line-height:1.9;
+}
+
+/* LACIO */
+
+#lacia{
+  background:linear-gradient(135deg,#fff9fc,#f3e8f5);
+}
+
+/* RIZADA */
+
+#rizada{
+  background:linear-gradient(135deg,#fff8fb,#f7e5ed);
+}
+
+/* MINI CONSEJOS */
+
+.note{
+  background:#eee0ef;
+  border-radius:12px;
+  padding:20px;
+  margin:20px 0;
+  color:#76556f;
+  font-size:13px;
+  line-height:1.8;
+}
+
+/* IDENTIFICACIÓN */
+
+.steps{
+  counter-reset:step;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:20px 0;
+}
+
+.step{
+  background:#fff9fc;
+  border:1px solid #e5c8d7;
+  border-radius:12px;
+  padding:16px;
+  font-size:13px;
+  line-height:1.8;
+}
+
+.step strong{
+  display:block;
+  color:#985775;
+  font-size:17px;
+  margin-bottom:8px;
+}
+
+/* VOLVER */
+
+.back{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  color:#985775;
+  padding:15px;
+  margin:15px auto;
+  font-size:13px;
+}
+
+footer{
+  text-align:center;
+  background:#e9d6e4;
+  border-top:2px dashed #d1a2bc;
+  padding:30px 15px;
+  color:#95617e;
+  font-size:13px;
+  line-height:1.8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:800px){
+  .type-grid{grid-template-columns:repeat(2,1fr)}
+  .routine{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+}
+
+@media(max-width:520px){
+  main{padding:12px}
+  .choice-buttons{gap:10px}
+  .choice-art{min-height:110px;font-size:55px}
+  .choice-card strong{font-size:16px}
+  .type-grid{grid-template-columns:1fr}
+  .routine{grid-template-columns:1fr}
+  .guide{padding:15px}
+  .guide h2{font-size:28px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="decor" aria-hidden="true">
+  <span>♡</span>
+  <span>✦</span>
+  <span>♡</span>
+  <span>✧</span>
+  <span>♡</span>
+</div>
+
+<header>
+  <div class="small">RL BEAUTY MAGAZINE</div>
+  <h1>Beauty Room ♡</h1>
+  <p>Un espacio para conocer, aprender y cuidar tu cabello ✦</p>
+</header>
+
+<nav>
+  <a href="blogs.html">Home ♡</a>
+  <a href="#inicio">Tipos de cabello</a>
+  <a href="#rizada">Rizada</a>
+  <a href="#lacia">Lacia</a>
+  <a href="#rutina">Rutinas</a>
+  <a href="#identificar">Identificá tu tipo</a>
+</nav>
+
+<main>
+
+<!-- PORTADA Y ELECCIÓN -->
+
+<section class="choice" id="inicio">
+  <span style="letter-spacing:4px;color:#b27b99;font-size:11px">
+    THE HAIR GUIDE
+  </span>
+
+  <h2>¿RIZO O LACIA?</h2>
+
+  <p>
+    Cada cabello tiene su propia forma, textura y personalidad.
+    Elegí una guía y descubrí cómo conocerlo y cuidarlo.
+  </p>
+
+  <div class="choice-buttons">
+
+    <a href="#rizada" class="choice-card">
+      <div class="choice-art">〰️</div>
+      <strong>♡ RIZADA</strong>
+      <small>Ondas, rizos y espirales</small>
+    </a>
+
+    <a href="#lacia" class="choice-card">
+      <div class="choice-art">〽️</div>
+      <strong>✦ LACIA</strong>
+      <small>Cabello liso y sus variantes</small>
+    </a>
+
+  </div>
+</section>
+
+<h2 class="section-title">✧ Primero, conozcamos los tipos ✧</h2>
+
+<p class="section-subtitle">
+  Existe una clasificación muy utilizada que organiza los patrones
+  del cabello en cuatro grandes grupos. Los números indican el patrón
+  y las letras A, B y C describen variaciones de ese patrón.
+</p>
+
+<section class="intro">
+  <h3>♡ ¿Cómo funciona la clasificación?</h3>
+  <p>
+    <strong>Tipo 1:</strong> cabello lacio.
+    <br>
+    <strong>Tipo 2:</strong> cabello ondulado, con forma de S.
+    <br>
+    <strong>Tipo 3:</strong> cabello rizado, con espirales.
+    <br>
+    <strong>Tipo 4:</strong> cabello afro o muy ensortijado, con espirales
+    muy pequeñas o formas en zigzag.
+  </p>
+  <p>
+    No todas las personas tienen un único patrón. Es posible encontrar
+    distintas formas en diferentes partes de la cabeza.
+  </p>
+</section>
+
+<div class="big-separator">♡ ✦ ♡</div>
+
+<!-- GUÍA RIZADA -->
+
+<section class="guide" id="rizada">
+
+  <h2>♡ Guía para cabello rizado</h2>
+
+  <p class="guide-lead">
+    ¡Bienvenida al mundo de las ondas, espirales y rizos!
+    El cabello con textura puede tener diferentes formas.
+    Conocerlas ayuda a elegir técnicas de cuidado que acompañen
+    su patrón natural.
+  </p>
+
+  <div class="intro">
+    <h3>¿Qué caracteriza al cabello con textura?</h3>
+    <p>
+      El cabello ondulado, rizado y afro tiene curvas en su recorrido.
+      Por eso los aceites naturales del cuero cabelludo pueden distribuirse
+      de manera diferente que en el cabello lacio. Algunas personas notan
+      más sequedad o frizz, aunque cada cabello es distinto.
+    </p>
+  </div>
+
+  <h2 class="section-title">Tipo 2 · Ondulado</h2>
+  <p class="section-subtitle">
+    Tiene forma de S. No llega a formar espirales completas,
+    pero presenta ondas naturales.
+  </p>
+
+  <div class="type-grid">
+
+    <article class="type-card">
+      <div class="hair-art">
+        <svg viewBox="0 0 180 120">
+          <path d="M30 5 Q15 35 40 55 T45 115"/>
+          <path d="M55 5 Q40 35 65 55 T70 115" class="thin"/>
+          <path d="M80 5 Q65 35 90 55 T95 115"/>
+          <path d="M105 5 Q90 35 115 55 T120 115" class="thin"/>
+          <path d="M130 5 Q115 35 140 55 T145 115"/>
+        </svg>
+      </div>
+      <h3>2A</h3>
+      <span class="description">Ondas suaves</span>
+      <p>
+        Presenta ondas muy ligeras y abiertas. La raíz suele verse
+        bastante lisa y las ondas aparecen más hacia los largos.
+      </p>
+      <div class="tips">
+        <h4>♡ Consejos</h4>
+        <ul>
+          <li>Probá productos livianos.</li>
+          <li>Usá acondicionador sin excederte.</li>
+          <li>Podés marcar las ondas con las manos.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="type-card">
+      <div class="hair-art">
+        <svg viewBox="0 0 180 120">
+          <path d="M25 5 Q-5 30 35 55 T35 115"/>
+          <path d="M55 5 Q25 30 65 55 T65 115" class="thin"/>
+          <path d="M85 5 Q55 30 95 55 T95 115"/>
+          <path d="M115 5 Q85 30 125 55 T125 115" class="thin"/>
+          <path d="M145 5 Q115 30 155 55 T155 115"/>
+        </svg>
+      </div>
+      <h3>2B</h3>
+      <span class="description">Ondas definidas</span>
+      <p>
+        Forma ondas en S más visibles. Muchas veces comienzan
+        a mitad del cabello y pueden presentar frizz.
+      </p>
+      <div class="tips">
+        <h4>♡ Consejos</h4>
+        <ul>
+          <li>Probá mousse o gel liviano.</li>
+          <li>Definí con las manos mientras está húmedo.</li>
+          <li>Evitá cepillarlo en seco si desarma las ondas.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="type-card">
+      <div class="hair-art">
+        <svg viewBox="0 0 180 120">
+          <path d="M25 5 Q-15 30 40 55 T25 115"/>
+          <path d="M55 5 Q15 30 70 55 T55 115" class="thin"/>
+          <path d="M85 5 Q45 30 100 55 T85 115"/>
+          <path d="M115 5 Q75 30 130 55 T115 115" class="thin"/>
+          <path d="M145 5 Q105 30 160 55 T145 115"/>
+        </svg>
+      </div>
+      <h3>2C</h3>
+      <span class="description">Ondas muy marcadas</span>
+      <p>
+        Tiene ondas profundas que pueden comenzar cerca de la raíz.
+        Algunas partes pueden formar rizos sueltos.
+      </p>
+      <div class="tips">
+        <h4>♡ Consejos</h4>
+        <ul>
+          <li>Usá acondicionador suficiente.</li>
+          <li>Probá gel para mantener la forma.</li>
+          <li>Secá con suavidad, sin frotar.</li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
+
+  <h2 class="section-title">Tipo 3 · Rizado</h2>
+
+  <p class="section-subtitle">
+    Acá aparecen las espirales y los bucles.
+    Los rizos pueden ser grandes, medianos o pequeños.
+  </p>
+
+  <div class="type-grid">
+
+    <article class="type-card">
+      <div class="hair-art">
+        <svg viewBox="0 0 180 120">
+          <path d="M40 5 C5 20 10 65 40 65 S75 110 40 115"/>
+          <path d="M85 5 C50 20 55 65 85 65 S120 110 85 115" class="thin"/>
+          <path d="M130 5 C95 20 100 65 130 65 S165 110 130 115"/>
+        </svg>
+      </div>
+      <h3>3A</h3>
+      <span class="description">Espirales grandes</span>
+      <p>
+        Forma rizos amplios y sueltos, con bucles bastante visibles.
+        Suelen tener movimiento y rebote.
+      </p>
+      <div class="tips">
+        <h4>♡ Consejos</h4>
+        <ul>
+          <li>Aplicá crema de peinar en cabello húmedo.</li>
+          <li>Definí con las manos.</li>
+          <li>Usá gel si querés mayor duración.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="type-card">
+      <div class="hair-art">
+        <svg viewBox="0 0 180 120">
+          <path d="M35 5 C5 20 5 55 35 55 S65 90 35 90 S5 115 35 120"/>
+          <path d="M85 5 C55 20 55 55 85 55 S115 90 85 90 S55 115 85 120" class="thin"/>
+          <path d="M135 5 C105 20 105 55 135 55 S165 90 135 90 S105 115 135 120"/>
+        </svg>
+      </div>
+      <h3>3B</h3>
+      <span class="description">Rizos medianos</span>
+      <p>
+        Presenta espirales más pequeñas y elásticas que las del 3A.
+        El cabello suele tener bastante volumen.
+      </p>
+      <div class="tips">
+        <h4>♡ Consejos</h4>
+        <ul>
+          <li>Desenredá con acondicionador.</li>
+          <li>Separá el cabello en secciones.</li>
+          <li>Usá crema y gel según lo que necesite.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="type-card">
+      <div class="hair-art">
+        <svg viewBox="0 0 180 120">
+          <path d="M30 5 C5 15 5 35 30 35 S55 65 30 65 S5 95 30 95 S55 110 30 120"/>
+          <path d="M80 5 C55 15 55 35 80 35 S105 65 80 65 S55 95 80 95 S105 110 80 120" class="thin"/>
+          <path d="M130 5 C105 15 105 35 130 35 S155 65 130 65 S105 95 130 95 S155 110 130 120"/>
+        </svg>
+      </div>
+      <h3>3C</h3>
+      <span class="description">Rizos pequeños</span>
+      <p>
+        Tiene espirales compactas y definidas, parecidas a pequeños
+        resortes. Puede encogerse bastante al secarse.
+      </p>
+      <div class="tips">
+        <h4>♡ Consejos</h4>
+        <ul>
+          <li>Priorizá el acondicionamiento.</li>
+          <li>Desenredá por secciones con suavidad.</li>
+          <li>Protegé los rizos al dormir.</li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
+
+  <h2 class="section-title">Tipo 4 · Afro o ensortijado</h2>
+
+  <p class="section-subtitle">
+    Presenta espirales muy pequeñas o patrones en zigzag.
+    Puede encogerse mucho cuando se seca.
+  </p>
+
+  <div class="type-grid">
+
+    <article class="type-card">
+      <div class="hair-art">
+        <svg viewBox="0 0 180 120">
+          <path d="M25 5 C5 20 45 30 25 45 S45 70 25 85 S45 105 25 120"/>
+          <path d="M65 5 C45 20 85 30 65 45 S85 70 65 85 S85 105 65 120" class="thin"/>
+          <path d="M105 5 C85 20 125 30 105 45 S125 70 105 85 S125 105 105 120"/>
+          <path d="M145 5 C125 20 165 30 145 45 S165 70 145 85 S165 105 145 120" class="thin"/>
+        </svg>
+      </div>
+      <h3>4A</h3>
+      <span class="description">Espirales pequeñas</span>
+      <p>
+        Tiene pequeños rizos con forma de S, muy juntos y con
+        una definición visible.
+      </p>
+      <div class="tips">
+        <h4>♡ Consejos</h4>
+        <ul>
+          <li>Usá acondicionador y productos hidratantes.</li>
+          <li>Desenredá con mucha suavidad.</li>
+          <li>Trabajá en secciones pequeñas.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="type-card">
+      <div class="hair-art">
+        <svg viewBox="0 0 180 120">
+          <path d="M20 5 L40 25 L20 45 L40 65 L20 85 L40 105 L20 120"/>
+          <path d="M60 5 L80 25 L60 45 L80 65 L60 85 L80 105 L60 120" class="thin"/>
+          <path d="M100 5 L120 25 L100 45 L120 65 L100 85 L120 105 L100 120"/>
+          <path d="M140 5 L160 25 L140 45 L160 65 L140 85 L160 105 L140 120" class="thin"/>
+        </svg>
+      </div>
+      <h3>4B</h3>
+      <span class="description">Patrón en zigzag</span>
+      <p>
+        Sus mechones pueden formar ángulos y curvas en forma de Z.
+        El patrón puede verse menos definido que el 4A.
+      </p>
+      <div class="tips">
+        <h4>♡ Consejos</h4>
+        <ul>
+          <li>Aplicá productos hidratantes.</li>
+          <li>Desenredá por pequeñas secciones.</li>
+          <li>Elegí peinados que no tiren del cabello.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="type-card">
+      <div class="hair-art">
+        <svg viewBox="0 0 180 120">
+          <path d="M20 5 L32 17 L20 29 L32 41 L20 53 L32 65 L20 77 L32 89 L20 101 L32 120"/>
+          <path d="M55 5 L67 17 L55 29 L67 41 L55 53 L67 65 L55 77 L67 89 L55 101 L67 120" class="thin"/>
+          <path d="M90 5 L102 17 L90 29 L102 41 L90 53 L102 65 L90 77 L102 89 L90 101 L102 120"/>
+          <path d="M125 5 L137 17 L125 29 L137 41 L125 53 L137 65 L125 77 L137 89 L125 101 L137 120" class="thin"/>
+        </svg>
+      </div>
+      <h3>4C</h3>
+      <span class="description">Zigzag muy compacto</span>
+      <p>
+        Tiene un patrón muy apretado que puede ser difícil de distinguir
+        sin estirar suavemente el mechón.
+      </p>
+      <div class="tips">
+        <h4>♡ Consejos</h4>
+        <ul>
+          <li>Priorizá la hidratación y el cuidado delicado.</li>
+          <li>Desenredá lentamente por secciones.</li>
+          <li>Evitá peinados demasiado tirantes.</li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="note">
+    <strong>♡ Un dato importante:</strong>
+    los patrones 2, 3 y 4 no son una escala de belleza ni de salud.
+    Cada uno tiene características diferentes. Además, una misma persona
+    puede tener más de un patrón en su cabello.
+  </div>
+
+</section>
+
+<div class="big-separator">✦ ♡ ✦</div>
+
+<!-- GUÍA LACIA -->
+
+<section class="guide" id="lacia">
+
+  <h2>✦ Guía para cabello lacio</h2>
+
+  <p class="guide-lead">
+    El cabello lacio tiene un recorrido más recto desde la raíz
+    hasta las puntas. También puede variar en grosor, volumen
+    y textura.
+  </p>
+
+  <div class="intro">
+    <h3>¿Qué caracteriza al cabello lacio?</h3>
+    <p>
+      El cabello tipo 1 no forma ondas definidas de manera natural.
+      Puede reflejar la luz y distribuir los aceites naturales
+      del cuero cabelludo con mayor facilidad. Por eso algunas
+      personas notan que sus raíces se engrasan más rápido.
+    </p>
+  </div>
+
+  <div class="type-grid">
+
+    <article class="type-card">
+      <div class="hair-art">
+        <svg viewBox="0 0 180 120">
+          <path d="M35 5 L35 115"/>
+          <path d="M55 5 L55 115" class="thin"/>
+          <path d="M75 5 L75 115"/>
+          <path d="M95 5 L95 115" class="thin"/>
+          <path d="M115 5 L115 115"/>
+          <path d="M135 5 L135 115" class="thin"/>
+        </svg>
+      </div>
+      <h3>1A</h3>
+      <span class="description">Muy lacio y fino</span>
+      <p>
+        Es muy recto, suave y suele tener poco volumen.
+        No presenta ondas visibles.
+      </p>
+      <div class="tips">
+        <h4>♡ Consejos</h4>
+        <ul>
+          <li>Probá productos livianos.</li>
+          <li>Aplicá acondicionador principalmente en largos y puntas.</li>
+          <li>Evitá acumular demasiados productos.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="type-card">
+      <div class="hair-art">
+        <svg viewBox="0 0 180 120">
+          <path d="M35 5 Q30 55 35 115"/>
+          <path d="M55 5 Q50 55 55 115" class="thin"/>
+          <path d="M75 5 Q70 55 75 115"/>
+          <path d="M95 5 Q90 55 95 115" class="thin"/>
+          <path d="M115 5 Q110 55 115 115"/>
+          <path d="M135 5 Q130 55 135 115" class="thin"/>
+        </svg>
+      </div>
+      <h3>1B</h3>
+      <span class="description">Lacio con cuerpo</span>
+      <p>
+        Sigue siendo lacio, pero tiene más cuerpo y volumen
+        que el tipo 1A.
+      </p>
+      <div class="tips">
+        <h4>♡ Consejos</h4>
+        <ul>
+          <li>Elegí acondicionadores adecuados a tu textura.</li>
+          <li>Desenredá desde las puntas.</li>
+          <li>Usá protector térmico si aplicás calor.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="type-card">
+      <div class="hair-art">
+        <svg viewBox="0 0 180 120">
+          <path d="M35 5 Q20 45 35 75 Q45 95 35 115"/>
+          <path d="M55 5 Q40 45 55 75 Q65 95 55 115" class="thin"/>
+          <path d="M75 5 Q60 45 75 75 Q85 95 75 115"/>
+          <path d="M95 5 Q80 45 95 75 Q105 95 95 115" class="thin"/>
+          <path d="M115 5 Q100 45 115 75 Q125 95 115 115"/>
+          <path d="M135 5 Q120 45 135 75 Q145 95 135 115" class="thin"/>
+        </svg>
+      </div>
+      <h3>1C</h3>
+      <span class="description">Lacio grueso</span>
+      <p>
+        Tiene una textura más gruesa y puede mostrar alguna
+        curva o movimiento suave, especialmente en las puntas.
+      </p>
+      <div class="tips">
+        <h4>♡ Consejos</h4>
+        <ul>
+          <li>Usá acondicionador para facilitar el peinado.</li>
+          <li>Desenredá sin tirones.</li>
+          <li>Protegé el cabello del calor excesivo.</li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="note">
+    <strong>✦ Recordá:</strong>
+    el cabello lacio también necesita acondicionamiento,
+    protección frente al calor y un lavado adaptado a las
+    necesidades del cuero cabelludo.
+  </div>
+
+</section>
+
+<div class="big-separator">♡ ✦ ♡</div>
+
+<!-- RUTINA GENERAL -->
+
+<section id="rutina">
+
+  <h2 class="section-title">♡ Una rutina para cuidar tu cabello</h2>
+
+  <p class="section-subtitle">
+    No existe una única rutina perfecta. Estos son pasos básicos
+    que podés adaptar a tu cabello y a cómo se siente.
+  </p>
+
+  <div class="routine">
+
+    <article class="routine-card">
+      <div class="emoji">🧴</div>
+      <h3>1. Lavado</h3>
+      <p>
+        Aplicá shampoo principalmente en el cuero cabelludo.
+        La frecuencia depende de cuánto se engrase o ensucie.
+      </p>
+    </article>
+
+    <article class="routine-card">
+      <div class="emoji">🫧</div>
+      <h3>2. Acondicionado</h3>
+      <p>
+        Usá acondicionador para facilitar el desenredo.
+        En cabellos secos o rizados puede aplicarse en más largos.
+      </p>
+    </article>
+
+    <article class="routine-card">
+      <div class="emoji">🪮</div>
+      <h3>3. Desenredado</h3>
+      <p>
+        Hacelo con paciencia, empezando por las puntas.
+        Elegí un peine o cepillo adecuado a tu textura.
+      </p>
+    </article>
+
+    <article class="routine-card">
+      <div class="emoji">💧</div>
+      <h3>4. Hidratación</h3>
+      <p>
+        Acondicionadores, cremas y otros productos pueden ayudar
+        según las necesidades de cada cabello.
+      </p>
+    </article>
+
+    <article class="routine-card">
+      <div class="emoji">🌬️</div>
+      <h3>5. Secado</h3>
+      <p>
+        Evitá frotar con fuerza. Podés usar una toalla suave
+        o una remera para absorber el agua.
+      </p>
+    </article>
+
+    <article class="routine-card">
+      <div class="emoji">☀️</div>
+      <h3>6. Protección</h3>
+      <p>
+        Si usás secador, planchita o rizador, limitá el calor
+        y utilizá un protector térmico.
+      </p>
+    </article>
+
+  </div>
+
+</section>
+
+<!-- IDENTIFICAR -->
+
+<section id="identificar">
+
+  <h2 class="section-title">✦ ¿Cómo identifico mi tipo?</h2>
+
+  <p class="section-subtitle">
+    Una pequeña guía para observar tu patrón natural sin
+    depender de peinados o herramientas.
+  </p>
+
+  <div class="steps">
+
+    <article class="step">
+      <strong>♡ Paso 1: Lavalo</strong>
+      Lavá y acondicioná tu cabello como lo hacés normalmente.
+    </article>
+
+    <article class="step">
+      <strong>♡ Paso 2: Dejalo secar</strong>
+      Observá cómo se acomoda al secarse naturalmente,
+      sin planchita ni técnicas de definición.
+    </article>
+
+    <article class="step">
+      <strong>♡ Paso 3: Observá el patrón</strong>
+      Mirá diferentes zonas de la cabeza. Compará la forma
+      de los mechones con las ilustraciones de esta guía.
+    </article>
+
+  </div>
+
+  <div class="note">
+    <strong>✦ ¡Ojo!</strong>
+    La clasificación 1A–4C es una referencia visual, no una
+    descripción completa del cabello. También importan el grosor
+    de cada hebra, la densidad, la porosidad y el estado del cabello.
+    No hace falta encajar perfectamente en una sola categoría.
+  </div>
+
+</section>
+
+<section class="intro">
+  <h3>♡ Un último recordatorio</h3>
+  <p>
+    No hay un tipo de cabello mejor que otro.
+    Lacio, ondulado, rizado o afro: todos tienen características
+    propias y merecen cuidados adecuados.
+  </p>
+  <p style="text-align:center;font-size:25px;color:#b77999">
+    ♡ ✦ ♡ ✦ ♡
+  </p>
+</section>
+
+<a href="#inicio" class="back">↑ Volver al comienzo</a>
+
+</main>
+
+<footer>
+  <strong>RL BEAUTY ROOM ♡</strong>
+  <br>
+  Una guía hecha para aprender a cuidar todos los cabellos.
+  <br>
+  <a href="blogs.html">Volver a RL Blogs</a>
+</footer>
+
+</body>
+</html>
