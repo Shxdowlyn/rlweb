@@ -725,7 +725,7 @@ function updateLikes(){
     const liked=likedPosts.includes(id);
     button.classList.toggle("liked",liked);
     button.textContent=liked?"♥ Te gusta":"♡ Me gusta";
-    count.textContent=(liked?500.1M:500M)+" me gusta";
+    count.textContent=(liked?"500.1M":"500M")+" me gusta";
   });
 }
 
@@ -744,7 +744,7 @@ function updateFollow(){
     following?"Siguiendo ✓":"Seguir a Mili ♡";
 
   document.getElementById("followerCount").textContent=
-    "Seguidores: "+(following?1:500M);
+    "Seguidores: "+(following?"500.1M":"500M");
 }
 
 updateLikes();
