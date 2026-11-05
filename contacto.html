@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -42,7 +41,7 @@ body {
   overflow-x: hidden;
 }
 
-/* DECORACIONES DEL FONDO */
+/* DECORACIONES */
 
 .decor {
   position: fixed;
@@ -85,7 +84,6 @@ body {
 .titlebar {
   min-height: 95px;
   background: #f4a9c7;
-
   border-bottom: 5px solid var(--border);
 
   display: flex;
@@ -127,7 +125,7 @@ body {
   font-size: 23px;
 }
 
-/* INFORMACIÓN DEL CONTACTO */
+/* ESTADO */
 
 .status {
   background: #fff0f5;
@@ -148,7 +146,7 @@ body {
   color: #bd7793;
 }
 
-/* PANTALLA DE CHAT */
+/* PANTALLA */
 
 .screen {
   min-height: 510px;
@@ -262,7 +260,7 @@ body {
   50% { transform: scale(1.2); }
 }
 
-/* PANTALLA INICIAL */
+/* INICIO */
 
 .center-content {
   min-height: 420px;
@@ -287,7 +285,7 @@ body {
   max-width: 500px;
 }
 
-/* BOTONES PIXEL */
+/* BOTONES */
 
 button {
   font-family: 'Silkscreen', monospace;
@@ -386,7 +384,246 @@ textarea::placeholder {
   color: #c69aab;
 }
 
-/* CONFIRMACIÓN */
+/* VENTANA DE ERROR */
+
+.error-screen {
+  min-height: 480px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px 5px;
+  animation: appear .7s ease both;
+}
+
+.error-window {
+  width: 100%;
+  max-width: 620px;
+
+  background: #f5b5ce;
+  border: 5px solid #c56b91;
+
+  box-shadow:
+    5px 5px 0 #df9bb7,
+    8px 8px 0 #b76b8b;
+
+  position: relative;
+}
+
+.error-titlebar {
+  height: 72px;
+
+  background: #c72f79;
+  border-bottom: 5px solid #a83d6d;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 14px;
+
+  color: white;
+  font-family: 'VT323', monospace;
+  font-size: 38px;
+}
+
+.error-close {
+  width: 42px;
+  height: 42px;
+
+  background: #ffe5ef;
+  color: #c72f79;
+
+  border: 4px solid #d27a9e;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Arial;
+  font-size: 25px;
+}
+
+.error-bow {
+  position: absolute;
+  top: -29px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-size: 64px;
+  z-index: 3;
+
+  filter: drop-shadow(2px 3px 0 #bd6488);
+}
+
+.error-content {
+  min-height: 280px;
+
+  padding: 35px 25px 20px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.error-stars {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  color: #c45b89;
+  font-size: 22px;
+}
+
+.error-stars span {
+  position: absolute;
+}
+
+.error-stars span:nth-child(1) {
+  top: 12%;
+  left: 8%;
+}
+
+.error-stars span:nth-child(2) {
+  top: 24%;
+  right: 12%;
+}
+
+.error-stars span:nth-child(3) {
+  bottom: 20%;
+  left: 8%;
+}
+
+.error-stars span:nth-child(4) {
+  bottom: 15%;
+  right: 23%;
+}
+
+.error-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+
+  position: relative;
+  z-index: 2;
+
+  padding: 15px 5px 20px;
+}
+
+.error-icon {
+  flex-shrink: 0;
+
+  width: 65px;
+  height: 65px;
+
+  border-radius: 50%;
+  background: #d73c83;
+
+  border: 4px solid #b93d75;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-family: Arial;
+  font-size: 47px;
+}
+
+.error-text {
+  font-family: 'VT323', monospace;
+  font-size: clamp(24px, 4vw, 35px);
+
+  color: #24121d;
+  line-height: 1.25;
+
+  padding-top: 0;
+}
+
+.error-text strong {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+.error-text p {
+  margin: 0;
+}
+
+.mouse {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+
+  font-size: 90px;
+  line-height: 1;
+
+  z-index: 2;
+
+  filter: grayscale(1);
+  image-rendering: pixelated;
+
+  animation: mouseFloat 2s ease-in-out infinite;
+}
+
+.mouse-bow {
+  position: absolute;
+  right: 38px;
+  bottom: 91px;
+
+  font-size: 27px;
+  z-index: 3;
+}
+
+@keyframes mouseFloat {
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.error-button-area {
+  display: flex;
+  justify-content: center;
+
+  padding: 15px 15px 25px;
+
+  position: relative;
+  z-index: 4;
+}
+
+.error-button {
+  width: min(280px, 85%);
+
+  background: #f9c5d9;
+  border: 4px solid #bd527f;
+
+  box-shadow: 4px 4px 0 #c66d91;
+
+  font-family: 'VT323', monospace;
+  font-size: 35px;
+
+  padding: 10px;
+  margin: 0;
+
+  color: #24121d;
+}
+
+.error-button:hover {
+  background: #ffe3ed;
+}
+
+.error-footer {
+  font-family: 'VT323', monospace;
+  font-size: 17px;
+
+  color: #b45b81;
+  text-align: left;
+
+  padding: 0 12px 8px;
+}
+
+/* OCULTO */
 
 .hidden {
   display: none !important;
@@ -451,13 +688,50 @@ textarea::placeholder {
   .bottom-icon {
     width: 48px;
   }
+
+  .error-content {
+    padding: 30px 12px 15px;
+    min-height: 300px;
+  }
+
+  .error-titlebar {
+    height: 60px;
+    font-size: 32px;
+  }
+
+  .error-message {
+    gap: 12px;
+    padding-top: 20px;
+  }
+
+  .error-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 34px;
+  }
+
+  .error-text {
+    font-size: 25px;
+    max-width: 85%;
+  }
+
+  .mouse {
+    font-size: 65px;
+    right: 8px;
+  }
+
+  .mouse-bow {
+    right: 20px;
+    bottom: 67px;
+    font-size: 21px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- DECORACIONES -->
+<!-- DECORACIONES DEL FONDO -->
 
 <div class="decor d1">✣</div>
 <div class="decor d2">♡</div>
@@ -524,20 +798,24 @@ textarea::placeholder {
       <div class="chat-content">
 
         <div class="message-row left">
+
           <div class="bubble">
             <p id="tituloAviso"></p>
             <p id="textoAviso"></p>
           </div>
+
         </div>
 
       </div>
 
       <div style="text-align:center">
+
         <button onclick="siguienteAviso()">
           NEXT MESSAGE →
         </button>
 
         <p class="small" id="contador"></p>
+
       </div>
 
     </div>
@@ -579,20 +857,99 @@ textarea::placeholder {
 
     </div>
 
-    <!-- ENVIADO -->
+    <!-- ERROR DE PRIVACIDAD -->
+
+    <div id="error" class="hidden">
+
+      <div class="error-screen">
+
+        <div class="error-window">
+
+          <div class="error-titlebar">
+
+            <span>privacy.exe</span>
+
+            <div class="error-close">×</div>
+
+          </div>
+
+          <div class="error-bow">🎀</div>
+
+          <div class="error-content">
+
+            <div class="error-stars">
+              <span>✦</span>
+              <span>✣</span>
+              <span>✧</span>
+              <span>♡</span>
+            </div>
+
+            <div class="error-message">
+
+              <div class="error-icon">×</div>
+
+              <div class="error-text">
+
+                <strong>Access Denied!</strong>
+
+                <p>
+                  Fue imposible.
+                  No se proporcionarán
+                  los números de teléfono
+                  de las chicas.
+                  Su privacidad es importante.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="mouse">🐭</div>
+            <div class="mouse-bow">🎀</div>
+
+          </div>
+
+          <div class="error-button-area">
+
+            <button
+              class="error-button"
+              onclick="cerrarError()">
+
+              ok
+
+            </button>
+
+          </div>
+
+          <div class="error-footer">
+            ♡ privacy protection system
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- CIERRE -->
 
     <div id="enviado" class="hidden center-content">
 
-      <div style="font-size:70px">💌</div>
+      <div style="font-size:70px">💗</div>
 
-      <h1>MESSAGE SENT!</h1>
+      <h1>PRIVACY PROTECTED!</h1>
 
       <p>
-        Tu mensaje salió correctamente.
-        Gracias por tomarte el tiempo de escribir ♡
+        Gracias por comprender.
+        La privacidad de las chicas
+        siempre será respetada. ♡
       </p>
 
       <div style="font-size:30px">✿ ♡ ✿</div>
+
+      <button onclick="volverInicio()">
+        BACK TO HOME
+      </button>
 
     </div>
 
@@ -647,7 +1004,9 @@ function ocultarTodo() {
     "inicio",
     "warnings",
     "formulario",
+    "error",
     "enviado"
+
   ].forEach(id => {
 
     document.getElementById(id).classList.add("hidden");
@@ -681,20 +1040,24 @@ function actualizarAviso() {
   contador.textContent =
     `MESSAGE ${indice + 1} / ${avisos.length}`;
 
-  // Alternar los mensajes entre izquierda y derecha.
-
   const fila = document.querySelector(".message-row");
   const burbuja = document.querySelector(".bubble");
 
   fila.classList.remove("left", "right");
-  fila.classList.add(indice % 2 === 0 ? "left" : "right");
 
-  burbuja.classList.toggle("white", indice % 2 !== 0);
+  fila.classList.add(
+    indice % 2 === 0 ? "left" : "right"
+  );
 
-  // Reiniciar animación.
+  burbuja.classList.toggle(
+    "white",
+    indice % 2 !== 0
+  );
 
   fila.style.animation = "none";
+
   void fila.offsetWidth;
+
   fila.style.animation = "appear .7s ease both";
 
 }
@@ -717,7 +1080,7 @@ function siguienteAviso() {
 
 }
 
-/* ENVÍO POR WHATSAPP */
+/* MENSAJE DE PRIVACIDAD */
 
 document.getElementById("mensajeForm").addEventListener("submit", function(e) {
 
@@ -727,22 +1090,39 @@ document.getElementById("mensajeForm").addEventListener("submit", function(e) {
 
   if (!texto) return;
 
-  const numeroWhatsApp = "5493863447787";
+  // No se envía información a ningún número.
+  // No se abre WhatsApp.
+  // El contenido escrito no se guarda.
 
-  const mensajeFinal = encodeURIComponent(
-    "Mensaje desde mi página web 💌\n\n" + texto
-  );
+  ocultarTodo();
 
-  const enlace =
-    `https://wa.me/${numeroWhatsApp}?text=${mensajeFinal}`;
+  document.getElementById("error").classList.remove("hidden");
 
-  window.open(enlace, "_blank");
+});
+
+/* CERRAR ERROR */
+
+function cerrarError() {
 
   ocultarTodo();
 
   document.getElementById("enviado").classList.remove("hidden");
 
-});
+}
+
+/* VOLVER AL INICIO */
+
+function volverInicio() {
+
+  ocultarTodo();
+
+  document.getElementById("mensaje").value = "";
+
+  indice = 0;
+
+  document.getElementById("inicio").classList.remove("hidden");
+
+}
 
 </script>
 
