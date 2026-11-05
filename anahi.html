@@ -564,7 +564,7 @@ function updateLikes(){
 
     button.classList.toggle("liked",liked);
     button.textContent=liked?"♥ Te gusta":"♡ Me gusta";
-    count.textContent=(liked?1:0)+" me gusta";
+    count.textContent=(liked?500000001:500000000).toLocaleString("es-ES")+" me gusta";
   });
 }
 
