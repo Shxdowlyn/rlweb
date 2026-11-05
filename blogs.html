@@ -38,8 +38,8 @@ body::before {
 /* HEADER */
 
 header {
-    height: 80px;
-    padding: 0 6%;
+    min-height: 80px;
+    padding: 5px 6%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,11 +50,23 @@ header {
 }
 
 .logo {
-    font-size: 52px;
-    font-style: italic;
-    color: #e5eaff;
-    text-shadow: 0 0 15px #5284ff;
+    display: flex;
+    align-items: center;
     text-decoration: none;
+}
+
+.logo img {
+    width: 105px;
+    height: 68px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 0 7px #648cff);
+    transition: .3s;
+}
+
+.logo img:hover {
+    filter: drop-shadow(0 0 14px #83aaff);
+    transform: scale(1.05);
 }
 
 .volver {
@@ -236,6 +248,15 @@ footer {
     color: #cbd8ff;
 }
 
+.logo-footer {
+    width: 95px;
+    height: 65px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 12px;
+    filter: drop-shadow(0 0 7px #648cff);
+}
+
 /* RESPONSIVE */
 
 @media(max-width: 1050px) {
@@ -246,12 +267,18 @@ footer {
 
 @media(max-width: 600px) {
     header {
-        height: auto;
-        padding: 15px;
+        min-height: 75px;
+        padding: 8px 15px;
     }
 
-    .logo {
-        font-size: 38px;
+    .logo img {
+        width: 85px;
+        height: 58px;
+    }
+
+    .volver {
+        font-size: 14px;
+        padding: 8px 15px;
     }
 
     .portada h1 {
@@ -268,7 +295,10 @@ footer {
 <body>
 
 <header>
-    <a href="index.html" class="logo">RL ✦</a>
+    <a href="index.html" class="logo">
+        <img src="logo-rl.png" alt="Logo RL">
+    </a>
+
     <a href="index.html" class="volver">← Inicio</a>
 </header>
 
@@ -301,7 +331,7 @@ footer {
         <article class="tarjeta"
         style="--color:#83aaff;--brillo:#3974ff;--fondo:#10285c">
 
-            <div class="avatar">🦋</div>
+            <div class="avatar">🐳</div>
 
             <h2>Aylin</h2>
 
@@ -385,8 +415,12 @@ footer {
 </main>
 
 <footer>
-    <p>✦ RL · Belleza, tecnología y más ✦</p>
+
+    <img src="logo-rl.png" alt="Logo RL" class="logo-footer">
+
+    <p>✦ Belleza, tecnología y más ✦</p>
     <p>Gracias por visitarnos ♡</p>
+
 </footer>
 
 </body>
