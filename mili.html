@@ -647,7 +647,7 @@ footer{
 
   <section class="panel">
     <h3>♡ VISITANTES DEL RINCÓN</h3>
-    <p id="followerCount">Seguidores: 0</p>
+    <p id="followerCount">Seguidores: 500M</p>
     <button class="follow" id="followButton" onclick="toggleFollow()">Seguir a Mili ♡</button>
   </section>
   <section class="panel">
@@ -725,7 +725,7 @@ function updateLikes(){
     const liked=likedPosts.includes(id);
     button.classList.toggle("liked",liked);
     button.textContent=liked?"♥ Te gusta":"♡ Me gusta";
-    count.textContent=(liked?1:0)+" me gusta";
+    count.textContent=(liked?500.1M:500M)+" me gusta";
   });
 }
 
@@ -744,7 +744,7 @@ function updateFollow(){
     following?"Siguiendo ✓":"Seguir a Mili ♡";
 
   document.getElementById("followerCount").textContent=
-    "Seguidores: "+(following?1:0);
+    "Seguidores: "+(following?1:500M);
 }
 
 updateLikes();
