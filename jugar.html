@@ -11,10 +11,7 @@
 
 :root{
  --cream:#fffaf3;
- --pink:#f1d8d0;
  --brown:#80675b;
- --green:#aab99a;
- --darkgreen:#71866c;
  --border:#e8d4c6;
 }
 
@@ -162,7 +159,7 @@ canvas{
 
 .hidden{display:none!important}
 
-/* CASITA */
+/* HABITACIÓN */
 
 .home-title{
  text-align:center;
@@ -181,7 +178,7 @@ canvas{
  overflow:hidden;
  border:3px solid #e4cbb9;
  border-radius:18px;
- min-height:310px;
+ min-height:330px;
  background:#f5e8d9;
 }
 
@@ -190,17 +187,16 @@ canvas{
  inset:0 0 65px;
  background:
   radial-gradient(circle at 15% 20%,#fff8e9 0 3px,transparent 4px),
-  linear-gradient(90deg,transparent 49%,#ead8c8 50%,transparent 51%),
   #f3e4d7;
- background-size:35px 35px,100% 100%,auto;
+ background-size:35px 35px;
 }
 
 .window{
  position:absolute;
- top:22px;
- right:22px;
- width:76px;
- height:65px;
+ top:24px;
+ right:25px;
+ width:80px;
+ height:68px;
  border:6px solid #fff9ef;
  border-radius:8px;
  background:linear-gradient(#c6e2e6 55%,#b6c99f 56%);
@@ -227,11 +223,54 @@ canvas{
  background:#fff9ef;
 }
 
-.shelf{
+.lamp{
  position:absolute;
- top:105px;
- right:20px;
- font-size:25px;
+ top:0;
+ left:50%;
+ transform:translateX(-50%);
+ width:70px;
+ height:85px;
+ text-align:center;
+ z-index:4;
+}
+
+.lamp .cord{
+ width:3px;
+ height:23px;
+ background:#9c826d;
+ margin:auto;
+}
+
+.lamp .shade{
+ font-size:35px;
+ line-height:38px;
+}
+
+.lamp.off .shade{filter:grayscale(1);opacity:.55}
+
+.light-glow{
+ position:absolute;
+ top:50px;
+ left:50%;
+ transform:translateX(-50%);
+ width:130px;
+ height:130px;
+ border-radius:50%;
+ background:radial-gradient(circle,#fff3b866,transparent 70%);
+ pointer-events:none;
+}
+
+.lamp.off~.light-glow{display:none}
+
+.wall-picture{
+ position:absolute;
+ top:115px;
+ right:28px;
+ font-size:28px;
+ background:#fff8ed;
+ border:5px solid #d5b69e;
+ padding:3px;
+ border-radius:5px;
 }
 
 .floor{
@@ -245,11 +284,11 @@ canvas{
 
 .rug{
  position:absolute;
- bottom:16px;
+ bottom:13px;
  left:50%;
  transform:translateX(-50%);
- width:190px;
- height:43px;
+ width:210px;
+ height:48px;
  border-radius:50%;
  background:#e8bfc0;
  border:4px dotted #f7e8dd;
@@ -260,8 +299,8 @@ canvas{
  bottom:19px;
  left:50%;
  transform:translateX(-50%);
- width:105px;
- height:55px;
+ width:120px;
+ height:58px;
  border-radius:35px 35px 20px 20px;
  background:#c6a8c8;
  border:7px solid #a88bac;
@@ -294,16 +333,16 @@ canvas{
  position:absolute;
  z-index:4;
  bottom:65px;
- left:17px;
- font-size:37px;
+ left:20px;
+ font-size:38px;
 }
 
-.toybox{
+.toy{
  position:absolute;
  z-index:4;
  bottom:14px;
- right:18px;
- font-size:35px;
+ right:22px;
+ font-size:34px;
 }
 
 .bowl{
@@ -392,10 +431,28 @@ canvas{
  min-height:42px;
 }
 
-.small-btn{
+.secondary{
  margin-top:15px;
- font-size:11px;
- background:#f2e9df;
+ width:100%;
+ background:#f1e4d9;
+}
+
+.decor-panel{
+ margin-top:15px;
+}
+
+.decor-panel p{
+ font-size:12px;
+ color:#927c6e;
+}
+
+.decor-group{margin:15px 0}
+
+.decor-group strong{
+ display:block;
+ font-size:12px;
+ margin-bottom:9px;
+ color:#a47a67;
 }
 
 @media(max-width:650px){
@@ -403,7 +460,7 @@ canvas{
  header h1{font-size:26px}
  .stats{grid-template-columns:1fr}
  .actions{grid-template-columns:repeat(2,1fr)}
- .home-scene{min-height:285px}
+ .home-scene{min-height:300px}
 }
 </style>
 </head>
@@ -477,30 +534,40 @@ canvas{
    <button data-value="collar">Collar</button>
   </div>
 
-  <button class="primary" id="create">♡ CREAR MI PERRITO ♡</button>
+  <button class="primary" id="save">♡ GUARDAR MI PERRITO ♡</button>
  </div>
 </section>
 
-<!-- CASITA -->
+<!-- HABITACIÓN -->
 <section id="home" class="panel hidden">
 
  <div class="home-title">
   <h2>♡ La casita de <span id="petName">tu perrito</span> ♡</h2>
-  <p>¡Bienvenido a tu nuevo hogar!</p>
+  <p>¡Este es su pequeño hogar!</p>
  </div>
 
  <div class="home-scene">
   <div class="wall"></div>
   <div class="window"></div>
-  <div class="shelf">♡ 🖼️</div>
-  <div class="home-label">🏡 Mi casita</div>
-  <div class="plant">🪴</div>
+
+  <div class="lamp" id="lamp">
+   <div class="cord"></div>
+   <div class="shade">💡</div>
+  </div>
+  <div class="light-glow"></div>
+
+  <div class="wall-picture" id="picture">♡</div>
+  <div class="home-label">🏡 Mi habitación</div>
+
+  <div class="plant" id="plant">🪴</div>
   <div class="rug"></div>
-  <div class="pet-bed"></div>
+  <div class="pet-bed" id="bed"></div>
+
   <div class="home-dog">
    <canvas id="homeDog" width="128" height="100"></canvas>
   </div>
-  <div class="toybox">🧸</div>
+
+  <div class="toy" id="toy">🧸</div>
   <div class="bowl food-bowl">🥣</div>
   <div class="bowl water-bowl">💧</div>
   <div class="floor"></div>
@@ -516,7 +583,7 @@ canvas{
    <div class="meter"><div class="meter-fill" id="thirstBar"></div></div>
   </div>
   <div class="stat">
-   <div class="stat-title"><span>💗 Felicidad</span><b id="happyText">70%</b></div>
+   <div class="stat-title"><span>💗 Felicidad</span><b id="happyText">80%</b></div>
    <div class="meter"><div class="meter-fill" id="happyBar"></div></div>
   </div>
  </div>
@@ -536,7 +603,66 @@ canvas{
   ¡Tu perrito está feliz de tenerte! ♡
  </div>
 
- <button class="small-btn" id="edit">✎ Cambiar apariencia</button>
+ <button class="secondary" id="decorate">🎀 Decorar mi habitación</button>
+ <button class="secondary" id="edit">✎ Cambiar apariencia de mi perrito</button>
+
+ <!-- DECORACIÓN -->
+ <section class="panel decor-panel hidden" id="decorPanel">
+  <h2>♡ Mi pequeño rincón ♡</h2>
+  <p>¡Elegí cómo querés decorar la habitación!</p>
+
+  <div class="decor-group">
+   <strong>🛏️ Color de la camita</strong>
+   <div class="options" id="bedOptions">
+    <button class="selected" data-bed="#c6a8c8">Lila</button>
+    <button data-bed="#e9b8b9">Rosa</button>
+    <button data-bed="#a9c4b0">Verde</button>
+    <button data-bed="#a9bfd4">Celeste</button>
+    <button data-bed="#d8b78e">Beige</button>
+   </div>
+  </div>
+
+  <div class="decor-group">
+   <strong>💡 Lamparita</strong>
+   <div class="options">
+    <button id="lampToggle">Apagar la luz</button>
+   </div>
+  </div>
+
+  <div class="decor-group">
+   <strong>🪴 Plantita</strong>
+   <div class="options">
+    <button data-plant="🪴">Planta verde</button>
+    <button data-plant="🌵">Cactus</button>
+    <button data-plant="🌻">Flor</button>
+    <button data-plant="none">Quitar</button>
+   </div>
+  </div>
+
+  <div class="decor-group">
+   <strong>🧸 Juguete</strong>
+   <div class="options">
+    <button data-toy="🧸">Osito</button>
+    <button data-toy="🎾">Pelota</button>
+    <button data-toy="🦴">Huesito</button>
+    <button data-toy="🪀">Yoyó</button>
+    <button data-toy="none">Quitar</button>
+   </div>
+  </div>
+
+  <div class="decor-group">
+   <strong>🖼️ Adorno de pared</strong>
+   <div class="options">
+    <button data-picture="♡">Corazón</button>
+    <button data-picture="🌸">Flores</button>
+    <button data-picture="⭐">Estrella</button>
+    <button data-picture="🐾">Patitas</button>
+   </div>
+  </div>
+
+  <button class="primary" id="finishDecor">♡ LISTO, ME ENCANTA ♡</button>
+ </section>
+
 </section>
 
 </main>
@@ -544,7 +670,6 @@ canvas{
 <script>
 const canvas=document.getElementById("dog");
 const ctx=canvas.getContext("2d");
-
 const homeCanvas=document.getElementById("homeDog");
 const homeCtx=homeCanvas.getContext("2d");
 
@@ -557,7 +682,15 @@ let pet={
  name:"",
  hunger:70,
  thirst:70,
- happy:70
+ happy:80
+};
+
+let decor={
+ bed:"#c6a8c8",
+ lamp:true,
+ plant:"🪴",
+ toy:"🧸",
+ picture:"♡"
 };
 
 function drawDog(context){
@@ -753,8 +886,27 @@ document.getElementById("dogName").addEventListener("input",e=>{
 
 function saveGame(){
  localStorage.setItem("puppyWorldGame",JSON.stringify({
-  breed,fur,clothes,accessory,pet
+  breed,fur,clothes,accessory,pet,decor
  }));
+}
+
+function updateDecor(){
+ document.getElementById("bed").style.background=decor.bed;
+ document.getElementById("lamp").classList.toggle("off",!decor.lamp);
+ document.getElementById("lampToggle").textContent=
+  decor.lamp ? "Apagar la luz" : "Encender la luz";
+
+ document.getElementById("plant").textContent=
+  decor.plant==="none" ? "" : decor.plant;
+
+ document.getElementById("toy").textContent=
+  decor.toy==="none" ? "" : decor.toy;
+
+ document.getElementById("picture").textContent=decor.picture;
+
+ document.querySelectorAll("[data-bed]").forEach(b=>{
+  b.classList.toggle("selected",b.dataset.bed===decor.bed);
+ });
 }
 
 function updateStats(){
@@ -775,17 +927,18 @@ function showHome(){
  document.getElementById("creator").classList.add("hidden");
  document.getElementById("home").classList.remove("hidden");
  document.getElementById("petName").textContent=pet.name;
+ updateDecor();
  redraw();
  updateStats();
 }
 
-document.getElementById("create").addEventListener("click",()=>{
+document.getElementById("save").addEventListener("click",()=>{
  pet.name=document.getElementById("dogName").value.trim() || "Puppy";
- pet.hunger=70;
- pet.thirst=70;
- pet.happy=80;
+ if(!pet.hunger && pet.hunger!==0) pet.hunger=70;
+ if(!pet.thirst && pet.thirst!==0) pet.thirst=70;
+ if(!pet.happy && pet.happy!==0) pet.happy=80;
  showHome();
- say("¡"+pet.name+" llegó a su casita! 🏡♡");
+ say("¡"+pet.name+" ya tiene su propia casita! 🏡♡");
 });
 
 document.getElementById("feed").addEventListener("click",()=>{
@@ -831,21 +984,77 @@ document.getElementById("sleep").addEventListener("click",()=>{
  say("🛏️ "+pet.name+" se acurrucó en su camita. ¡A descansar!");
 });
 
+/* CAMBIAR APARIENCIA */
 document.getElementById("edit").addEventListener("click",()=>{
  document.getElementById("home").classList.add("hidden");
  document.getElementById("creator").classList.remove("hidden");
+ document.getElementById("save").textContent="♡ GUARDAR CAMBIOS Y VOLVER A CASA ♡";
 });
 
+/* DECORAR HABITACIÓN */
+document.getElementById("decorate").addEventListener("click",()=>{
+ document.getElementById("decorPanel").classList.toggle("hidden");
+});
+
+document.getElementById("finishDecor").addEventListener("click",()=>{
+ document.getElementById("decorPanel").classList.add("hidden");
+ updateDecor();
+ say("♡ ¡Tu habitación quedó preciosa!");
+});
+
+document.querySelectorAll("[data-bed]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  decor.bed=btn.dataset.bed;
+  document.querySelectorAll("[data-bed]").forEach(b=>b.classList.remove("selected"));
+  btn.classList.add("selected");
+  updateDecor();
+  saveGame();
+ });
+});
+
+document.getElementById("lampToggle").addEventListener("click",()=>{
+ decor.lamp=!decor.lamp;
+ updateDecor();
+ saveGame();
+});
+
+document.querySelectorAll("[data-plant]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  decor.plant=btn.dataset.plant;
+  updateDecor();
+  saveGame();
+ });
+});
+
+document.querySelectorAll("[data-toy]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  decor.toy=btn.dataset.toy;
+  updateDecor();
+  saveGame();
+ });
+});
+
+document.querySelectorAll("[data-picture]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  decor.picture=btn.dataset.picture;
+  updateDecor();
+  saveGame();
+ });
+});
+
+/* CARGAR PARTIDA */
 const saved=localStorage.getItem("puppyWorldGame");
 
 if(saved){
  try{
   const data=JSON.parse(saved);
+
   breed=data.breed || breed;
   fur=data.fur || fur;
   clothes=data.clothes || clothes;
   accessory=data.accessory || accessory;
   pet=data.pet || pet;
+  decor={...decor,...(data.decor || {})};
 
   document.getElementById("dogName").value=pet.name || "";
   document.getElementById("nameDisplay").textContent="♡ "+pet.name+" ♡";
@@ -863,8 +1072,11 @@ if(saved){
    b.classList.toggle("selected",b.dataset.color===fur);
   });
 
+  document.getElementById("save").textContent="♡ GUARDAR CAMBIOS Y VOLVER A CASA ♡";
   showHome();
-  document.getElementById("message").textContent="¡Qué lindo volver a verte, "+pet.name+"! ♡";
+
+  document.getElementById("message").textContent=
+   "¡Qué lindo volver a verte, "+pet.name+"! ♡";
  }catch(e){
   localStorage.removeItem("puppyWorldGame");
  }
