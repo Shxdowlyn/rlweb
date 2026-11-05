@@ -1004,8 +1004,10 @@ try{
 
 function updateFollow(){
   const button=document.getElementById("followBtn");
+
   document.getElementById("followerCount").textContent=
-  following?"600.1M":"600M";
+    following?"600.1M":"600M";
+
   button.textContent=following?"✓ Siguiendo":"♡ Seguir a Mile";
   button.classList.toggle("following",following);
 }
